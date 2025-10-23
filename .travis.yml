@@ -1,0 +1,12 @@
+# Use the Python language environment
+language: python
+
+# A build matrix is created with the specified Python versions
+python:
+  - "3.13"
+# Cache pip-installed dependencies to speed up builds
+cache: pip
+
+# Install dependencies before running the tests
+install:
+  - pip install -r requirements.txt
