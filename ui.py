@@ -10,7 +10,9 @@ from get_food_db import *
 
 
 class DisplayHMI:
-
+    """
+    Class to Display HMI
+    """
     def __init__(self, new_page, processed_nutritional_info):
         self.page = new_page
         self.page.title = "Nutritional Info"
@@ -25,9 +27,7 @@ class DisplayHMI:
 
     def display_main_ui(self):
         """
-        function to display the UI and basic info
-        :param page:
-        :param processed_nutritional_info: nutritional info from generated JSON file
+        Main function to display the main UI.
         :return:
         """
 
@@ -68,9 +68,8 @@ class DisplayHMI:
 
     def display_nutrition(self, e):
         """
-        function to get nutritional value upon click of the elevated button
-        :param e:  Event - mouse click
-        :return:
+        function to display the nutritional info
+        :param e: Mouse Event Click
         """
 
         # Initialize a span
