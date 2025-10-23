@@ -8,4 +8,4 @@ from get_food_db import *
 
 
 if __name__ == "__main__":
-    ft.app(target=lambda page: display_main_ui(page, nutritional_info))
+    ft.app(target=lambda page: DisplayHMI(page, nutritional_info))
