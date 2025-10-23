@@ -1,6 +1,7 @@
 """
 init file
 """
+
 import random
 
 
@@ -10,7 +11,6 @@ def generate_random_barcode():
     :return:
     """
     print("Generating random barcode...")
-
 
 
 if __name__ == "__main__":
