@@ -11,3 +11,7 @@ install:
 # Command to run your tests
 script:
   - pytest
+
+branches:
+  only:
+    - main
