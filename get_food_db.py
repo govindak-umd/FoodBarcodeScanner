@@ -34,9 +34,13 @@ def retrieve_nutrition_data(food_barcode=None):
     with open("json_hist/raw_openfoodfacts_data_" + food_barcode + ".json", "r") as f:
         food_barcode_data = json.load(f)
     nutritional_info_dict = dict()
-    nutritional_info_dict["nutriments"]=(food_barcode_data["product"]["nutriments"])
-    nutritional_info_dict["nutrient_levels"]=(food_barcode_data["product"]["nutrient_levels"])
-    nutritional_info_dict["nutrient_levels_tags"]=(food_barcode_data["product"]["nutrient_levels_tags"])
+    nutritional_info_dict["nutriments"] = food_barcode_data["product"]["nutriments"]
+    nutritional_info_dict["nutrient_levels"] = food_barcode_data["product"][
+        "nutrient_levels"
+    ]
+    nutritional_info_dict["nutrient_levels_tags"] = food_barcode_data["product"][
+        "nutrient_levels_tags"
+    ]
 
     print(nutritional_info_dict)
     return nutritional_info_dict
