@@ -1,12 +1,13 @@
-# Use the Python language environment
 language: python
-
-# A build matrix is created with the specified Python versions
 python:
-  - "3.13"
-# Cache pip-installed dependencies to speed up builds
-cache: pip
-
-# Install dependencies before running the tests
+  - 3.13
+before_install:
+  - python --version
+  - pip install -U pip
+  - pip install -U pytest
+  - pip install codecov
 install:
-  - pip install -r requirements.txt
+  - pip install ".[test]" . # install package + test dependencies
+script: pytest # run tests
+after_success:
+  - codecov # submit coverage
