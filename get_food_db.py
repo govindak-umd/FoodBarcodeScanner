@@ -52,6 +52,11 @@ def retrieve_nutrition_data(food_barcode=None):
 
 
 def convert_json_to_csv(json_data):
+    """
+    Concerts JSON to CSV file
+    :param json_data:
+    :return:
+    """
     with open(str(json_data) + ".json") as f:
         data = json.load(f)
     df = pd.json_normalize(data)  # flattens nested JSON
@@ -67,9 +72,13 @@ def retrieve_food():
 
 
 # Retrieve food info from nutrition website
-sample_barcode = "737628064502"
+sample_barcode = "859213005001"
 get_website_food_db(sample_barcode)
 nutritional_info = retrieve_nutrition_data(sample_barcode)
+
+sample_barcode_2 = "722252153258"
+get_website_food_db(sample_barcode_2)
+nutritional_info_2 = retrieve_nutrition_data(sample_barcode_2)
 # convert json to csv (for viz)
 # convert_json_to_csv(website_food_db)
 # parse through the DB
