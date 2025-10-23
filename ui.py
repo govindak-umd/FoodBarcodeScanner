@@ -13,14 +13,32 @@ class DisplayHMI:
     """
     Class to Display HMI
     """
-    def __init__(self, new_page, processed_nutritional_info):
+
+    def __init__(
+        self, new_page, processed_nutritional_info, processed_nutritional_info_2
+    ):
         self.page = new_page
         self.page.title = "Nutritional Info"
         self.processed_nutritional_info = processed_nutritional_info
+        self.processed_nutritional_info_2 = processed_nutritional_info_2  # TEMP
+
+        # add and retrieve the image of the food item
+        img_url = self.processed_nutritional_info["image_url"]
+        self.food_image = ft.Image(
+            src=img_url,
+            width=300,
+            height=200,
+            fit=ft.ImageFit.CONTAIN,
+        )
+
+        # colors of data based on severity
         self.ui_colors = {"low": "green", "moderate": "orange", "high": "red"}
         self.txt_name = ft.TextField(
-            label=str(processed_nutritional_info["product_name_en"])
+            label=str(self.processed_nutritional_info["product_name_en"])
         )
+
+        # the label is the text on top of the text box
+        self.txt_name.label = "Enter food here ... "
         self.nutr = ft.Text()
 
         self.display_main_ui()
@@ -31,15 +49,18 @@ class DisplayHMI:
         :return:
         """
 
-        # add the image of the food item
-        img_url = self.processed_nutritional_info["image_url"]
-
-        # retrieve the food image
-        food_image = ft.Image(
-            src=img_url,
-            width=300,
-            height=200,
-            fit=ft.ImageFit.CONTAIN,
+        self.page.add(
+            self.txt_name,
+            ft.Row(
+                [
+                    ft.ElevatedButton("Change Product", on_click=self.update_food),
+                    ft.ElevatedButton(
+                        "Display Nutritional Info", on_click=self.display_nutrition
+                    ),
+                ],
+                alignment=ft.MainAxisAlignment.CENTER,
+            ),
+            self.nutr,
         )
 
         # alignment of the image to be top and center of the page
@@ -47,30 +68,56 @@ class DisplayHMI:
         self.page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
         self.page.add(
             ft.Row(
-                [food_image],
+                [self.food_image],
                 alignment=ft.MainAxisAlignment.CENTER,
             )
         )
 
-        # TODO - change the name in the text bar to the barcode
-        # txt_name = ft.TextField(label=str(self.processed_nutritional_info["product_name_en"]))
-        self.txt_name = ft.TextField(
-            label=str(self.processed_nutritional_info["product_name_en"])
-        )
 
-        self.page.add(
-            self.txt_name,
-            ft.ElevatedButton(
-                "Display Nutritional Info", on_click=self.display_nutrition
-            ),
-            self.nutr,
+    def calculate_new_nutritional_info(self):
+        """
+        function to automatically retrieve new nutritional info and update all values
+        :return:
+        """
+        pass
+
+    def update_food(self, e):
+        """
+        function to update the text after the user clicks it
+        :param e: Mouse Event Click
+        """
+
+        # change the name of the product in the text box
+        self.txt_name.value = self.processed_nutritional_info_2[
+            "product_name_en"
+        ]  # temp - actual text inside
+        self.page.update()  # refresh the UI
+
+        # update the image of the food item
+
+        self.food_image.src = self.processed_nutritional_info_2["image_url"]
+        self.food_image.update()
+
+        # blank out the previous nutrition info text
+        self.txt_name.update()
+        spans = []
+        self.nutr.spans = spans
+        self.page.update()  # refresh the UI
+
+        # change the nutritional information being pointed to
+        self.txt_name = ft.TextField(
+            label=str(self.processed_nutritional_info_2["product_name_en"])
         )
+        self.page.update()
+        self.processed_nutritional_info = self.processed_nutritional_info_2  # TEMP
 
     def display_nutrition(self, e):
         """
-        function to display the nutritional info
+        function to parse correct nutrients and display the nutritional info
         :param e: Mouse Event Click
         """
+        self.txt_name.value = self.processed_nutritional_info["product_name_en"]
+        self.page.update()
 
         # Initialize a span
         spans = []
