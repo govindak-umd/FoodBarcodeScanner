@@ -34,6 +34,13 @@ def retrieve_nutrition_data(food_barcode=None):
     with open("json_hist/raw_openfoodfacts_data_" + food_barcode + ".json", "r") as f:
         food_barcode_data = json.load(f)
     nutritional_info_dict = dict()
+
+    # extract all essential characteristics
+    nutritional_info_dict["image_url"] = food_barcode_data["product"]["image_url"]
+    nutritional_info_dict["serving_size"] = food_barcode_data["product"]["serving_size"]
+    nutritional_info_dict["product_name_en"] = food_barcode_data["product"][
+        "product_name_en"
+    ]
     nutritional_info_dict["nutriments"] = food_barcode_data["product"]["nutriments"]
     nutritional_info_dict["nutrient_levels"] = food_barcode_data["product"][
         "nutrient_levels"
@@ -41,8 +48,6 @@ def retrieve_nutrition_data(food_barcode=None):
     nutritional_info_dict["nutrient_levels_tags"] = food_barcode_data["product"][
         "nutrient_levels_tags"
     ]
-
-    print(nutritional_info_dict)
     return nutritional_info_dict
 
 
@@ -61,13 +66,12 @@ def retrieve_food():
     pass
 
 
-if __name__ == "__main__":
-    # Retrieve food info from nutrition website
-    sample_barcode = "737628064502"
-    get_website_food_db(sample_barcode)
-    retrieve_nutrition_data(sample_barcode)
-    # convert json to csv (for viz)
-    # convert_json_to_csv(website_food_db)
-    # parse through the DB
+# Retrieve food info from nutrition website
+sample_barcode = "737628064502"
+get_website_food_db(sample_barcode)
+nutritional_info = retrieve_nutrition_data(sample_barcode)
+# convert json to csv (for viz)
+# convert_json_to_csv(website_food_db)
+# parse through the DB
 
-    # display info for a specific barcode
+# display info for a specific barcode
