@@ -11,6 +11,7 @@ Food Barcode retrieval app that can then produce nutritional information
 
 ## TODO
 
+- seccurity against using letters in textbox
 - add logging level (INFO, DEBUG)
 - Suggest healthier alternatives
 
