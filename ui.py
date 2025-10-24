@@ -54,6 +54,22 @@ class DisplayHMI:
 
         self.display_main_ui()
 
+    def barcode_update(self):
+        """
+        function to manage and maintain barcode
+        :return:
+        """
+        if barcode_validity_checker(self.txt_name.value):
+            self.barcode = self.txt_name.value  # read text from TextField
+            self.txt_name.value = self.barcode
+
+            self.page.update()
+            print(f"Barcode Updated to {self.barcode}")
+            return True
+        else:
+            print("Barcode Validation Error")
+            return False
+
     def display_main_ui(self):
         """
         Main function to display the main UI.
