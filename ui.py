@@ -14,22 +14,32 @@ class DisplayHMI:
     Class to Display HMI
     """
 
-    def __init__(
-        self, new_page, processed_nutritional_info, processed_nutritional_info_2
-    ):
+    def __init__(self, new_page):
+        # BARCODE related
+        self.barcode = None
+
+        # UI related
         self.page = new_page
         self.page.title = "Nutritional Info"
-        self.processed_nutritional_info = processed_nutritional_info
-        self.processed_nutritional_info_2 = processed_nutritional_info_2  # TEMP
-
-        # add and retrieve the image of the food item
-        img_url = self.processed_nutritional_info["image_url"]
+        self.processed_nutritional_info = None
+        # placeholder image
+        # alignment of the image to be top and center of the page
+        self.page.vertical_alignment = ft.MainAxisAlignment.START
+        self.page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
         self.food_image = ft.Image(
-            src=img_url,
+            src="https://via.placeholder.com/300x200?text=No+Image",
             width=300,
             height=200,
             fit=ft.ImageFit.CONTAIN,
         )
+        self.page.add(
+            ft.Row(
+                [self.food_image],
+                alignment=ft.MainAxisAlignment.CENTER,
+            )
+        )
+        # text box
+        self.txt_name = ft.TextField(label="Enter Barcode here ...")
 
         # colors of data based on severity
         self.ui_colors = {"low": "green", "moderate": "orange", "high": "red"}
