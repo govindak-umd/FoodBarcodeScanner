@@ -1,0 +1,71 @@
+2025-10-24 16:56:12 | INFO     | root | Logs will be saved to logs/app_2025-10-24_16-56-12.log
+2025-10-24 16:56:12 | INFO     | flet | Assets path configured: /Users/govindajithkumar/PycharmProjects/FoodBarcodeScanner/assets
+2025-10-24 16:56:12 | INFO     | flet | Starting up UDS server on /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/rt2WulFwnl
+2025-10-24 16:56:12 | INFO     | flet | Flet app has started...
+2025-10-24 16:56:12 | INFO     | flet | App URL: /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/rt2WulFwnl
+2025-10-24 16:56:12 | INFO     | flet_desktop | Starting Flet View app...
+2025-10-24 16:56:12 | INFO     | flet_desktop | Flet View found in: /Users/govindajithkumar/.flet/bin/flet-0.28.3
+2025-10-24 16:56:13 | INFO     | flet | App session started
+2025-10-24 16:56:15 | ERROR    | utils | Barcode Update Failed - sd is not a number
+2025-10-24 16:56:15 | ERROR    | ui | Barcode Validation Error
+2025-10-24 16:56:15 | INFO     | ui | Successfully showed image for None
+2025-10-24 16:56:15 | ERROR    | utils | Barcode Update Failed - Invalid Barcode - Please enter a numerical barcode is not a number
+2025-10-24 16:56:15 | ERROR    | ui | Cannot display nutritional info for an invalid barcode
+2025-10-24 16:56:31 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-24 16:56:31 | ERROR    | ui | Barcode Update Failed - 859213005001 is not a number
+2025-10-24 16:56:31 | INFO     | utils | JSON file 859213005001 exists in history directory.
+2025-10-24 16:56:31 | INFO     | ui | File found from history - will use that
+2025-10-24 16:56:31 | ERROR    | asyncio | Future exception was never retrieved
+future: <Future finished exception=TypeError("JSONDecoder.__init__() got an unexpected keyword argument 'encoding'")>
+Traceback (most recent call last):
+  File [35m"/opt/anaconda3/envs/proj_env/lib/python3.13/concurrent/futures/thread.py"[0m, line [35m59[0m, in [35mrun[0m
+    result = self.fn(*self.args, **self.kwargs)
+  File [35m"/opt/anaconda3/envs/proj_env/lib/python3.13/site-packages/flet/core/page.py"[0m, line [35m906[0m, in [35mwrapper[0m
+    [31mhandler[0m[1;31m(*args)[0m
+    [31m~~~~~~~[0m[1;31m^^^^^^^[0m
+  File [35m"/Users/govindajithkumar/PycharmProjects/FoodBarcodeScanner/ui.py"[0m, line [35m120[0m, in [35mdisplay_nutrition[0m
+    [31mself.retrieve_all_data[0m[1;31m()[0m
+    [31m~~~~~~~~~~~~~~~~~~~~~~[0m[1;31m^^[0m
+  File [35m"/Users/govindajithkumar/PycharmProjects/FoodBarcodeScanner/ui.py"[0m, line [35m104[0m, in [35mretrieve_all_data[0m
+    self.processed_nutritional_info = [31mretrieve_nutrition_data[0m[1;31m(self.barcode)[0m
+                                      [31m~~~~~~~~~~~~~~~~~~~~~~~[0m[1;31m^^^^^^^^^^^^^^[0m
+  File [35m"/Users/govindajithkumar/PycharmProjects/FoodBarcodeScanner/get_food_db.py"[0m, line [35m52[0m, in [35mretrieve_nutrition_data[0m
+    food_barcode_data = json.load(f, encoding="utf-8")
+  File [35m"/opt/anaconda3/envs/proj_env/lib/python3.13/json/__init__.py"[0m, line [35m293[0m, in [35mload[0m
+    return loads(fp.read(),
+        cls=cls, object_hook=object_hook,
+        parse_float=parse_float, parse_int=parse_int,
+        parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File [35m"/opt/anaconda3/envs/proj_env/lib/python3.13/json/__init__.py"[0m, line [35m359[0m, in [35mloads[0m
+    return [31mcls[0m[1;31m(**kw)[0m.decode(s)
+           [31m~~~[0m[1;31m^^^^^^[0m
+[1;35mTypeError[0m: [35mJSONDecoder.__init__() got an unexpected keyword argument 'encoding'[0m
+2025-10-24 16:56:38 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-24 16:56:38 | ERROR    | ui | Barcode Update Failed - 859213005001 is not a number
+2025-10-24 16:56:38 | INFO     | utils | JSON file 859213005001 exists in history directory.
+2025-10-24 16:56:38 | INFO     | ui | File found from history - will use that
+2025-10-24 16:56:38 | ERROR    | asyncio | Future exception was never retrieved
+future: <Future finished exception=TypeError("JSONDecoder.__init__() got an unexpected keyword argument 'encoding'")>
+Traceback (most recent call last):
+  File [35m"/opt/anaconda3/envs/proj_env/lib/python3.13/concurrent/futures/thread.py"[0m, line [35m59[0m, in [35mrun[0m
+    result = self.fn(*self.args, **self.kwargs)
+  File [35m"/opt/anaconda3/envs/proj_env/lib/python3.13/site-packages/flet/core/page.py"[0m, line [35m906[0m, in [35mwrapper[0m
+    [31mhandler[0m[1;31m(*args)[0m
+    [31m~~~~~~~[0m[1;31m^^^^^^^[0m
+  File [35m"/Users/govindajithkumar/PycharmProjects/FoodBarcodeScanner/ui.py"[0m, line [35m120[0m, in [35mdisplay_nutrition[0m
+    [31mself.retrieve_all_data[0m[1;31m()[0m
+    [31m~~~~~~~~~~~~~~~~~~~~~~[0m[1;31m^^[0m
+  File [35m"/Users/govindajithkumar/PycharmProjects/FoodBarcodeScanner/ui.py"[0m, line [35m104[0m, in [35mretrieve_all_data[0m
+    self.processed_nutritional_info = [31mretrieve_nutrition_data[0m[1;31m(self.barcode)[0m
+                                      [31m~~~~~~~~~~~~~~~~~~~~~~~[0m[1;31m^^^^^^^^^^^^^^[0m
+  File [35m"/Users/govindajithkumar/PycharmProjects/FoodBarcodeScanner/get_food_db.py"[0m, line [35m52[0m, in [35mretrieve_nutrition_data[0m
+    food_barcode_data = json.load(f, encoding="utf-8")
+  File [35m"/opt/anaconda3/envs/proj_env/lib/python3.13/json/__init__.py"[0m, line [35m293[0m, in [35mload[0m
+    return loads(fp.read(),
+        cls=cls, object_hook=object_hook,
+        parse_float=parse_float, parse_int=parse_int,
+        parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File [35m"/opt/anaconda3/envs/proj_env/lib/python3.13/json/__init__.py"[0m, line [35m359[0m, in [35mloads[0m
+    return [31mcls[0m[1;31m(**kw)[0m.decode(s)
+           [31m~~~[0m[1;31m^^^^^^[0m
+[1;35mTypeError[0m: [35mJSONDecoder.__init__() got an unexpected keyword argument 'encoding'[0m

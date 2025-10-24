@@ -1,11 +1,10 @@
 """
 Get food nutritional info from: https://world.openfoodfacts.org
 """
-
-import requests
-import pandas as pd
 import json
 import logging
+
+import requests
 
 logger = logging.getLogger(__name__)
 
@@ -15,24 +14,23 @@ def get_website_food_db(food_barcode):
     function to get food info from the website
     """
     food_barcode = str(food_barcode)
-    url = f"https://world.openfoodfacts.org/api/v2/product/" + food_barcode + ".json"
+    url = "https://world.openfoodfacts.org/api/v2/product/" + food_barcode + ".json"
     try:
-        response = requests.get(url)
+        response = requests.get(url, timeout=10) # timeout = 10 seconds
         data = response.json()
         with open(
             "json_hist/raw_openfoodfacts_data_" + food_barcode + ".json", "w"
         ) as f:
             json.dump(data, f, indent=4)
         logger.info("Successfully fetched data from website")
-        return data
     except requests.exceptions.SSLError as ssl_err:
-        logger.error(f"SSL error when fetching food data: {ssl_err}")
+        logger.error("SSL error when fetching food data: %s",ssl_err)
         logger.error("Check your network or certificate settings.")
     except requests.exceptions.RequestException as req_err:
-        logger.error(f"Network error when fetching food data: {req_err}")
+        logger.error("Network error when fetching food data: %s",req_err)
         logger.error("Failed to retrieve data from website. Check network security.")
     except Exception as err:
-        logger.error(f"Unexpected error when fetching food data: {err}")
+        logger.error("Unexpected error when fetching food data: %s",err)
 
 
 def retrieve_nutrition_data(food_barcode=None):
@@ -47,7 +45,7 @@ def retrieve_nutrition_data(food_barcode=None):
             "json_hist/raw_openfoodfacts_data_" + food_barcode + ".json", "r"
         ) as f:
             food_barcode_data = json.load(f)
-            nutritional_info_dict = dict()
+            nutritional_info_dict = {}
 
             # extract all essential characteristics
             nutritional_info_dict["image_url"] = food_barcode_data["product"][
@@ -72,17 +70,5 @@ def retrieve_nutrition_data(food_barcode=None):
             return nutritional_info_dict
 
     except FileNotFoundError:
-        logger.error(f"File not found for - {food_barcode}")
+        logger.error("File not found for - %s",food_barcode)
         return None
-
-
-def convert_json_to_csv(json_data):
-    """
-    Concerts JSON to CSV file
-    :param json_data:
-    :return:
-    """
-    with open(str(json_data) + ".json") as f:
-        data = json.load(f)
-    df = pd.json_normalize(data)  # flattens nested JSON
-    # df.to_csv(str(json_data)+"_csv.csv", index=False)
