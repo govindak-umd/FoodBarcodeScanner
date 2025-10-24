@@ -85,52 +85,20 @@ class DisplayHMI:
             self.nutr,
         )
 
-        # alignment of the image to be top and center of the page
-        self.page.vertical_alignment = ft.MainAxisAlignment.START
-        self.page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
-        self.page.add(
-            ft.Row(
-                [self.food_image],
-                alignment=ft.MainAxisAlignment.CENTER,
-            )
-        )
+    def retrieve_all_data(self):
 
-    def calculate_new_nutritional_info(self):
-        """
-        function to automatically retrieve new nutritional info and update all values
-        :return:
-        """
-        pass
-
-    def update_food(self, e):
-        """
-        function to update the text after the user clicks it
-        :param e: Mouse Event Click
-        """
-
-        # change the name of the product in the text box
-        self.txt_name.value = self.processed_nutritional_info_2[
-            "product_name_en"
-        ]  # temp - actual text inside
-        self.page.update()  # refresh the UI
-
-        # update the image of the food item
-
-        self.food_image.src = self.processed_nutritional_info_2["image_url"]
-        self.food_image.update()
-
-        # blank out the previous nutrition info text
-        self.txt_name.update()
-        spans = []
-        self.nutr.spans = spans
-        self.page.update()  # refresh the UI
-
-        # change the nutritional information being pointed to
-        self.txt_name = ft.TextField(
-            label=str(self.processed_nutritional_info_2["product_name_en"])
-        )
-        self.page.update()
-        self.processed_nutritional_info = self.processed_nutritional_info_2  # TEMP
+        if check_json_file(self.barcode):
+            print("File found from history - will use that")
+            pass
+        else:
+            print("File not found from history - retrieving data from internet")
+            try:
+                # Retrieve food info from nutrition website
+                get_website_food_db(self.barcode)
+            except Exception as err:
+                print(err)
+        self.processed_nutritional_info = retrieve_nutrition_data(self.barcode)
+        print(f"New Barcode Data processed for {self.barcode}")
 
     def display_nutrition(self, e):
         """
