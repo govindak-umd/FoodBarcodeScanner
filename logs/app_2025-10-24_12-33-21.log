@@ -1,0 +1,77 @@
+2025-10-24 12:33:21 | DEBUG    | root | Logger initialized
+2025-10-24 12:33:21 | INFO     | root | Logs will be saved to logs/app_2025-10-24_12-33-21.log
+2025-10-24 12:33:21 | DEBUG    | asyncio | Using selector: KqueueSelector
+2025-10-24 12:33:21 | INFO     | flet | Assets path configured: /Users/govindajithkumar/PycharmProjects/FoodBarcodeScanner/assets
+2025-10-24 12:33:21 | DEBUG    | flet | Creating new PubSubHub instance
+2025-10-24 12:33:21 | DEBUG    | flet | Creating new PubSubHub instance
+2025-10-24 12:33:21 | INFO     | flet | Starting up UDS server on /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/lXe19Nl0Am
+2025-10-24 12:33:21 | INFO     | flet | Flet app has started...
+2025-10-24 12:33:21 | INFO     | flet | App URL: /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/lXe19Nl0Am
+2025-10-24 12:33:21 | INFO     | flet_desktop | Starting Flet View app...
+2025-10-24 12:33:21 | INFO     | flet_desktop | Flet View found in: /Users/govindajithkumar/.flet/bin/flet-0.28.3
+2025-10-24 12:33:21 | DEBUG    | flet | Connected new TCP client
+2025-10-24 12:33:21 | DEBUG    | flet | _on_message: {"action":"registerWebClient","payload":{"pageName":"var/folders","pageRoute":"/","pageWidth":"800.0","pageHeight":"600.0","windowWidth":"800.0","windowHeight":"628.0","windowTop":"250.0","windowLeft":"455.0","isPWA":"false","isWeb":"false","isDebug":"false","platform":"macos","platformBrightness":"dark","media":"{\"padding\":{\"top\":0.0,\"right\":0.0,\"bottom\":0.0,\"left\":0.0},\"view_padding\":{\"top\":0.0,\"right\":0.0,\"bottom\":0.0,\"left\":0.0},\"view_insets\":{\"top\":0.0,\"right\":0.0,\"bottom\":0.0,\"left\":0.0}}","sessionId":""}}
+2025-10-24 12:33:21 | DEBUG    | flet | __send: {"action":"registerWebClient","payload":{"session":{"id":"","controls":{"page":{"i":"page","t":"page","p":"","c":[],"route":"/","width":"800.0","height":"600.0","windowwidth":"800.0","windowheight":"628.0","windowtop":"250.0","windowleft":"455.0","pwa":"false","web":"false","debug":"false","platform":"macos","platformBrightness":"dark","media":"{\"padding\":{\"top\":0.0,\"right\":0.0,\"bottom\":0.0,\"left\":0.0},\"view_padding\":{\"top\":0.0,\"right\":0.0,\"bottom\":0.0,\"left\":0.0},\"view_insets\":{\"top\":0.0,\"right\":0.0,\"bottom\":0.0,\"left\":0.0}}"}}},"error":"","appInactive":false}}
+2025-10-24 12:33:21 | DEBUG    | flet | _process_command: get ['page', 'route'] {}
+2025-10-24 12:33:21 | DEBUG    | flet | _process_command: get ['page', 'pwa'] {}
+2025-10-24 12:33:21 | DEBUG    | flet | _process_command: get ['page', 'web'] {}
+2025-10-24 12:33:21 | DEBUG    | flet | _process_command: get ['page', 'debug'] {}
+2025-10-24 12:33:21 | DEBUG    | flet | _process_command: get ['page', 'platform'] {}
+2025-10-24 12:33:21 | DEBUG    | flet | _process_command: get ['page', 'platformBrightness'] {}
+2025-10-24 12:33:21 | DEBUG    | flet | _process_command: get ['page', 'media'] {}
+2025-10-24 12:33:21 | DEBUG    | flet | _process_command: get ['page', 'width'] {}
+2025-10-24 12:33:21 | DEBUG    | flet | _process_command: get ['page', 'height'] {}
+2025-10-24 12:33:21 | DEBUG    | flet | _process_command: get ['page', 'windowWidth'] {}
+2025-10-24 12:33:21 | DEBUG    | flet | _process_command: get ['page', 'windowHeight'] {}
+2025-10-24 12:33:21 | DEBUG    | flet | _process_command: get ['page', 'windowTop'] {}
+2025-10-24 12:33:21 | DEBUG    | flet | _process_command: get ['page', 'windowLeft'] {}
+2025-10-24 12:33:21 | DEBUG    | flet | _process_command: get ['page', 'clientIP'] {}
+2025-10-24 12:33:21 | DEBUG    | flet | _process_command: get ['page', 'clientUserAgent'] {}
+2025-10-24 12:33:21 | INFO     | flet | App session started
+2025-10-24 12:33:21 | DEBUG    | flet | _process_command: set ['page'] {'title': 'Nutritional Info'}
+2025-10-24 12:33:21 | DEBUG    | flet | _process_command: add [] {'to': 'page', 'at': '0'}
+2025-10-24 12:33:21 | DEBUG    | flet | _process_command: add [] {'to': 'page', 'at': '1'}
+2025-10-24 12:33:21 | DEBUG    | flet | __send: {"action":"pageControlsBatch","payload":[{"action":"updateControlProps","payload":{"props":[{"i":"page","title":"Nutritional Info"}]}},{"action":"addPageControls","payload":{"controls":[{"t":"view","i":"_1","p":"page","c":["_2"],"at":"0","horizontalalignment":"center","verticalalignment":"start"},{"t":"row","i":"_2","p":"_1","c":["_3"],"alignment":"center"},{"t":"image","i":"_3","p":"_2","c":[],"fit":"contain","height":"200","src":"https://via.placeholder.com/300x200?text=No+Image","width":"300"}],"trimIDs":[]}},{"action":"addPageControls","payload":{"controls":[{"t":"offstage","i":"_4","p":"page","c":[],"at":"1"}],"trimIDs":[]}}]}
+2025-10-24 12:33:21 | DEBUG    | flet | _process_command: add [] {'to': '_1', 'at': '1'}
+2025-10-24 12:33:21 | DEBUG    | flet | sent to TCP: 602
+2025-10-24 12:33:21 | DEBUG    | flet | _process_command: add [] {'to': '_1', 'at': '2'}
+2025-10-24 12:33:21 | DEBUG    | flet | _process_command: add [] {'to': '_1', 'at': '3'}
+2025-10-24 12:33:21 | DEBUG    | flet | sent to TCP: 643
+2025-10-24 12:33:21 | DEBUG    | flet | __send: {"action":"pageControlsBatch","payload":[{"action":"addPageControls","payload":{"controls":[{"t":"textfield","i":"_5","p":"_1","c":[],"at":"1","label":"Enter food here ... "}],"trimIDs":[]}},{"action":"addPageControls","payload":{"controls":[{"t":"row","i":"_6","p":"_1","c":["_7"],"at":"2","alignment":"center"},{"t":"elevatedbutton","i":"_7","p":"_6","c":[],"style":"{\"padding\":{},\"side\":{},\"shape\":{},\"text_style\":{}}","text":"Display Nutritional Info"}],"trimIDs":[]}},{"action":"addPageControls","payload":{"controls":[{"t":"text","i":"_8","p":"_1","c":[],"at":"3"}],"trimIDs":[]}}]}
+2025-10-24 12:33:21 | DEBUG    | flet | sent to TCP: 600
+2025-10-24 12:33:22 | DEBUG    | flet | _on_message: {"action":"pageEventFromWeb","payload":{"eventTarget":"page","eventName":"app_lifecycle_state_change","eventData":"show"}}
+2025-10-24 12:33:22 | DEBUG    | flet | _on_message: {"action":"pageEventFromWeb","payload":{"eventTarget":"page","eventName":"app_lifecycle_state_change","eventData":"resume"}}
+2025-10-24 12:33:22 | DEBUG    | flet | page.on_event_async: page app_lifecycle_state_change show
+2025-10-24 12:33:22 | DEBUG    | flet | page.on_event_async: page app_lifecycle_state_change resume
+2025-10-24 12:33:22 | DEBUG    | flet | _on_message: {"action":"pageEventFromWeb","payload":{"eventTarget":"page","eventName":"error","eventData":"SocketException: Failed host lookup: 'via.placeholder.com' (OS Error: nodename nor servname provided, or not known, errno = 8)"}}
+2025-10-24 12:33:22 | DEBUG    | flet | page.on_event_async: page error SocketException: Failed host lookup: 'via.placeholder.com' (OS Error: nodename nor servname provided, or not known, errno = 8)
+2025-10-24 12:33:22 | DEBUG    | flet | _on_message: {"action":"pageEventFromWeb","payload":{"eventTarget":"_5","eventName":"focus","eventData":null}}
+2025-10-24 12:33:22 | DEBUG    | flet | page.on_event_async: _5 focus None
+2025-10-24 12:33:22 | DEBUG    | flet | _on_message: {"action":"pageEventFromWeb","payload":{"eventTarget":"_5","eventName":"click","eventData":null}}
+2025-10-24 12:33:22 | DEBUG    | flet | page.on_event_async: _5 click None
+2025-10-24 12:33:22 | DEBUG    | flet | _on_message: {"action":"updateControlProps","payload":{"props":[{"i":"_5","value":"s"}]}}
+2025-10-24 12:33:22 | DEBUG    | flet | page.on_event_async: page change [{"i":"_5","value":"s"}]
+2025-10-24 12:33:23 | DEBUG    | flet | _on_message: {"action":"updateControlProps","payload":{"props":[{"i":"_5","value":"ss"}]}}
+2025-10-24 12:33:23 | DEBUG    | flet | page.on_event_async: page change [{"i":"_5","value":"ss"}]
+2025-10-24 12:33:23 | DEBUG    | flet | _on_message: {"action":"updateControlProps","payload":{"props":[{"i":"_5","value":"sss"}]}}
+2025-10-24 12:33:23 | DEBUG    | flet | page.on_event_async: page change [{"i":"_5","value":"sss"}]
+2025-10-24 12:33:23 | DEBUG    | flet | _on_message: {"action":"pageEventFromWeb","payload":{"eventTarget":"_5","eventName":"blur","eventData":null}}
+2025-10-24 12:33:23 | DEBUG    | flet | page.on_event_async: _5 blur None
+2025-10-24 12:33:23 | DEBUG    | flet | _on_message: {"action":"pageEventFromWeb","payload":{"eventTarget":"_7","eventName":"click","eventData":null}}
+2025-10-24 12:33:23 | DEBUG    | flet | page.on_event_async: _7 click None
+2025-10-24 12:33:23 | ERROR    | utils | Barcode Update Failed - sss is not a number
+2025-10-24 12:33:23 | ERROR    | get_food_db | Barcode Validation Error
+2025-10-24 12:33:23 | DEBUG    | flet | _process_command: set ['_5'] {'color': 'red', 'value': 'Invalid Barcode - Please enter a numerical barcode'}
+2025-10-24 12:33:23 | DEBUG    | flet | __send: {"action":"pageControlsBatch","payload":[{"action":"updateControlProps","payload":{"props":[{"i":"_5","color":"red","value":"Invalid Barcode - Please enter a numerical barcode"}]}}]}
+2025-10-24 12:33:23 | INFO     | get_food_db | Successfully showed image for None
+2025-10-24 12:33:23 | ERROR    | utils | Barcode Update Failed - Invalid Barcode - Please enter a numerical barcode is not a number
+2025-10-24 12:33:23 | DEBUG    | flet | _process_command: add [] {'to': '_8', 'at': '0'}
+2025-10-24 12:33:23 | DEBUG    | flet | sent to TCP: 186
+2025-10-24 12:33:23 | DEBUG    | flet | __send: {"action":"pageControlsBatch","payload":[{"action":"addPageControls","payload":{"controls":[{"t":"textspan","i":"_9","p":"_8","c":[],"at":"0","style":"{\"size\":16,\"color\":\"red\"}","text":"Cannot display nutritional info for an invalid barcode"}],"trimIDs":[]}}]}
+2025-10-24 12:33:23 | ERROR    | get_food_db | Cannot display nutritional info for an invalid barcode
+2025-10-24 12:33:23 | DEBUG    | flet | sent to TCP: 270
+2025-10-24 12:33:25 | DEBUG    | flet_desktop | Flet View process 32440
+2025-10-24 12:33:25 | DEBUG    | flet | Closing connection...
+2025-10-24 12:33:25 | DEBUG    | flet | Disconnecting all pages...
+2025-10-24 12:33:25 | DEBUG    | flet | page.on_event_async: page disconnect 
+2025-10-24 12:33:25 | DEBUG    | flet | Shutting down thread pool...
