@@ -81,11 +81,3 @@ def convert_json_to_csv(json_data):
         data = json.load(f)
     df = pd.json_normalize(data)  # flattens nested JSON
     # df.to_csv(str(json_data)+"_csv.csv", index=False)
-
-
-def retrieve_food():
-    """
-    function to retrieve a specific foods nutrition info
-    :return:
-    """
-    pass
