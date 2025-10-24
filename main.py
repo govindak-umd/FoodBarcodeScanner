@@ -3,9 +3,7 @@ main script
 """
 
 import flet as ft
-from utils import *
 from ui import DisplayHMI
-from get_food_db import *
 
 import logging
 import colorlog

@@ -2,9 +2,7 @@
 UI code
 """
 
-import re
 import flet as ft
-from flet.core import page
 from utils import *
 from get_food_db import *
 
@@ -51,7 +49,7 @@ class DisplayHMI:
 
     def barcode_update(self):
         """
-        function to manage and maintain barcode
+        function to manage and maintain barcode information input by the user
         :return:
         """
         if barcode_validity_checker(self.txt_name.value):
@@ -109,14 +107,7 @@ class DisplayHMI:
         function to parse correct nutrients and display the nutritional info
         :param e: Mouse Event Click
         """
-
-        """
-        function to update the text after the user clicks it
-        :param e: Mouse Event Click
-        """
-
         # blank out the previous nutrition info text
-        # self.txt_name.update()
         spans = []
         self.nutr.spans = spans
 

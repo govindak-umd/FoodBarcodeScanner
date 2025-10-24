@@ -8,6 +8,8 @@ Food Barcode retrieval app that can then produce nutritional information
 - Retrieve Nutritional Information with a barcode
   - User types a barcode in the texbox
   - results are retrieved from the barcode
+- Logs user input and outputs
+- Can change barcode upon request
 
 ## TODO
 

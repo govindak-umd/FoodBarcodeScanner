@@ -1,0 +1,31 @@
+2025-10-24 16:16:24 | INFO     | root | Logs will be saved to logs/app_2025-10-24_16-16-24.log
+2025-10-24 16:16:24 | INFO     | flet | Assets path configured: /Users/govindajithkumar/PycharmProjects/FoodBarcodeScanner/assets
+2025-10-24 16:16:24 | INFO     | flet | Starting up UDS server on /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/b2ziNrzuit
+2025-10-24 16:16:24 | INFO     | flet | Flet app has started...
+2025-10-24 16:16:24 | INFO     | flet | App URL: /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/b2ziNrzuit
+2025-10-24 16:16:24 | INFO     | flet_desktop | Starting Flet View app...
+2025-10-24 16:16:24 | INFO     | flet_desktop | Flet View found in: /Users/govindajithkumar/.flet/bin/flet-0.28.3
+2025-10-24 16:16:24 | INFO     | flet | App session started
+2025-10-24 16:16:28 | ERROR    | utils | Barcode Update Failed -  is not a number
+2025-10-24 16:16:28 | ERROR    | get_food_db | Barcode Validation Error
+2025-10-24 16:16:28 | INFO     | get_food_db | Successfully showed image for None
+2025-10-24 16:16:28 | ERROR    | utils | Barcode Update Failed - Invalid Barcode - Please enter a numerical barcode is not a number
+2025-10-24 16:16:28 | ERROR    | get_food_db | Cannot display nutritional info for an invalid barcode
+2025-10-24 16:16:37 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-24 16:16:37 | INFO     | get_food_db | Barcode Updated to 8445290728791
+2025-10-24 16:16:37 | INFO     | utils | JSON file 8445290728791 exists in history directory.
+2025-10-24 16:16:37 | INFO     | get_food_db | File found from history - will use that
+2025-10-24 16:16:37 | INFO     | get_food_db | Successfully fetched data from website
+2025-10-24 16:16:37 | INFO     | get_food_db | New Barcode Data processed for 8445290728791
+2025-10-24 16:16:37 | INFO     | get_food_db | Successfully showed image for 8445290728791
+2025-10-24 16:16:37 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-24 16:16:37 | INFO     | get_food_db | Successfully updated nutritional info for 8445290728791
+2025-10-24 16:16:47 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-24 16:16:47 | INFO     | get_food_db | Barcode Updated to 8445290728791
+2025-10-24 16:16:47 | INFO     | utils | JSON file 8445290728791 exists in history directory.
+2025-10-24 16:16:47 | INFO     | get_food_db | File found from history - will use that
+2025-10-24 16:16:47 | INFO     | get_food_db | Successfully fetched data from website
+2025-10-24 16:16:47 | INFO     | get_food_db | New Barcode Data processed for 8445290728791
+2025-10-24 16:16:47 | INFO     | get_food_db | Successfully showed image for 8445290728791
+2025-10-24 16:16:47 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-24 16:16:47 | INFO     | get_food_db | Successfully updated nutritional info for 8445290728791
