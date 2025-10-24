@@ -73,7 +73,6 @@ class DisplayHMI:
             )
         )
 
-
     def calculate_new_nutritional_info(self):
         """
         function to automatically retrieve new nutritional info and update all values
@@ -124,7 +123,7 @@ class DisplayHMI:
 
         spans.append(
             ft.TextSpan(
-                f"{"Serving Size"} - {self.processed_nutritional_info["serving_size"]}\n",
+                f"{"\nServing Size"} - {self.processed_nutritional_info["serving_size"]}\n",
                 style=ft.TextStyle(color="white", size=16),
             )
         )
