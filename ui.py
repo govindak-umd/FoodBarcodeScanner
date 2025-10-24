@@ -132,6 +132,7 @@ class DisplayHMI:
             self.food_image.src = "https://via.placeholder.com/300x200?text=No+Image"
         self.page.update()
 
+
         # Initialize a span
         spans = []
 
