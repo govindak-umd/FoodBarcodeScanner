@@ -3,8 +3,21 @@
 # FoodBarcodeScanner
 Food Barcode retrieval app that can then produce nutritional information 
 
+## Features
 
+- Retrieve Nutritional Information with a barcode
+
+TODO
+
+- Suggest healthier alternatives
+
+### Setup
+
+
+### Running 
+
+    python main.py
 
 ### Generating requirements.txt helper command
 
-pip list --format=freeze > requirements.txt
+    pip list --format=freeze > requirements.txt
