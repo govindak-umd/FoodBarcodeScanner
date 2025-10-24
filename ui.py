@@ -105,7 +105,31 @@ class DisplayHMI:
         function to parse correct nutrients and display the nutritional info
         :param e: Mouse Event Click
         """
-        self.txt_name.value = self.processed_nutritional_info["product_name_en"]
+
+        """
+        function to update the text after the user clicks it
+        :param e: Mouse Event Click
+        """
+
+        # blank out the previous nutrition info text
+        # self.txt_name.update()
+        spans = []
+        self.nutr.spans = spans
+
+        # update barcode
+        if self.barcode_update():
+            # happy path - incase the barcode is correct format
+            # after updating barcode, retrieve all food data
+            self.retrieve_all_data()
+            # update the text box after data has been retrieved
+            self.txt_name.value = self.barcode
+            self.txt_name.color = "white"
+            self.food_image.src = self.processed_nutritional_info["image_url"]
+        else:
+            # exception case - incase the barcode is NOT correct format
+            self.txt_name.value = "Invalid Barcode - Please enter a numerical barcode"
+            self.txt_name.color = "red"
+            self.food_image.src = "https://via.placeholder.com/300x200?text=No+Image"
         self.page.update()
 
         # Initialize a span
