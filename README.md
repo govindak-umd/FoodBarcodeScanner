@@ -23,3 +23,9 @@ Food Barcode retrieval app that can then produce nutritional information
 ### Generating requirements.txt helper command
 
     pip list --format=freeze > requirements.txt
+
+### Test Barcode
+
+    sample_barcode = "859213005001"
+    sample_barcode_2 = "722252153258"
+    sample_barcode_3 = "8445290728791"
