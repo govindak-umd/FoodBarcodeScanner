@@ -2,17 +2,18 @@
 main script
 """
 
-import flet as ft
-from ui import DisplayHMI
-
 import logging
-import colorlog
 from pathlib import Path
 from datetime import datetime
 
+import colorlog
+import flet as ft
+
+from ui import DisplayHMI
+
 Path("logs").mkdir(exist_ok=True)
 timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-log_filename = f"logs/app_{timestamp}.log"
+LOG_FILENAME = f"logs/app_{timestamp}.log"
 
 logger = colorlog.getLogger()
 
@@ -34,7 +35,7 @@ console.setFormatter(
     )
 )
 
-file_handler = logging.FileHandler(log_filename, mode="a", encoding="utf-8")
+file_handler = logging.FileHandler(LOG_FILENAME, mode="a", encoding="utf-8")
 file_handler.setFormatter(
     logging.Formatter(
         "%(asctime)s | %(levelname)-8s | %(name)s | %(message)s",
@@ -48,9 +49,15 @@ logger.addHandler(file_handler)
 logger.setLevel(logging.INFO)  # <-- DEBUG so your test line appears
 
 logger.debug("Logger initialized")  # will go to console + file
-logger.info("Logs will be saved to %s", log_filename)
+logger.info("Logs will be saved to %s", LOG_FILENAME)
+
+
+def main(page):
+    """
+    Function to run the main function
+    """
+    DisplayHMI(page)
 
 
 if __name__ == "__main__":
-
-    ft.app(target=lambda page: DisplayHMI(page))
+    ft.app(target=main)
