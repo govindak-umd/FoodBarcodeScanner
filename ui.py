@@ -2,9 +2,13 @@
 UI code
 """
 
+import logging
 import flet as ft
-from utils import *
-from get_food_db import *
+from utils import check_json_file, barcode_validity_checker
+from get_food_db import get_website_food_db, retrieve_nutrition_data
+
+
+logger = logging.getLogger(__name__)
 
 
 class DisplayHMI:
@@ -57,11 +61,10 @@ class DisplayHMI:
             self.txt_name.value = self.barcode
 
             self.page.update()
-            logger.info(f"Barcode Updated to {self.barcode}")
+            logger.error("Barcode Update Failed - %s is not a number", self.barcode)
             return True
-        else:
-            logger.error("Barcode Validation Error")
-            return False
+        logger.error("Barcode Validation Error")
+        return False
 
     def display_main_ui(self):
         """
@@ -89,7 +92,6 @@ class DisplayHMI:
         """
         if check_json_file(self.barcode):
             logger.info("File found from history - will use that")
-            pass
         else:
             logger.warning(
                 "File not found from history - retrieving data from internet"
@@ -100,7 +102,7 @@ class DisplayHMI:
             except Exception as err:
                 logger.error(err)
         self.processed_nutritional_info = retrieve_nutrition_data(self.barcode)
-        logger.info(f"New Barcode Data processed for {self.barcode}")
+        logger.info("New Barcode Data processed for %s", self.barcode)
 
     def display_nutrition(self, e):
         """
@@ -126,7 +128,7 @@ class DisplayHMI:
             self.txt_name.color = "red"
             self.food_image.src = "https://via.placeholder.com/300x200?text=No+Image"
         self.page.update()
-        logger.info(f"Successfully showed image for {self.barcode}")
+        logger.info("Successfully showed image for %s", self.barcode)
 
         # Initialize a span
         spans = []
@@ -160,14 +162,15 @@ class DisplayHMI:
                 spans.append(
                     ft.TextSpan(
                         f"{nutrient_key.capitalize()} - {nutrient_val} - "
-                        f"{self.processed_nutritional_info['nutriments'][nutrient_key]} {nutrient_unit}\n",
+                        f"{self.processed_nutritional_info['nutriments'][nutrient_key]} "
+                        f"{nutrient_unit}\n",
                         style=ft.TextStyle(color=color, size=16),
                     )
                 )
 
             self.nutr.spans = spans
             self.page.update()
-            logger.info(f"Successfully updated nutritional info for {self.barcode}")
+            logger.info("Successfully updated nutritional info for %s", self.barcode)
 
         else:
 
