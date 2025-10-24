@@ -2,9 +2,10 @@
 UI code
 """
 
+import re
 import flet as ft
 from flet.core import page
-
+from utils import *
 from barcode_read import *
 from get_food_db import *
 
