@@ -93,7 +93,9 @@ class DisplayHMI:
             logger.info("File found from history - will use that")
             pass
         else:
-            logger.warning("File not found from history - retrieving data from internet")
+            logger.warning(
+                "File not found from history - retrieving data from internet"
+            )
             try:
                 # Retrieve food info from nutrition website
                 get_website_food_db(self.barcode)

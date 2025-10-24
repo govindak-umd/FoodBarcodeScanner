@@ -9,13 +9,22 @@ from get_food_db import *
 
 import logging
 import colorlog
+from pathlib import Path
+from datetime import datetime
 
-logger = colorlog.getLogger()  # get root logger
+Path("logs").mkdir(exist_ok=True)
+timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+log_filename = f"logs/app_{timestamp}.log"
 
-handler = colorlog.StreamHandler()
-handler.setFormatter(
+logger = colorlog.getLogger()
+
+if logger.hasHandlers():
+    logger.handlers.clear()
+
+console = colorlog.StreamHandler()
+console.setFormatter(
     colorlog.ColoredFormatter(
-        "%(log_color)s%(asctime)s | %(levelname)-8s | %(message)s",
+        "%(log_color)s%(asctime)s | %(levelname)-8s | %(name)s | %(message)s",
         datefmt="%H:%M:%S",
         log_colors={
             "DEBUG": "cyan",
@@ -27,13 +36,22 @@ handler.setFormatter(
     )
 )
 
-if logger.hasHandlers():
-    logger.handlers.clear()
+file_handler = logging.FileHandler(log_filename, mode="a", encoding="utf-8")
+file_handler.setFormatter(
+    logging.Formatter(
+        "%(asctime)s | %(levelname)-8s | %(name)s | %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S",
+    )
+)
 
-logger.addHandler(handler)
-logger.setLevel(logging.INFO)
+logger.addHandler(console)
+logger.addHandler(file_handler)
 
-logger.debug("Logger initialized")  # sanity check
+logger.setLevel(logging.INFO)  # <-- DEBUG so your test line appears
+
+logger.debug("Logger initialized")  # will go to console + file
+logger.info("Logs will be saved to %s", log_filename)
+
 
 if __name__ == "__main__":
 
