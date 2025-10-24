@@ -6,7 +6,6 @@ import re
 import flet as ft
 from flet.core import page
 from utils import *
-from barcode_read import *
 from get_food_db import *
 
 
@@ -60,10 +59,10 @@ class DisplayHMI:
             self.txt_name.value = self.barcode
 
             self.page.update()
-            print(f"Barcode Updated to {self.barcode}")
+            logger.info(f"Barcode Updated to {self.barcode}")
             return True
         else:
-            print("Barcode Validation Error")
+            logger.error("Barcode Validation Error")
             return False
 
     def display_main_ui(self):
@@ -86,19 +85,22 @@ class DisplayHMI:
         )
 
     def retrieve_all_data(self):
-
+        """
+        Function to retrieve all food data from the website.
+        :return:
+        """
         if check_json_file(self.barcode):
-            print("File found from history - will use that")
+            logger.info("File found from history - will use that")
             pass
         else:
-            print("File not found from history - retrieving data from internet")
+            logger.warning("File not found from history - retrieving data from internet")
             try:
                 # Retrieve food info from nutrition website
                 get_website_food_db(self.barcode)
             except Exception as err:
-                print(err)
+                logger.error(err)
         self.processed_nutritional_info = retrieve_nutrition_data(self.barcode)
-        print(f"New Barcode Data processed for {self.barcode}")
+        logger.info(f"New Barcode Data processed for {self.barcode}")
 
     def display_nutrition(self, e):
         """
@@ -131,7 +133,7 @@ class DisplayHMI:
             self.txt_name.color = "red"
             self.food_image.src = "https://via.placeholder.com/300x200?text=No+Image"
         self.page.update()
-
+        logger.info(f"Successfully showed image for {self.barcode}")
 
         # Initialize a span
         spans = []
@@ -172,6 +174,7 @@ class DisplayHMI:
 
             self.nutr.spans = spans
             self.page.update()
+            logger.info(f"Successfully updated nutritional info for {self.barcode}")
 
         else:
 
@@ -185,4 +188,4 @@ class DisplayHMI:
             self.nutr.spans = spans
             self.page.update()
 
-            print("Cannot display nutritional info for an invalid barcode")
+            logger.error("Cannot display nutritional info for an invalid barcode")

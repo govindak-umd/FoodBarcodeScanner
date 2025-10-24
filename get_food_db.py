@@ -5,6 +5,9 @@ Get food nutritional info from: https://world.openfoodfacts.org
 import requests
 import pandas as pd
 import json
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 def get_website_food_db(food_barcode):
@@ -20,15 +23,16 @@ def get_website_food_db(food_barcode):
             "json_hist/raw_openfoodfacts_data_" + food_barcode + ".json", "w"
         ) as f:
             json.dump(data, f, indent=4)
+        logger.info("Successfully fetched data from website")
         return data
     except requests.exceptions.SSLError as ssl_err:
-        print(f"SSL error when fetching food data: {ssl_err}")
-        print("Check your network or certificate settings.")
+        logger.error(f"SSL error when fetching food data: {ssl_err}")
+        logger.error("Check your network or certificate settings.")
     except requests.exceptions.RequestException as req_err:
-        print(f"Network error when fetching food data: {req_err}")
-        print("Failed to retrieve data from website. Check network security.")
+        logger.error(f"Network error when fetching food data: {req_err}")
+        logger.error("Failed to retrieve data from website. Check network security.")
     except Exception as err:
-        print(f"Unexpected error when fetching food data: {err}")
+        logger.error(f"Unexpected error when fetching food data: {err}")
 
 
 def retrieve_nutrition_data(food_barcode=None):
@@ -64,10 +68,11 @@ def retrieve_nutrition_data(food_barcode=None):
             nutritional_info_dict["nutrient_levels_tags"] = food_barcode_data[
                 "product"
             ]["nutrient_levels_tags"]
+            logger.info("Successfully fetched data from website")
             return nutritional_info_dict
 
     except FileNotFoundError:
-        print(f"File not found for - {food_barcode}")
+        logger.error(f"File not found for - {food_barcode}")
         return None
 
 
