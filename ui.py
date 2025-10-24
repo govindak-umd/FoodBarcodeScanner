@@ -44,14 +44,10 @@ class DisplayHMI:
 
         # colors of data based on severity
         self.ui_colors = {"low": "green", "moderate": "orange", "high": "red"}
-        self.txt_name = ft.TextField(
-            label=str(self.processed_nutritional_info["product_name_en"])
-        )
 
         # the label is the text on top of the text box
         self.txt_name.label = "Enter food here ... "
         self.nutr = ft.Text()
-
         self.display_main_ui()
 
     def barcode_update(self):
@@ -80,7 +76,6 @@ class DisplayHMI:
             self.txt_name,
             ft.Row(
                 [
-                    ft.ElevatedButton("Change Product", on_click=self.update_food),
                     ft.ElevatedButton(
                         "Display Nutritional Info", on_click=self.display_nutrition
                     ),
