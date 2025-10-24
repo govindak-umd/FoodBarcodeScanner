@@ -136,29 +136,53 @@ class DisplayHMI:
         # Initialize a span
         spans = []
 
-        spans.append(
-            ft.TextSpan(
-                f"{"\nServing Size"} - {self.processed_nutritional_info["serving_size"]}\n",
-                style=ft.TextStyle(color="white", size=16),
-            )
-        )
-        for nutrient_key, nutrient_val in self.processed_nutritional_info[
-            "nutrient_levels"
-        ].items():
-            # retrieve unit of the nutrient measurement from the nutriments dictionary
-            nutrient_unit = self.processed_nutritional_info["nutriments"][
-                str(nutrient_key + "_unit")
-            ]
-
-            # add text and set color for the text based on value
-            color = self.ui_colors.get(nutrient_val, "white")
+        # if else case for when barcode is valid and when its not
+        if barcode_validity_checker(self.txt_name.value):
+            self.txt_name.value = self.barcode
+            self.page.update()
             spans.append(
                 ft.TextSpan(
-                    f"{nutrient_key.capitalize()} - {nutrient_val} - "
-                    f"{self.processed_nutritional_info['nutriments'][nutrient_key]} {nutrient_unit}\n",
-                    style=ft.TextStyle(color=color, size=16),
+                    f"{self.processed_nutritional_info["product_name_en"]}\n",
+                    style=ft.TextStyle(color="white", size=16),
+                )
+            )
+            spans.append(
+                ft.TextSpan(
+                    f"{"\nServing Size"} - {self.processed_nutritional_info["serving_size"]}\n",
+                    style=ft.TextStyle(color="white", size=16),
+                )
+            )
+            for nutrient_key, nutrient_val in self.processed_nutritional_info[
+                "nutrient_levels"
+            ].items():
+                # retrieve unit of the nutrient measurement from the nutriments dictionary
+                nutrient_unit = self.processed_nutritional_info["nutriments"][
+                    str(nutrient_key + "_unit")
+                ]
+
+                # add text and set color for the text based on value
+                color = self.ui_colors.get(nutrient_val, "white")
+                spans.append(
+                    ft.TextSpan(
+                        f"{nutrient_key.capitalize()} - {nutrient_val} - "
+                        f"{self.processed_nutritional_info['nutriments'][nutrient_key]} {nutrient_unit}\n",
+                        style=ft.TextStyle(color=color, size=16),
+                    )
+                )
+
+            self.nutr.spans = spans
+            self.page.update()
+
+        else:
+
+            spans.append(
+                ft.TextSpan(
+                    f"Cannot display nutritional info for an invalid barcode",
+                    style=ft.TextStyle(color="red", size=16),
                 )
             )
 
-        self.nutr.spans = spans
-        self.page.update()
+            self.nutr.spans = spans
+            self.page.update()
+
+            print("Cannot display nutritional info for an invalid barcode")
