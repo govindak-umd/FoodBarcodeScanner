@@ -58,6 +58,13 @@ def main(page):
     """
     DisplayHMI(page)
 
+def dummy_test(x):
+    """
+    This fn serves no purpose, its only for testing
+    :param x:
+    :return: 5x
+    """
+    return 5*x
 
 if __name__ == "__main__":
     ft.app(target=main)
