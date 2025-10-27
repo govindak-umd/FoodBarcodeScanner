@@ -38,7 +38,7 @@ jobs:
         run: |
           mkdir -p reports
           echo "Running tests on tests/test_main.py"
-          pytest tests/test_main.py \
+          pytest tests/test_fns.py \
             --junitxml=reports/junit.xml \
             --cov=. \
             --cov-report=xml:reports/coverage.xml \
