@@ -5,7 +5,7 @@ import sys
 from pathlib import Path
 
 # Add parent directory to sys.path
-sys.path.append(str(Path(__file__).resolve().parents[1])
+sys.path.append(str(Path(__file__).resolve().parents[1]))
 
 
 # tests/test_main.py

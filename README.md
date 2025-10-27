@@ -17,7 +17,12 @@ Food Barcode retrieval app that can then produce nutritional information
 
 ### Setup
 
+### Test Setup
 
+- GitHub actions being used
+  - all test specs in the ci.yml file
+- tests triggered on push/pull
+- 
 ### Running 
 
     python main.py
