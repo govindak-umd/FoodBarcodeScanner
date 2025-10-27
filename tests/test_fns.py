@@ -7,7 +7,6 @@ from pathlib import Path
 # Add parent directory to sys.path
 sys.path.append(str(Path(__file__).resolve().parents[1])
 
-from main import dummy_test
 
 # tests/test_main.py
 from main import dummy_test
