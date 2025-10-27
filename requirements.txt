@@ -1,9 +1,7 @@
 anyio==4.11.0
 astroid==4.0.1
-black @ file:///opt/miniconda3/conda-bld/black_1760632311471/work
 certifi==2025.10.5
 charset-normalizer==3.4.4
-click @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_2bwamfk1ra/croot/click_1754477943404/work
 colorlog==6.10.1
 dill==0.4.0
 flet==0.28.3
@@ -15,20 +13,15 @@ idna==3.11
 iniconfig==2.3.0
 isort==7.0.0
 mccabe==0.7.0
-mypy_extensions @ file:///Users/builder/cbouss/perseverance-python-buildout/croot/mypy_extensions_1728592557222/work
 nump==5.5.5.5
 numpy==2.3.4
 oauthlib==3.3.1
-packaging @ file:///opt/miniconda3/conda-bld/packaging_1761049079023/work
 pandas==2.3.3
-pathspec @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_b8v8x4x9lx/croot/pathspec_1753774745509/work
-platformdirs @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_4euggz8v1n/croot/platformdirs_1744273055841/work
 pluggy==1.6.0
 Pygments==2.19.2
 pylint==4.0.2
 pytest==8.4.2
 python-dateutil==2.9.0.post0
-pytokens @ file:///opt/miniconda3/conda-bld/pytokens_1760629648821/work
 pytz==2025.2
 repath==0.9.0
 requests==2.32.5
