@@ -139,13 +139,13 @@ class DisplayHMI:
             self.page.update()
             spans.append(
                 ft.TextSpan(
-                    f"{self.processed_nutritional_info["product_name_en"]}\n",
+                    f"{self.processed_nutritional_info['product_name_en']}\n",
                     style=ft.TextStyle(color="white", size=16),
                 )
             )
             spans.append(
                 ft.TextSpan(
-                    f"{"\nServing Size"} - {self.processed_nutritional_info["serving_size"]}\n",
+                    f"{'\nServing Size'} - {self.processed_nutritional_info['serving_size']}\n",
                     style=ft.TextStyle(color="white", size=16),
                 )
             )
