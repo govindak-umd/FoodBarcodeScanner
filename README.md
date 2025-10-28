@@ -11,9 +11,20 @@ Food Barcode retrieval app that can then produce nutritional information
 - Logs user input and outputs
 - Can change barcode upon request
 
-## TODO
+## Feature Requests (future TODO)
 
+- Product History
+  - show history of products that were searched
+  - configurable in a larger yml file on how many past searches
+  - search for all previous products and have the data stored and ready to go
+  - user can click on a past search and see the nutritional information
+- asyncio
+  - Retrieve food data in parallel as the user starts typing on the text box
+  - in the future, always search for healthier alternatives along with originally requested products health information
 - Suggest healthier alternatives
+  - Machine learning
+  - all food database info
+  - rank food based on health
 
 ### Setup
 

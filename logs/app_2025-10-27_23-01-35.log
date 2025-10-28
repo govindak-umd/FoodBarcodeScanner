@@ -1,0 +1,18 @@
+2025-10-27 23:01:35 | INFO     | root | Logs will be saved to logs/app_2025-10-27_23-01-35.log
+2025-10-27 23:01:35 | INFO     | flet | Assets path configured: /Users/govindajithkumar/PycharmProjects/FoodBarcodeScanner/assets
+2025-10-27 23:01:35 | INFO     | flet | Starting up UDS server on /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/HagnFjQ9Ob
+2025-10-27 23:01:35 | INFO     | flet | Flet app has started...
+2025-10-27 23:01:35 | INFO     | flet | App URL: /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/HagnFjQ9Ob
+2025-10-27 23:01:35 | INFO     | flet_desktop | Starting Flet View app...
+2025-10-27 23:01:35 | INFO     | flet_desktop | Flet View found in: /Users/govindajithkumar/.flet/bin/flet-0.28.3
+2025-10-27 23:01:36 | INFO     | flet | App session started
+2025-10-27 23:01:46 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-27 23:01:46 | ERROR    | ui | Barcode Update Failed - 859213005001 is not a number
+2025-10-27 23:01:46 | WARNING  | utils | File not found in history for - 859213005001
+2025-10-27 23:01:46 | WARNING  | ui | File not found from history - retrieving data from internet
+2025-10-27 23:01:47 | INFO     | get_food_db | Successfully fetched data from website
+2025-10-27 23:01:47 | INFO     | get_food_db | Successfully fetched data from website
+2025-10-27 23:01:47 | INFO     | ui | New Barcode Data processed for 859213005001
+2025-10-27 23:01:47 | INFO     | ui | Successfully showed image for 859213005001
+2025-10-27 23:01:47 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-27 23:01:47 | INFO     | ui | Successfully updated nutritional info for 859213005001

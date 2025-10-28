@@ -17,19 +17,21 @@ class FoodDB:
 
     def __init__(self, food_barcode):
         self.food_barcode = food_barcode
+        self.nutritional_info_dict = {}
+        self.url = ""
 
     def get_website_food_db(self):
         """
         function to get food info from the website
         """
         self.food_barcode = str(self.food_barcode)
-        url = (
+        self.url = (
             "https://world.openfoodfacts.org/api/v2/product/"
             + self.food_barcode
             + ".json"
         )
         try:
-            response = requests.get(url, timeout=10)  # timeout = 10 seconds
+            response = requests.get(self.url, timeout=10)  # timeout = 10 seconds
             data = response.json()
             with open(
                 "json_hist/raw_openfoodfacts_data_" + self.food_barcode + ".json", "w"
@@ -59,29 +61,27 @@ class FoodDB:
                 "json_hist/raw_openfoodfacts_data_" + self.food_barcode + ".json", "r"
             ) as f:
                 food_barcode_data = json.load(f)
-                nutritional_info_dict = {}
-
                 # extract all essential characteristics
-                nutritional_info_dict["image_url"] = food_barcode_data["product"][
+                self.nutritional_info_dict["image_url"] = food_barcode_data["product"][
                     "image_url"
                 ]
-                nutritional_info_dict["serving_size"] = food_barcode_data["product"][
-                    "serving_size"
-                ]
-                nutritional_info_dict["product_name_en"] = food_barcode_data["product"][
-                    "product_name_en"
-                ]
-                nutritional_info_dict["nutriments"] = food_barcode_data["product"][
+                self.nutritional_info_dict["serving_size"] = food_barcode_data[
+                    "product"
+                ]["serving_size"]
+                self.nutritional_info_dict["product_name_en"] = food_barcode_data[
+                    "product"
+                ]["product_name_en"]
+                self.nutritional_info_dict["nutriments"] = food_barcode_data["product"][
                     "nutriments"
                 ]
-                nutritional_info_dict["nutrient_levels"] = food_barcode_data["product"][
-                    "nutrient_levels"
-                ]
-                nutritional_info_dict["nutrient_levels_tags"] = food_barcode_data[
+                self.nutritional_info_dict["nutrient_levels"] = food_barcode_data[
+                    "product"
+                ]["nutrient_levels"]
+                self.nutritional_info_dict["nutrient_levels_tags"] = food_barcode_data[
                     "product"
                 ]["nutrient_levels_tags"]
                 logger.info("Successfully fetched data from website")
-                return nutritional_info_dict
+                return self.nutritional_info_dict
 
         except FileNotFoundError:
             logger.error("File not found for - %s", self.food_barcode)
