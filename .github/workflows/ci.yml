@@ -22,11 +22,6 @@ jobs:
         with:
           python-version: "3.11"   # change if you use another version
 
-      - name: Run Black formatting check
-        run: |
-          echo "Checking code formatting with Black..."
-          black --check --diff .
-
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -34,10 +29,17 @@ jobs:
           if [ -f requirements.txt ]; then
             echo "Installing dependencies from requirements.txt"
             pip install -r requirements.txt
+            python -m pip install black
           else
             echo "No requirements.txt found — installing test tools only"
             pip install pytest pytest-cov
           fi
+
+      - name: Run Black formatting check
+        run: |
+          echo "Checking code formatting with Black..."
+          python -m black --version
+          python -m black --check --diff .
 
       - name: Run pytest on test file
         run: |
