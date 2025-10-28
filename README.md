@@ -10,6 +10,7 @@ Food Barcode retrieval app that can then produce nutritional information
   - results are retrieved from the barcode
 - Logs user input and outputs
 - Can change barcode upon request
+- Auto search and retrieve when 'enter' is hit on the text box
 
 ## TODO
 
@@ -22,7 +23,7 @@ Food Barcode retrieval app that can then produce nutritional information
 - GitHub actions being used
   - all test specs in the ci.yml file
 - tests triggered on push/pull
-- 
+
 ### Running 
 
     python main.py

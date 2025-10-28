@@ -41,7 +41,9 @@ class DisplayHMI:
             )
         )
         # text box
-        self.txt_name = ft.TextField(label="Enter Barcode here ...")
+        self.txt_name = ft.TextField(
+            label="Enter Barcode here ...", on_submit=self.display_nutrition
+        )
 
         # colors of data based on severity
         self.ui_colors = {"low": "green", "moderate": "orange", "high": "red"}
@@ -61,8 +63,9 @@ class DisplayHMI:
             self.txt_name.value = self.barcode
 
             self.page.update()
-            logger.error("Barcode Update Failed - %s is not a number", self.barcode)
+            logger.info("Barcode Updated - %s is a valid barcode", self.barcode)
             return True
+        logger.error("Barcode Update failed - %s is not a number", self.barcode)
         logger.error("Barcode Validation Error")
         return False
 
@@ -176,7 +179,7 @@ class DisplayHMI:
 
             spans.append(
                 ft.TextSpan(
-                    f"Cannot display nutritional info for an invalid barcode",
+                    "Cannot display nutritional info for an invalid barcode",
                     style=ft.TextStyle(color="red", size=16),
                 )
             )

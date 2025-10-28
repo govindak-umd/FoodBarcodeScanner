@@ -1,6 +1,7 @@
 """
 Get food nutritional info from: https://world.openfoodfacts.org
 """
+
 import json
 import logging
 
@@ -16,7 +17,7 @@ def get_website_food_db(food_barcode):
     food_barcode = str(food_barcode)
     url = "https://world.openfoodfacts.org/api/v2/product/" + food_barcode + ".json"
     try:
-        response = requests.get(url, timeout=10) # timeout = 10 seconds
+        response = requests.get(url, timeout=10)  # timeout = 10 seconds
         data = response.json()
         with open(
             "json_hist/raw_openfoodfacts_data_" + food_barcode + ".json", "w"
@@ -24,13 +25,13 @@ def get_website_food_db(food_barcode):
             json.dump(data, f, indent=4)
         logger.info("Successfully fetched data from website")
     except requests.exceptions.SSLError as ssl_err:
-        logger.error("SSL error when fetching food data: %s",ssl_err)
+        logger.error("SSL error when fetching food data: %s", ssl_err)
         logger.error("Check your network or certificate settings.")
     except requests.exceptions.RequestException as req_err:
-        logger.error("Network error when fetching food data: %s",req_err)
+        logger.error("Network error when fetching food data: %s", req_err)
         logger.error("Failed to retrieve data from website. Check network security.")
     except Exception as err:
-        logger.error("Unexpected error when fetching food data: %s",err)
+        logger.error("Unexpected error when fetching food data: %s", err)
 
 
 def retrieve_nutrition_data(food_barcode=None):
@@ -70,5 +71,5 @@ def retrieve_nutrition_data(food_barcode=None):
             return nutritional_info_dict
 
     except FileNotFoundError:
-        logger.error("File not found for - %s",food_barcode)
+        logger.error("File not found for - %s", food_barcode)
         return None

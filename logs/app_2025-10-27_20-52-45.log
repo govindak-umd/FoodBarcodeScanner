@@ -1,0 +1,8 @@
+2025-10-27 20:52:45 | INFO     | root | Logs will be saved to logs/app_2025-10-27_20-52-45.log
+2025-10-27 20:52:45 | INFO     | flet | Assets path configured: /Users/govindajithkumar/PycharmProjects/FoodBarcodeScanner/assets
+2025-10-27 20:52:45 | INFO     | flet | Starting up UDS server on /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/VMh2jIR7vp
+2025-10-27 20:52:45 | INFO     | flet | Flet app has started...
+2025-10-27 20:52:45 | INFO     | flet | App URL: /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/VMh2jIR7vp
+2025-10-27 20:52:45 | INFO     | flet_desktop | Starting Flet View app...
+2025-10-27 20:52:45 | INFO     | flet_desktop | Flet View found in: /Users/govindajithkumar/.flet/bin/flet-0.28.3
+2025-10-27 20:52:46 | INFO     | flet | App session started
