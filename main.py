@@ -11,6 +11,7 @@ import flet as ft
 
 from ui import DisplayHMI
 
+# logging setup
 Path("logs").mkdir(exist_ok=True)
 timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 LOG_FILENAME = f"logs/app_{timestamp}.log"
@@ -58,13 +59,15 @@ def main(page):
     """
     DisplayHMI(page)
 
+
 def dummy_test(x):
     """
     This fn serves no purpose, its only for testing
     :param x:
     :return: 5x
     """
-    return 5*x
+    return 5 * x
+
 
 if __name__ == "__main__":
     ft.app(target=main)

@@ -5,7 +5,7 @@ UI code
 import logging
 import flet as ft
 from utils import check_json_file, barcode_validity_checker
-from get_food_db import get_website_food_db, retrieve_nutrition_data
+from get_food_db import FoodDB
 
 
 logger = logging.getLogger(__name__)
@@ -50,6 +50,7 @@ class DisplayHMI:
         self.txt_name.label = "Enter food here ... "
         self.nutr = ft.Text()
         self.display_main_ui()
+        self.food_database_query = FoodDB(self.barcode)
 
     def barcode_update(self):
         """
@@ -98,10 +99,13 @@ class DisplayHMI:
             )
             try:
                 # Retrieve food info from nutrition website
-                get_website_food_db(self.barcode)
+                self.food_database_query.get_website_food_db()
             except Exception as err:
                 logger.error(err)
-        self.processed_nutritional_info = retrieve_nutrition_data(self.barcode)
+        self.processed_nutritional_info = (
+            self.food_database_query.retrieve_nutrition_data()
+        )
+
         logger.info("New Barcode Data processed for %s", self.barcode)
 
     def display_nutrition(self, e):
@@ -115,6 +119,7 @@ class DisplayHMI:
 
         # update barcode
         if self.barcode_update():
+            self.food_database_query = FoodDB(self.barcode)
             # happy path - incase the barcode is correct format
             # after updating barcode, retrieve all food data
             self.retrieve_all_data()
