@@ -13,14 +13,17 @@ Food Barcode retrieval app that can then produce nutritional information
 
 ## Feature Requests (future TODO)
 
+- asyncio
+  - Retrieve food data in parallel as the user starts typing on the text box
+  - in the future, always search for healthier alternatives along with originally requested products health information
 - Product History
   - show history of products that were searched
   - configurable in a larger yml file on how many past searches
   - search for all previous products and have the data stored and ready to go
-  - user can click on a past search and see the nutritional information
-- asyncio
-  - Retrieve food data in parallel as the user starts typing on the text box
-  - in the future, always search for healthier alternatives along with originally requested products health information
+  - user can click on a past search and see the nutritional information 
+  - clear search history, add a new button for this
+
+Machine Learning aspect of the project
 - Suggest healthier alternatives
   - Machine learning
   - all food database info
@@ -47,3 +50,4 @@ Food Barcode retrieval app that can then produce nutritional information
     sample_barcode = "859213005001"
     sample_barcode_2 = "722252153258"
     sample_barcode_3 = "8445290728791"
+    sample_barcode_4 = "3017624010701

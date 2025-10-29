@@ -4,10 +4,14 @@ Get food nutritional info from: https://world.openfoodfacts.org
 
 import json
 import logging
-
+import yaml
 import requests
 
 logger = logging.getLogger(__name__)
+
+# Load YAML file
+with open("config/nutrient_config.yml", "r", encoding="utf-8") as file:
+    nutrient_config = yaml.safe_load(file)
 
 
 class FoodDB:
@@ -62,25 +66,31 @@ class FoodDB:
             ) as f:
                 food_barcode_data = json.load(f)
                 # extract all essential characteristics
-                self.nutritional_info_dict["image_url"] = food_barcode_data["product"][
-                    "image_url"
-                ]
-                self.nutritional_info_dict["serving_size"] = food_barcode_data[
-                    "product"
-                ]["serving_size"]
-                self.nutritional_info_dict["product_name_en"] = food_barcode_data[
-                    "product"
-                ]["product_name_en"]
-                self.nutritional_info_dict["nutriments"] = food_barcode_data["product"][
-                    "nutriments"
-                ]
-                self.nutritional_info_dict["nutrient_levels"] = food_barcode_data[
-                    "product"
-                ]["nutrient_levels"]
-                self.nutritional_info_dict["nutrient_levels_tags"] = food_barcode_data[
-                    "product"
-                ]["nutrient_levels_tags"]
-                logger.info("Successfully fetched data from website")
+                try:
+                    logger.info("Successfully fetched image from website")
+                    self.nutritional_info_dict["image_url"] = food_barcode_data[
+                        "product"
+                    ]["image_url"]
+                except KeyError:
+                    logger.error("Image not available on the website")
+                    self.nutritional_info_dict["image_url"] = (
+                        "https://via.placeholder.com/300x200?text=No+Image"
+                    )
+
+                product = food_barcode_data.get("product", {})
+
+                all_necessary_fields = nutrient_config["all_display_fields"]
+
+                for key, label in all_necessary_fields.items():
+                    value = product.get(key)
+                    if value is None:
+                        value = f"{label} Unavailable from source"
+                        logger.error(f"{label} not available on the website")
+                    self.nutritional_info_dict[key] = value
+
+                logger.info(
+                    "Successfully fetched all available and requested from website"
+                )
                 return self.nutritional_info_dict
 
         except FileNotFoundError:
