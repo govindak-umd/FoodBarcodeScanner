@@ -9,7 +9,7 @@ import requests
 
 logger = logging.getLogger(__name__)
 
-# Load YAML file
+# Load nutrient config YAML file
 with open("config/nutrient_config.yml", "r", encoding="utf-8") as file:
     nutrient_config = yaml.safe_load(file)
 

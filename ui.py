@@ -9,7 +9,7 @@ from utils import check_json_file, barcode_validity_checker
 from get_food_db import FoodDB
 
 
-# Load YAML file
+# Load UI YAML file
 with open("config/ui_config.yml", "r", encoding="utf-8") as file:
     ui_config = yaml.safe_load(file)
 
