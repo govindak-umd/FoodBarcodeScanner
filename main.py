@@ -62,7 +62,7 @@ def main(page):
 
 def dummy_test(x):
     """
-    This fn serves no purpose, its only for testing
+    This fn serves no purpose, it's only for testing
     :param x:
     :return: 5x
     """
