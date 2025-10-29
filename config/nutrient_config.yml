@@ -1,3 +1,5 @@
+# all_display_fields: all the fields that will be accessed from the downloaded
+# json file
 all_display_fields:
   serving_size: "Serving Size"
   product_name_en: "Product Name"
