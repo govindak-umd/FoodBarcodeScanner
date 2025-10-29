@@ -6,3 +6,4 @@ all_display_fields:
   nutriments: "Nutriments"
   nutrient_levels: "Nutrient Levels"
   nutrient_levels_tags: "Nutrient Level Tags"
+  nutriscore_grade: "Nutrient Score Graded"

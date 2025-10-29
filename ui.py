@@ -27,7 +27,7 @@ class DisplayHMI:
 
         # UI related variables and initialize UI
         self.nutritional_info = None
-        self.ui_colors = None
+        self.text_color_severity = None
         self.txt_name = None
         self.food_image = None
         self.processed_nutritional_info = None
@@ -70,11 +70,9 @@ class DisplayHMI:
 
         # colors of data based on severity
         # colors are taken from the ui_config
-        self.ui_colors = {
-            "low": ui_config["severity_colors"]["low"],
-            "moderate": ui_config["severity_colors"]["moderate"],
-            "high": ui_config["severity_colors"]["high"],
-        }
+        self.text_color_severity = ui_config["text_color"][
+            "severity_colors_nutrition_levels"
+        ]
 
         # the label is the text on top of the text box
         self.txt_name.label = "Enter food here ... "
@@ -182,7 +180,7 @@ class DisplayHMI:
         # Initialize a span
         spans = []
 
-        # if else case for when barcode is valid and when its not
+        # if else case for when barcode is valid and when it's not
         if barcode_validity_checker(self.txt_name.value):
             self.txt_name.value = self.barcode
             self.page.update()
@@ -207,7 +205,7 @@ class DisplayHMI:
                 ]
 
                 # add text and set color for the text based on value
-                color = self.ui_colors.get(nutrient_val, "white")
+                color = self.text_color_severity.get(nutrient_val, "white")
                 spans.append(
                     ft.TextSpan(
                         f"{nutrient_key.capitalize()} - {nutrient_val} - "

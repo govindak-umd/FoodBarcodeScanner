@@ -1,8 +1,4 @@
-# severity colors: Colors of the text that is displayed
-severity_colors:
-  low: "green"
-  moderate: "orange"
-  high: "red"
+
 
 # display_img: dims of the image displayed
 display_img:
@@ -13,3 +9,15 @@ display_img:
 text_color:
   regular_text: "white"
   error_text: "red"
+  # severity colors: Colors of the text that is displayed
+  severity_colors_nutrition_levels:
+    low: "green"
+    moderate: "orange"
+    high: "red"
+  # nutri_score_color_grade: color grading based on the nutri_score
+  nutri_score_color_grade:
+    A: "green"
+    B: "cyan"
+    C: "yellow"
+    D: "orange"
+    E: "red"
