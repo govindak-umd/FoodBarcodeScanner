@@ -5,7 +5,12 @@ UI code
 import logging
 import flet as ft
 import yaml
-from utils import check_json_file, barcode_validity_checker
+from utils import (
+    check_json_file,
+    barcode_validity_checker,
+    clear_history,
+    add_and_retrieve_history,
+)
 from get_food_db import FoodDB
 
 
@@ -24,6 +29,7 @@ class DisplayHMI:
     def __init__(self, new_page):
 
         # barcode related
+        self.top_n_historical_barcodes = None
         self.barcode = None
 
         # UI related variables and initialize UI
@@ -93,14 +99,23 @@ class DisplayHMI:
             ft.Row(
                 [
                     ft.ElevatedButton(
-                        "Display Nutritional Info", on_click=self.display_nutrition
+                        "Display Nutritional Info", on_click=self.display_nutrition,
                     ),
                 ],
                 alignment=ft.MainAxisAlignment.CENTER,
             ),
             self.nutritional_info,
             self.history_row,
+            ft.Row(
+                [
+                    ft.ElevatedButton(
+                        "Clear history", on_click=clear_history(), color = ui_config["button_colors"]["clear_history_button_color"]
+                    ),
+                ],
+                alignment=ft.MainAxisAlignment.CENTER,
+            ),
         )
+
 
     def barcode_update(self):
         """
@@ -112,7 +127,8 @@ class DisplayHMI:
             self.txt_name.value = self.barcode
 
             self.page.update()
-            logger.error("Barcode Update Failed - %s is not a number", self.barcode)
+            # update the history and retrieve the barcodes
+            self.top_n_historical_barcodes = add_and_retrieve_history(self.barcode)
             return True
         logger.error("Barcode Validation Error")
         return False
@@ -134,6 +150,16 @@ class DisplayHMI:
                 alignment=ft.MainAxisAlignment.CENTER,
             ),
             self.nutritional_info,
+            self.history_row,
+            ft.Row(
+                [
+                    ft.ElevatedButton(
+                        "Clear history", on_click=clear_history(),
+                        color=ui_config["button_colors"]["clear_history_button_color"]
+                    ),
+                ],
+                alignment=ft.MainAxisAlignment.CENTER,
+            ),
         )
 
     def retrieve_all_data(self):
@@ -211,50 +237,78 @@ class DisplayHMI:
                     ),
                 )
             )
-            for nutrient_key, nutrient_val in self.processed_nutritional_info[
-                "nutrient_levels"
-            ].items():
 
-                # adding nutrient information on the UI
-                ## retrieve unit of the nutrient measurement from the nutriments dictionary
-                nutrient_unit = self.processed_nutritional_info["nutriments"][
-                    str(nutrient_key + "_unit")
-                ]
-                ## add text and set color for the text based on value
-                color = ui_config["text_color"]["severity_colors_nutrition_levels"][
-                    nutrient_val
-                ]
+            try:
+                for nutrient_key, nutrient_val in self.processed_nutritional_info[
+                    "nutrient_levels"
+                ].items():
 
+
+                    # adding nutrient information on the UI
+                    ## retrieve unit of the nutrient measurement from the nutriments dictionary
+                    nutrient_unit = self.processed_nutritional_info["nutriments"][
+                        str(nutrient_key + "_unit")
+                    ]
+                    ## add text and set color for the text based on value
+                    color = ui_config["text_color"]["severity_colors_nutrition_levels"][
+                        nutrient_val
+                    ]
+
+                    spans.append(
+                        ft.TextSpan(
+                            f"{nutrient_key.capitalize()} - {nutrient_val} - "
+                            f"{self.processed_nutritional_info['nutriments'][nutrient_key]} "
+                            f"{nutrient_unit}\n",
+                            style=ft.TextStyle(
+                                color=color, size=ui_config["common_text_size"]
+                            ),
+                        )
+                    )
+
+
+            except AttributeError as err:
+                logger.error(err)
+                color = ui_config["text_color"]["error_text"]
                 spans.append(
                     ft.TextSpan(
-                        f"{nutrient_key.capitalize()} - {nutrient_val} - "
-                        f"{self.processed_nutritional_info['nutriments'][nutrient_key]} "
-                        f"{nutrient_unit}\n",
+                        f"No data available",
                         style=ft.TextStyle(
                             color=color, size=ui_config["common_text_size"]
                         ),
                     )
                 )
+            try:
 
-            print(self.processed_nutritional_info["nutriscore_grade"])
+                ## add text and set color for the text based on value
+                color = ui_config["text_color"]["nutri_score_color_grade"][
+                    self.processed_nutritional_info["nutriscore_grade"]
+                ]
 
-            ## add text and set color for the text based on value
-            color = ui_config["text_color"]["nutri_score_color_grade"][
-                self.processed_nutritional_info["nutriscore_grade"]
-            ]
 
-            spans.append(
-                ft.TextSpan(
-                    f"Nutri grade - {self.processed_nutritional_info[
-                    "nutriscore_grade"
-                ].capitalize()} ",
-                    style=ft.TextStyle(color=color, size=ui_config["common_text_size"]),
+                spans.append(
+                    ft.TextSpan(
+                        f"\n Nutri grade - {self.processed_nutritional_info[
+                        "nutriscore_grade"
+                    ].capitalize()} ",
+                        style=ft.TextStyle(color=color, size=ui_config["common_text_size"]),
+                    )
                 )
-            )
 
-            self.nutritional_info.spans = spans
-            self.page.update()
-            logger.info("Successfully updated nutritional info for %s", self.barcode)
+                self.nutritional_info.spans = spans
+                self.page.update()
+                logger.info("Successfully updated nutritional info for %s", self.barcode)
+
+            except KeyError as err:
+                color = ui_config["text_color"]["error_text"]
+                spans.append(
+                    ft.TextSpan(
+                        f"No data available",
+                        style=ft.TextStyle(
+                            color=color, size=ui_config["common_text_size"]
+                        ),
+                    )
+                )
+                logger.error(err)
 
         else:
 

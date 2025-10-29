@@ -6,6 +6,13 @@ import json
 import re
 import logging
 from pathlib import Path
+import yaml
+
+
+# Load UI YAML file
+with open("config/ui_config.yml", "r", encoding="utf-8") as file:
+    ui_config = yaml.safe_load(file)
+
 
 logger = logging.getLogger(__name__)
 
@@ -44,11 +51,28 @@ def barcode_validity_checker(barcode_input):
         return False
 
 
-def add_to_history(food_barcode):
+def compute_top_n_history_barcodes(history_dict):
+    """
+    function computes the top 'n' history barcodes
+    :return: sorted keys of all the historical barcodes
+    """
+    max_history = ui_config["max_history"]
+
+    # get a sorted dictionary and then sort it in reverse order (descending) and then parse it only until max_hisory size
+    sorted_history = dict(
+        sorted(history_dict.items(), key=lambda item: item[1], reverse=True)[
+            : min(max_history, len(history_dict))
+        ]
+    )
+    logger.info(f"Top {max_history} history barcodes : {sorted_history} ")
+    return sorted_history.keys()
+
+
+def add_and_retrieve_history(food_barcode):
     """
     Function to manage history, add barcode search to history
     :param food_barcode:
-    :return:
+    :return: top n history barcodes
     """
     Path("history").mkdir(exist_ok=True)  # ensure folder exists
 
@@ -74,7 +98,11 @@ def add_to_history(food_barcode):
     with open("history/history.json", "w", encoding="utf-8") as f:
         json.dump(loaded_data, f, indent=4, ensure_ascii=False)
 
+    top_n_history_barcodes = compute_top_n_history_barcodes(loaded_data)
+
     logger.info("History updated successfully.")
+
+    return top_n_history_barcodes
 
 
 def clear_history():
@@ -87,8 +115,7 @@ def clear_history():
 
     try:
         with open("history/history.json", "r", encoding="utf-8") as f:
-            loaded_data = json.load(f)
-        logger.debug("History JSON file loaded")
+            logger.debug("History JSON file loaded")
     except FileNotFoundError:
         logger.error(logger.error("No History JSON file found"))
     except json.JSONDecodeError:
@@ -100,3 +127,5 @@ def clear_history():
         json.dump(loaded_data, f, indent=4, ensure_ascii=False)
 
     logger.info("History cleared successfully.")
+    logger.error("No more history barcodes in the database")
+

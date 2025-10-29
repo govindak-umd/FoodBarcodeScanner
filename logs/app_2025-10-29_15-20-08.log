@@ -1,0 +1,28 @@
+2025-10-29 15:20:08 | INFO     | root | Logs will be saved to logs/app_2025-10-29_15-20-08.log
+2025-10-29 15:20:08 | INFO     | flet | Assets path configured: /Users/govindajithkumar/PycharmProjects/FoodBarcodeScanner/assets
+2025-10-29 15:20:08 | INFO     | flet | Starting up UDS server on /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/t87ls9Jfns
+2025-10-29 15:20:08 | INFO     | flet | Flet app has started...
+2025-10-29 15:20:08 | INFO     | flet | App URL: /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/t87ls9Jfns
+2025-10-29 15:20:08 | INFO     | flet_desktop | Starting Flet View app...
+2025-10-29 15:20:08 | INFO     | flet_desktop | Flet View found in: /Users/govindajithkumar/.flet/bin/flet-0.28.3
+2025-10-29 15:20:08 | INFO     | flet | App session started
+2025-10-29 15:20:16 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-29 15:20:16 | INFO     | utils | History updated successfully.
+2025-10-29 15:20:16 | INFO     | utils | JSON file 8445290728791 exists in history directory.
+2025-10-29 15:20:16 | INFO     | ui | File found from history - will use that
+2025-10-29 15:20:16 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-29 15:20:16 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-29 15:20:16 | INFO     | ui | New Barcode Data processed for 8445290728791
+2025-10-29 15:20:16 | INFO     | ui | Successfully showed image for 8445290728791
+2025-10-29 15:20:16 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-29 15:20:16 | INFO     | ui | Successfully updated nutritional info for 8445290728791
+2025-10-29 15:20:34 | ERROR    | utils | Barcode Update Failed - 8445290728791asasaa is not a number
+2025-10-29 15:20:34 | ERROR    | ui | Barcode Validation Error
+2025-10-29 15:20:34 | INFO     | ui | Successfully showed image for 8445290728791
+2025-10-29 15:20:34 | ERROR    | utils | Barcode Update Failed - Invalid Barcode - Please enter a numerical barcode is not a number
+2025-10-29 15:20:34 | ERROR    | ui | Cannot display nutritional info for an invalid barcode
+2025-10-29 15:20:44 | ERROR    | utils | Barcode Update Failed - Invalid Barcode - Please enter a numerical barcode is not a number
+2025-10-29 15:20:44 | ERROR    | ui | Barcode Validation Error
+2025-10-29 15:20:44 | INFO     | ui | Successfully showed image for 8445290728791
+2025-10-29 15:20:44 | ERROR    | utils | Barcode Update Failed - Invalid Barcode - Please enter a numerical barcode is not a number
+2025-10-29 15:20:44 | ERROR    | ui | Cannot display nutritional info for an invalid barcode
