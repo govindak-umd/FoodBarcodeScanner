@@ -22,21 +22,41 @@ class DisplayHMI:
     """
 
     def __init__(self, new_page):
-        # BARCODE related
+        # barcode related
         self.barcode = None
 
-        # UI related
+        # UI related variables and initialize UI
+        self.nutritional_info = None
+        self.ui_colors = None
+        self.txt_name = None
+        self.food_image = None
+        self.processed_nutritional_info = None
         self.page = new_page
+        self.initialize_ui()
+
+        # query food information from the database upon UI initialization
+        self.food_database_query = FoodDB(self.barcode)
+
+    def initialize_ui(self):
+        """
+        Calling this function will initialize the UI.
+        It will bring up all the text boxes, image,and title.
+
+        :return:
+        """
         self.page.title = "Nutritional Info"
         self.processed_nutritional_info = None
         # placeholder image
         # alignment of the image to be top and center of the page
         self.page.vertical_alignment = ft.MainAxisAlignment.START
         self.page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
+
+        # placeholder image, this is just to have an image object. Does not
+        # display anything
         self.food_image = ft.Image(
             src="https://via.placeholder.com/300x200?text=No+Image",
-            width=300,
-            height=200,
+            width=ui_config["display_img"]["width"],
+            height=ui_config["display_img"]["height"],
             fit=ft.ImageFit.CONTAIN,
         )
         self.page.add(
@@ -49,17 +69,33 @@ class DisplayHMI:
         self.txt_name = ft.TextField(label="Enter Barcode here ...")
 
         # colors of data based on severity
-        self.ui_colors = {"low": "green", "moderate": "orange", "high": "red"}
+        # colors are taken from the ui_config
+        self.ui_colors = {
+            "low": ui_config["severity_colors"]["low"],
+            "moderate": ui_config["severity_colors"]["moderate"],
+            "high": ui_config["severity_colors"]["high"],
+        }
 
         # the label is the text on top of the text box
         self.txt_name.label = "Enter food here ... "
-        self.nutr = ft.Text()
-        self.display_main_ui()
-        self.food_database_query = FoodDB(self.barcode)
+        self.nutritional_info = ft.Text()
+        # self.display_main_ui()
+        self.page.add(
+            self.txt_name,
+            ft.Row(
+                [
+                    ft.ElevatedButton(
+                        "Display Nutritional Info", on_click=self.display_nutrition
+                    ),
+                ],
+                alignment=ft.MainAxisAlignment.CENTER,
+            ),
+            self.nutritional_info,
+        )
 
     def barcode_update(self):
         """
-        function to manage and maintain barcode information input by the user
+        updates the barcode parameter when called
         :return:
         """
         if barcode_validity_checker(self.txt_name.value):
@@ -74,7 +110,7 @@ class DisplayHMI:
 
     def display_main_ui(self):
         """
-        Main function to display the main UI.
+        function to display the main UI.
         :return:
         """
 
@@ -88,12 +124,12 @@ class DisplayHMI:
                 ],
                 alignment=ft.MainAxisAlignment.CENTER,
             ),
-            self.nutr,
+            self.nutritional_info,
         )
 
     def retrieve_all_data(self):
         """
-        Function to retrieve all food data from the website.
+        Function to retrieve all food nutritional data from the website.
         :return:
         """
         if check_json_file(self.barcode):
@@ -115,12 +151,15 @@ class DisplayHMI:
 
     def display_nutrition(self, e):
         """
-        function to parse correct nutrients and display the nutritional info
+        calling this function should display all the nutritional
+        information from the website. It will automatically update the
+        barcode with whatever is in the text box (if its valid) and then
+        display the nutritional information.
         :param e: Mouse Event Click
         """
         # blank out the previous nutrition info text
         spans = []
-        self.nutr.spans = spans
+        self.nutritional_info.spans = spans
 
         # update barcode
         if self.barcode_update():
@@ -130,12 +169,12 @@ class DisplayHMI:
             self.retrieve_all_data()
             # update the text box after data has been retrieved
             self.txt_name.value = self.barcode
-            self.txt_name.color = "white"
+            self.txt_name.color = ui_config["text_color"]["regular_text"]
             self.food_image.src = self.processed_nutritional_info["image_url"]
         else:
             # exception case - incase the barcode is NOT correct format
             self.txt_name.value = "Invalid Barcode - Please enter a numerical barcode"
-            self.txt_name.color = "red"
+            self.txt_name.color = ui_config["text_color"]["error_text"]
             self.food_image.src = "https://via.placeholder.com/300x200?text=No+Image"
         self.page.update()
         logger.info("Successfully showed image for %s", self.barcode)
@@ -150,13 +189,13 @@ class DisplayHMI:
             spans.append(
                 ft.TextSpan(
                     f"{self.processed_nutritional_info['product_name_en']}\n",
-                    style=ft.TextStyle(color="white", size=16),
+                    style=ft.TextStyle(color=self.txt_name.color, size=16),
                 )
             )
             spans.append(
                 ft.TextSpan(
                     f"\nServing Size - {self.processed_nutritional_info['serving_size']}\n",
-                    style=ft.TextStyle(color="white", size=16),
+                    style=ft.TextStyle(color=self.txt_name.color, size=16),
                 )
             )
             for nutrient_key, nutrient_val in self.processed_nutritional_info[
@@ -178,7 +217,7 @@ class DisplayHMI:
                     )
                 )
 
-            self.nutr.spans = spans
+            self.nutritional_info.spans = spans
             self.page.update()
             logger.info("Successfully updated nutritional info for %s", self.barcode)
 
@@ -186,12 +225,22 @@ class DisplayHMI:
 
             spans.append(
                 ft.TextSpan(
-                    f"Cannot display nutritional info for an invalid barcode",
-                    style=ft.TextStyle(color="red", size=16),
+                    "Cannot display nutritional info for an invalid barcode",
+                    style=ft.TextStyle(color=self.txt_name.color, size=16),
                 )
             )
 
-            self.nutr.spans = spans
+            self.nutritional_info.spans = spans
             self.page.update()
 
             logger.error("Cannot display nutritional info for an invalid barcode")
+
+    def show_all_history(self):
+        """
+        placeholder function to display the history of all the
+        previously scanned barcodes. The user should be able
+        to click on the previously scanned barcodes and bring
+        that product up to show nutritional information.
+        :return:
+        """
+        pass
