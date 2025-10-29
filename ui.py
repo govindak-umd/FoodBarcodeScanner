@@ -187,13 +187,17 @@ class DisplayHMI:
             spans.append(
                 ft.TextSpan(
                     f"{self.processed_nutritional_info['product_name_en']}\n",
-                    style=ft.TextStyle(color=self.txt_name.color, size=16),
+                    style=ft.TextStyle(
+                        color=self.txt_name.color, size=ui_config["common_text_size"]
+                    ),
                 )
             )
             spans.append(
                 ft.TextSpan(
                     f"\nServing Size - {self.processed_nutritional_info['serving_size']}\n",
-                    style=ft.TextStyle(color=self.txt_name.color, size=16),
+                    style=ft.TextStyle(
+                        color=self.txt_name.color, size=ui_config["common_text_size"]
+                    ),
                 )
             )
             for nutrient_key, nutrient_val in self.processed_nutritional_info[
@@ -215,7 +219,9 @@ class DisplayHMI:
                         f"{nutrient_key.capitalize()} - {nutrient_val} - "
                         f"{self.processed_nutritional_info['nutriments'][nutrient_key]} "
                         f"{nutrient_unit}\n",
-                        style=ft.TextStyle(color=color, size=16),
+                        style=ft.TextStyle(
+                            color=color, size=ui_config["common_text_size"]
+                        ),
                     )
                 )
 
@@ -231,7 +237,7 @@ class DisplayHMI:
                     f"Nutri grade - {self.processed_nutritional_info[
                     "nutriscore_grade"
                 ].capitalize()} ",
-                    style=ft.TextStyle(color=color, size=16),
+                    style=ft.TextStyle(color=color, size=ui_config["common_text_size"]),
                 )
             )
 
@@ -244,7 +250,9 @@ class DisplayHMI:
             spans.append(
                 ft.TextSpan(
                     "Cannot display nutritional info for an invalid barcode",
-                    style=ft.TextStyle(color=self.txt_name.color, size=16),
+                    style=ft.TextStyle(
+                        color=self.txt_name.color, size=ui_config["common_text_size"]
+                    ),
                 )
             )
 
