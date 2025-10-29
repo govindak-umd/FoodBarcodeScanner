@@ -22,6 +22,7 @@ class DisplayHMI:
     """
 
     def __init__(self, new_page):
+
         # barcode related
         self.barcode = None
 
@@ -31,6 +32,7 @@ class DisplayHMI:
         self.txt_name = None
         self.food_image = None
         self.processed_nutritional_info = None
+        self.history_row = None
         self.page = new_page
         self.initialize_ui()
 
@@ -77,7 +79,15 @@ class DisplayHMI:
         # the label is the text on top of the text box
         self.txt_name.label = "Enter food here ... "
         self.nutritional_info = ft.Text()
-        # self.display_main_ui()
+
+        # row with all history information
+        self.history_row = ft.Row(
+            [],
+            alignment=ft.MainAxisAlignment.CENTER,
+            spacing=10,
+        )
+
+        # stacking buttons, text boxes and text sections on the page
         self.page.add(
             self.txt_name,
             ft.Row(
@@ -89,6 +99,7 @@ class DisplayHMI:
                 alignment=ft.MainAxisAlignment.CENTER,
             ),
             self.nutritional_info,
+            self.history_row,
         )
 
     def barcode_update(self):
