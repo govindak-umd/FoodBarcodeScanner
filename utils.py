@@ -117,14 +117,15 @@ def clear_history():
         with open("history/history.json", "r", encoding="utf-8") as f:
             logger.debug("History JSON file loaded")
     except FileNotFoundError:
-        logger.error(logger.error("No History JSON file found"))
+        logger.error(logger.error("FileNotFoundError detected - No History file file found"))
     except json.JSONDecodeError:
-        logger.error("JSON Error detected - creating a new JSON file")
+        logger.error("JSONDecodeError detected - creating a new JSON file")
 
     loaded_data = {}
 
+    # make a history_json file
     with open("history/history.json", "w", encoding="utf-8") as f:
         json.dump(loaded_data, f, indent=4, ensure_ascii=False)
 
-    logger.info("History cleared successfully.")
+    logger.error("History cleared successfully.")
     logger.error("No more history barcodes in the database")

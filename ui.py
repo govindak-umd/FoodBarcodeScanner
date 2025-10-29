@@ -113,7 +113,7 @@ class DisplayHMI:
                 [
                     ft.ElevatedButton(
                         "Clear history",
-                        on_click=clear_history(),
+                        on_click=lambda e: clear_history(),
                         color=ui_config["button_colors"]["clear_history_button_color"],
                     ),
                 ],
