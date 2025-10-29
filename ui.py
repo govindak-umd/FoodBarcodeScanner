@@ -133,35 +133,6 @@ class DisplayHMI:
         logger.error("Barcode Validation Error")
         return False
 
-    def display_main_ui(self):
-        """
-        function to display the main UI.
-        :return:
-        """
-
-        self.page.add(
-            self.txt_name,
-            ft.Row(
-                [
-                    ft.ElevatedButton(
-                        "Display Nutritional Info", on_click=self.display_nutrition
-                    ),
-                ],
-                alignment=ft.MainAxisAlignment.CENTER,
-            ),
-            self.nutritional_info,
-            self.history_row,
-            ft.Row(
-                [
-                    ft.ElevatedButton(
-                        "Clear history", on_click=clear_history(),
-                        color=ui_config["button_colors"]["clear_history_button_color"]
-                    ),
-                ],
-                alignment=ft.MainAxisAlignment.CENTER,
-            ),
-        )
-
     def retrieve_all_data(self):
         """
         Function to retrieve all food nutritional data from the website.
