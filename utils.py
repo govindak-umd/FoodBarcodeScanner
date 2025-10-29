@@ -128,4 +128,3 @@ def clear_history():
 
     logger.info("History cleared successfully.")
     logger.error("No more history barcodes in the database")
-

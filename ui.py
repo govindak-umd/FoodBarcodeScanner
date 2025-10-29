@@ -74,7 +74,9 @@ class DisplayHMI:
             )
         )
         # text box
-        self.txt_name = ft.TextField(label="Enter Barcode here ...", on_submit=self.display_nutrition)
+        self.txt_name = ft.TextField(
+            label="Enter Barcode here ...", on_submit=self.display_nutrition
+        )
 
         # colors of data based on severity
         # colors are taken from the ui_config
@@ -99,7 +101,8 @@ class DisplayHMI:
             ft.Row(
                 [
                     ft.ElevatedButton(
-                        "Display Nutritional Info", on_click=self.display_nutrition,
+                        "Display Nutritional Info",
+                        on_click=self.display_nutrition,
                     ),
                 ],
                 alignment=ft.MainAxisAlignment.CENTER,
@@ -109,13 +112,14 @@ class DisplayHMI:
             ft.Row(
                 [
                     ft.ElevatedButton(
-                        "Clear history", on_click=clear_history(), color = ui_config["button_colors"]["clear_history_button_color"]
+                        "Clear history",
+                        on_click=clear_history(),
+                        color=ui_config["button_colors"]["clear_history_button_color"],
                     ),
                 ],
                 alignment=ft.MainAxisAlignment.CENTER,
             ),
         )
-
 
     def barcode_update(self):
         """
@@ -214,7 +218,6 @@ class DisplayHMI:
                     "nutrient_levels"
                 ].items():
 
-
                     # adding nutrient information on the UI
                     ## retrieve unit of the nutrient measurement from the nutriments dictionary
                     nutrient_unit = self.processed_nutritional_info["nutriments"][
@@ -236,7 +239,6 @@ class DisplayHMI:
                         )
                     )
 
-
             except AttributeError as err:
                 logger.error(err)
                 color = ui_config["text_color"]["error_text"]
@@ -255,19 +257,22 @@ class DisplayHMI:
                     self.processed_nutritional_info["nutriscore_grade"]
                 ]
 
-
                 spans.append(
                     ft.TextSpan(
                         f"\n Nutri grade - {self.processed_nutritional_info[
                         "nutriscore_grade"
                     ].capitalize()} ",
-                        style=ft.TextStyle(color=color, size=ui_config["common_text_size"]),
+                        style=ft.TextStyle(
+                            color=color, size=ui_config["common_text_size"]
+                        ),
                     )
                 )
 
                 self.nutritional_info.spans = spans
                 self.page.update()
-                logger.info("Successfully updated nutritional info for %s", self.barcode)
+                logger.info(
+                    "Successfully updated nutritional info for %s", self.barcode
+                )
 
             except KeyError as err:
                 color = ui_config["text_color"]["error_text"]
