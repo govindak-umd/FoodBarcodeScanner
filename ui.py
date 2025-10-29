@@ -124,7 +124,7 @@ class DisplayHMI:
     def barcode_update(self):
         """
         updates the barcode parameter when called
-        :return:
+        :return: True (No barcode validation error),  False (barcode validation error)
         """
         if barcode_validity_checker(self.txt_name.value):
             self.barcode = self.txt_name.value  # read text from TextField
@@ -140,7 +140,6 @@ class DisplayHMI:
     def retrieve_all_data(self):
         """
         Function to retrieve all food nutritional data from the website.
-        :return:
         """
         if check_json_file(self.barcode):
             logger.info("File found from history - will use that")
