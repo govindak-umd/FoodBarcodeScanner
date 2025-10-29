@@ -1,0 +1,13 @@
+severity_colors:
+  low: "green"
+  moderate: "orange"
+  high: "red"
+
+display_img:
+  width: 300
+  height: 200
+
+
+text_color:
+  regular_text: "white"
+  error_text: "red"
