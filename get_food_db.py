@@ -91,7 +91,6 @@ class FoodDB:
                 logger.info(
                     "Successfully fetched all available and requested from website"
                 )
-                print(self.nutritional_info_dict)
                 return self.nutritional_info_dict
 
         except FileNotFoundError:

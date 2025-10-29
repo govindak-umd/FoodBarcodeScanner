@@ -74,7 +74,7 @@ class DisplayHMI:
             )
         )
         # text box
-        self.txt_name = ft.TextField(label="Enter Barcode here ...")
+        self.txt_name = ft.TextField(label="Enter Barcode here ...", on_submit=self.display_nutrition)
 
         # colors of data based on severity
         # colors are taken from the ui_config

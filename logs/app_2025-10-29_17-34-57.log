@@ -1,0 +1,104 @@
+2025-10-29 17:34:57 | INFO     | root | Logs will be saved to logs/app_2025-10-29_17-34-57.log
+2025-10-29 17:34:57 | INFO     | flet | Assets path configured: /Users/govindajithkumar/PycharmProjects/FoodBarcodeScanner/assets
+2025-10-29 17:34:57 | INFO     | flet | Starting up UDS server on /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/rHDrNuMVcu
+2025-10-29 17:34:57 | INFO     | flet | Flet app has started...
+2025-10-29 17:34:57 | INFO     | flet | App URL: /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/rHDrNuMVcu
+2025-10-29 17:34:57 | INFO     | flet_desktop | Starting Flet View app...
+2025-10-29 17:34:57 | INFO     | flet_desktop | Flet View found in: /Users/govindajithkumar/.flet/bin/flet-0.28.3
+2025-10-29 17:34:57 | INFO     | flet | App session started
+2025-10-29 17:34:57 | INFO     | utils | History cleared successfully.
+2025-10-29 17:34:57 | ERROR    | utils | No more history barcodes in the database
+2025-10-29 17:34:57 | INFO     | utils | History cleared successfully.
+2025-10-29 17:34:57 | ERROR    | utils | No more history barcodes in the database
+2025-10-29 17:35:03 | INFO     | utils | Barcode Updated - 12334 is a valid numerical barcode
+2025-10-29 17:35:03 | INFO     | utils | Top 5 history barcodes : {'12334': 1} 
+2025-10-29 17:35:03 | INFO     | utils | History updated successfully.
+2025-10-29 17:35:03 | WARNING  | utils | File not found in history for - 12334
+2025-10-29 17:35:03 | WARNING  | ui | File not found from history - retrieving data from internet
+2025-10-29 17:35:03 | INFO     | get_food_db | Successfully fetched data from website
+2025-10-29 17:35:03 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-29 17:35:03 | ERROR    | get_food_db | Image not available on the website
+2025-10-29 17:35:03 | ERROR    | get_food_db | Serving Size not available on the website
+2025-10-29 17:35:03 | ERROR    | get_food_db | Product Name not available on the website
+2025-10-29 17:35:03 | ERROR    | get_food_db | Nutriments not available on the website
+2025-10-29 17:35:03 | ERROR    | get_food_db | Nutrient Levels not available on the website
+2025-10-29 17:35:03 | ERROR    | get_food_db | Nutrient Level Tags not available on the website
+2025-10-29 17:35:03 | ERROR    | get_food_db | Nutrient Score Graded not available on the website
+2025-10-29 17:35:03 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-29 17:35:03 | INFO     | ui | New Barcode Data processed for 12334
+2025-10-29 17:35:03 | INFO     | ui | Successfully showed image for 12334
+2025-10-29 17:35:03 | INFO     | utils | Barcode Updated - 12334 is a valid numerical barcode
+2025-10-29 17:35:03 | ERROR    | ui | 'str' object has no attribute 'items'
+2025-10-29 17:35:03 | ERROR    | ui | 'Nutrient Score Graded Unavailable from source'
+2025-10-29 17:35:10 | INFO     | utils | Barcode Updated - 12334 is a valid numerical barcode
+2025-10-29 17:35:10 | INFO     | utils | Top 5 history barcodes : {'12334': 2} 
+2025-10-29 17:35:10 | INFO     | utils | History updated successfully.
+2025-10-29 17:35:10 | INFO     | utils | JSON file 12334 exists in history directory.
+2025-10-29 17:35:10 | INFO     | ui | File found from history - will use that
+2025-10-29 17:35:10 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-29 17:35:10 | ERROR    | get_food_db | Image not available on the website
+2025-10-29 17:35:10 | ERROR    | get_food_db | Serving Size not available on the website
+2025-10-29 17:35:10 | ERROR    | get_food_db | Product Name not available on the website
+2025-10-29 17:35:10 | ERROR    | get_food_db | Nutriments not available on the website
+2025-10-29 17:35:10 | ERROR    | get_food_db | Nutrient Levels not available on the website
+2025-10-29 17:35:10 | ERROR    | get_food_db | Nutrient Level Tags not available on the website
+2025-10-29 17:35:10 | ERROR    | get_food_db | Nutrient Score Graded not available on the website
+2025-10-29 17:35:10 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-29 17:35:10 | INFO     | ui | New Barcode Data processed for 12334
+2025-10-29 17:35:10 | INFO     | ui | Successfully showed image for 12334
+2025-10-29 17:35:10 | INFO     | utils | Barcode Updated - 12334 is a valid numerical barcode
+2025-10-29 17:35:10 | ERROR    | ui | 'str' object has no attribute 'items'
+2025-10-29 17:35:10 | ERROR    | ui | 'Nutrient Score Graded Unavailable from source'
+2025-10-29 17:35:13 | INFO     | utils | Barcode Updated - 12334 is a valid numerical barcode
+2025-10-29 17:35:13 | INFO     | utils | Top 5 history barcodes : {'12334': 3} 
+2025-10-29 17:35:13 | INFO     | utils | History updated successfully.
+2025-10-29 17:35:13 | INFO     | utils | JSON file 12334 exists in history directory.
+2025-10-29 17:35:13 | INFO     | ui | File found from history - will use that
+2025-10-29 17:35:13 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-29 17:35:13 | ERROR    | get_food_db | Image not available on the website
+2025-10-29 17:35:13 | ERROR    | get_food_db | Serving Size not available on the website
+2025-10-29 17:35:13 | ERROR    | get_food_db | Product Name not available on the website
+2025-10-29 17:35:13 | ERROR    | get_food_db | Nutriments not available on the website
+2025-10-29 17:35:13 | ERROR    | get_food_db | Nutrient Levels not available on the website
+2025-10-29 17:35:13 | ERROR    | get_food_db | Nutrient Level Tags not available on the website
+2025-10-29 17:35:13 | ERROR    | get_food_db | Nutrient Score Graded not available on the website
+2025-10-29 17:35:13 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-29 17:35:13 | INFO     | ui | New Barcode Data processed for 12334
+2025-10-29 17:35:13 | INFO     | ui | Successfully showed image for 12334
+2025-10-29 17:35:13 | INFO     | utils | Barcode Updated - 12334 is a valid numerical barcode
+2025-10-29 17:35:13 | ERROR    | ui | 'str' object has no attribute 'items'
+2025-10-29 17:35:13 | ERROR    | ui | 'Nutrient Score Graded Unavailable from source'
+2025-10-29 17:36:12 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-29 17:36:12 | INFO     | utils | Top 5 history barcodes : {'12334': 3, '859213005001': 1} 
+2025-10-29 17:36:12 | INFO     | utils | History updated successfully.
+2025-10-29 17:36:12 | WARNING  | utils | File not found in history for - 859213005001
+2025-10-29 17:36:12 | WARNING  | ui | File not found from history - retrieving data from internet
+2025-10-29 17:36:12 | INFO     | get_food_db | Successfully fetched data from website
+2025-10-29 17:36:12 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-29 17:36:12 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-29 17:36:12 | INFO     | ui | New Barcode Data processed for 859213005001
+2025-10-29 17:36:12 | INFO     | ui | Successfully showed image for 859213005001
+2025-10-29 17:36:12 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-29 17:36:12 | INFO     | ui | Successfully updated nutritional info for 859213005001
+2025-10-29 17:36:19 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-29 17:36:19 | INFO     | utils | Top 5 history barcodes : {'12334': 3, '859213005001': 2} 
+2025-10-29 17:36:19 | INFO     | utils | History updated successfully.
+2025-10-29 17:36:19 | INFO     | utils | JSON file 859213005001 exists in history directory.
+2025-10-29 17:36:19 | INFO     | ui | File found from history - will use that
+2025-10-29 17:36:19 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-29 17:36:19 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-29 17:36:19 | INFO     | ui | New Barcode Data processed for 859213005001
+2025-10-29 17:36:19 | INFO     | ui | Successfully showed image for 859213005001
+2025-10-29 17:36:19 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-29 17:36:19 | INFO     | ui | Successfully updated nutritional info for 859213005001
+2025-10-29 17:36:23 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-29 17:36:23 | INFO     | utils | Top 5 history barcodes : {'12334': 3, '859213005001': 3} 
+2025-10-29 17:36:23 | INFO     | utils | History updated successfully.
+2025-10-29 17:36:23 | INFO     | utils | JSON file 859213005001 exists in history directory.
+2025-10-29 17:36:23 | INFO     | ui | File found from history - will use that
+2025-10-29 17:36:23 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-29 17:36:23 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-29 17:36:23 | INFO     | ui | New Barcode Data processed for 859213005001
+2025-10-29 17:36:23 | INFO     | ui | Successfully showed image for 859213005001
+2025-10-29 17:36:23 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-29 17:36:23 | INFO     | ui | Successfully updated nutritional info for 859213005001
