@@ -199,13 +199,17 @@ class DisplayHMI:
             for nutrient_key, nutrient_val in self.processed_nutritional_info[
                 "nutrient_levels"
             ].items():
-                # retrieve unit of the nutrient measurement from the nutriments dictionary
+
+                # adding nutrient information on the UI
+                ## retrieve unit of the nutrient measurement from the nutriments dictionary
                 nutrient_unit = self.processed_nutritional_info["nutriments"][
                     str(nutrient_key + "_unit")
                 ]
+                ## add text and set color for the text based on value
+                color = ui_config["text_color"]["severity_colors_nutrition_levels"][
+                    nutrient_val
+                ]
 
-                # add text and set color for the text based on value
-                color = self.text_color_severity.get(nutrient_val, "white")
                 spans.append(
                     ft.TextSpan(
                         f"{nutrient_key.capitalize()} - {nutrient_val} - "
@@ -214,6 +218,22 @@ class DisplayHMI:
                         style=ft.TextStyle(color=color, size=16),
                     )
                 )
+
+            print(self.processed_nutritional_info["nutriscore_grade"])
+
+            ## add text and set color for the text based on value
+            color = ui_config["text_color"]["nutri_score_color_grade"][
+                self.processed_nutritional_info["nutriscore_grade"]
+            ]
+
+            spans.append(
+                ft.TextSpan(
+                    f"Nutri grade - {self.processed_nutritional_info[
+                    "nutriscore_grade"
+                ].capitalize()} ",
+                    style=ft.TextStyle(color=color, size=16),
+                )
+            )
 
             self.nutritional_info.spans = spans
             self.page.update()

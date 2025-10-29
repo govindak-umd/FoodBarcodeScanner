@@ -16,8 +16,9 @@ text_color:
     high: "red"
   # nutri_score_color_grade: color grading based on the nutri_score
   nutri_score_color_grade:
-    A: "green"
-    B: "cyan"
-    C: "yellow"
-    D: "orange"
-    E: "red"
+    a: "green"
+    b: "cyan"
+    c: "yellow"
+    d: "yellow"
+    e: "red"
+    'not-applicable': "red" # for some food this information is not present
