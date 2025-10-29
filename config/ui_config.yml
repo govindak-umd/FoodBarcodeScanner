@@ -23,3 +23,10 @@ text_color:
     d: "yellow"
     e: "red"
     'not-applicable': "red" # for some food this information is not present
+
+# button_colors: specify the color of every button you want in the UI
+button_colors:
+  history_button_color: "yellow"
+
+# max_history: number of buttons you want generated
+max_history: 5

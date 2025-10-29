@@ -5,6 +5,7 @@ Commonly used utilities file
 import json
 import re
 import logging
+from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
@@ -41,3 +42,61 @@ def barcode_validity_checker(barcode_input):
     else:
         logger.error(f"Barcode Update Failed - {barcode_input} is not a number")
         return False
+
+
+def add_to_history(food_barcode):
+    """
+    Function to manage history, add barcode search to history
+    :param food_barcode:
+    :return:
+    """
+    Path("history").mkdir(exist_ok=True)  # ensure folder exists
+
+    try:
+        with open("history/history.json", "r", encoding="utf-8") as f:
+            loaded_data = json.load(f)
+        logger.debug("History file loaded")
+    except FileNotFoundError:
+        logger.error(logger.error("No History JSON file found"))
+        newly_created_data = {food_barcode: 1}
+        json.dump(newly_created_data, f, indent=4)
+    except json.JSONDecodeError:
+        logger.error("JSON Error detected - creating a new JSON file")
+        loaded_data = {}
+
+    if food_barcode in loaded_data:
+        loaded_data[food_barcode] += 1
+        logger.debug("Incremented count for %s", food_barcode)
+    else:
+        loaded_data[food_barcode] = 1
+        logger.debug("Added new food barcode %s to history", food_barcode)
+
+    with open("history/history.json", "w", encoding="utf-8") as f:
+        json.dump(loaded_data, f, indent=4, ensure_ascii=False)
+
+    logger.info("History updated successfully.")
+
+
+def clear_history():
+    """
+    Function to manage history, add barcode search to history
+    :param food_barcode:
+    :return:
+    """
+    Path("history").mkdir(exist_ok=True)  # ensure folder exists
+
+    try:
+        with open("history/history.json", "r", encoding="utf-8") as f:
+            loaded_data = json.load(f)
+        logger.debug("History JSON file loaded")
+    except FileNotFoundError:
+        logger.error(logger.error("No History JSON file found"))
+    except json.JSONDecodeError:
+        logger.error("JSON Error detected - creating a new JSON file")
+
+    loaded_data = {}
+
+    with open("history/history.json", "w", encoding="utf-8") as f:
+        json.dump(loaded_data, f, indent=4, ensure_ascii=False)
+
+    logger.info("History cleared successfully.")
