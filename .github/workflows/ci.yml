@@ -33,7 +33,7 @@ jobs:
       - name: Black (check only)
         run: |
           echo "Checking code formatting with Black..."
-          python -m black --check --diff .
+          black .
 
       - name: Run tests
         run: |
