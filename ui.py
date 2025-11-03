@@ -263,6 +263,7 @@ class DisplayHMI:
                 )
             try:
 
+
                 ## add text and set color for the text based on value
                 color = ui_config["text_color"]["nutri_score_color_grade"][
                     self.processed_nutritional_info["nutriscore_grade"]
