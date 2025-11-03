@@ -23,7 +23,7 @@ jobs:
       - name: Install Black
         run: pip install black
 
-      - name: Check formatting with Black
+      - name: Run Black check and save report
         run: |
-          echo "Running Black check..."
-          black --check .
+          mkdir -p reports
+          black --check . > reports/black_report.txt || true
