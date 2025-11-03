@@ -37,12 +37,13 @@ jobs:
 
       - name: Run Pylint
         run: |
-          echo "🔎 Running pylint..."
+          echo "Running pylint..."
           python -m pylint main.py src tests || true
 
       - name: Run Black formatting check
         run: |
           echo "Checking code formatting with Black..."
+          black .
           python -m black --check --diff .
 
       - name: Run tests
