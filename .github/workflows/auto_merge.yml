@@ -93,7 +93,7 @@ jobs:
                 pull_number: pr_number,
                 merge_method: 'squash'
               });
-              core.info(`✅ Auto-merged PR #${pr_number}`);
+              core.info('Auto-merged PR #${pr_number}`);
             } else {
-              core.info(`⏭️ Not mergeable yet (state=${pr.mergeable_state}).`);
+              core.info(`Not mergeable yet (state=${pr.mergeable_state}).`);
             }
