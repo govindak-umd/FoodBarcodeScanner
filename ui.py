@@ -274,9 +274,7 @@ class DisplayHMI:
 
                 spans.append(
                     ft.TextSpan(
-                        f"Nutri grade - {self.processed_nutritional_info[
-                        "nutriscore_grade"
-                    ].capitalize()} ",
+                        f"Nutri grade - {self.processed_nutritional_info["nutriscore_grade"].capitalize()} ",
                         style=ft.TextStyle(
                             color=color, size=ui_config["common_text_size"]
                         ),
