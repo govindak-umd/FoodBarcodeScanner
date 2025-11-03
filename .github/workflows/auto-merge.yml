@@ -108,10 +108,30 @@ jobs:
             console.log('mergeCommitAllowed:', repository.mergeCommitAllowed);
             console.log('rebaseMergeAllowed:', repository.rebaseMergeAllowed);
 
-      # Enable native auto-merge (label must be present)
-      - name: Enable auto-merge (squash)
-        if: contains(steps.pr.outputs.labels, 'automerge')
+      - name: Resolve PR number (works for PR + check_suite)
+        id: pr
+        uses: actions/github-script@v7
+        with:
+          script: |
+            let pr = context.payload.pull_request;
+            if (!pr && context.eventName === 'check_suite') {
+              const prs = context.payload.check_suite.pull_requests || [];
+              if (prs.length) {
+                const { data } = await github.rest.pulls.get({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  pull_number: prs[0].number
+                });
+                pr = data;
+              }
+            }
+            if (!pr) core.setFailed('No PR found for this event.');
+            core.setOutput('number', pr.number);
+
+      - name: Enable GitHub Auto-Merge (squash)
+        if: success()
         uses: peter-evans/enable-pull-request-automerge@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          pull-request-number: ${{ steps.pr.outputs.number }}
           merge-method: squash
