@@ -2,7 +2,7 @@ name: Auto Merge (after all checks)
 
 on:
   workflow_run:
-    workflows: ["Python CI", "Auto Format with Black"]   # must match the `name:` fields above
+    workflows: ["Python CI", "isort Check", "Auto Format with Black"]   # must match the `name:` fields above
     types: [completed]
 
 permissions:
