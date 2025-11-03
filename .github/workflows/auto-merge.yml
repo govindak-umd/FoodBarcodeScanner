@@ -2,136 +2,19 @@ name: Auto Merge
 
 on:
   pull_request_target:
-    types: [labeled, synchronize, reopened]
-  check_suite:
-    types: [completed]
+    types: [labeled, reopened, synchronize]
 
 permissions:
   pull-requests: write
   contents: write
-  checks: read
-  statuses: read
 
 jobs:
   enable-auto-merge:
+    if: contains(github.event.pull_request.labels.*.name, 'automerge')
     runs-on: ubuntu-latest
     steps:
-      - name: Resolve PR for this event
-        id: pr
-        uses: actions/github-script@v7
-        with:
-          script: |
-            let pr = context.payload.pull_request;
-            if (!pr && context.eventName === 'check_suite') {
-              const prs = context.payload.check_suite.pull_requests || [];
-              if (prs.length) {
-                const { data } = await github.rest.pulls.get({
-                  owner: context.repo.owner,
-                  repo: context.repo.repo,
-                  pull_number: prs[0].number
-                });
-                pr = data;
-              }
-            }
-            if (!pr) core.setFailed('No PR found for this event.');
-            core.setOutput('number', pr.number);
-            core.setOutput('sha', pr.head.sha);
-            core.setOutput('labels', JSON.stringify(pr.labels.map(l => l.name)));
-
-      - name: Require `automerge` label
-        run: |
-          echo "Labels: ${{ steps.pr.outputs.labels }}"
-          echo "${{ steps.pr.outputs.labels }}" | grep -q '"automerge"' || {
-            echo "No 'automerge' label — skipping."; exit 78;
-          }
-
-      # --- Diagnostics: show EXACT blockers from GraphQL ---
-      - name: Diagnose merge blockers
-        id: diag
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const { owner, repo } = context.repo;
-            const number = Number('${{ steps.pr.outputs.number }}');
-            const q = `
-              query($owner:String!, $repo:String!, $number:Int!) {
-                repository(owner:$owner, name:$repo) {
-                  squashMergeAllowed
-                  mergeCommitAllowed
-                  rebaseMergeAllowed
-                  pullRequest(number:$number){
-                    isDraft
-                    mergeStateStatus         # CLEAN, BLOCKED, DIRTY, BEHIND, UNKNOWN, UNSTABLE
-                    reviewDecision          # APPROVED, CHANGES_REQUESTED, REVIEW_REQUIRED, null
-                    canBeRebased
-                    isInMergeQueue
-                    autoMergeRequest { enabledAt }
-                    baseRefName
-                    headRefName
-                    commits(last:1) {
-                      nodes {
-                        commit {
-                          oid
-                          statusCheckRollup {
-                            state            # EXPECTED, PENDING, SUCCESS, ERROR, FAILURE
-                            contexts(first:50){
-                              nodes {
-                                __typename
-                                ... on CheckRun { name conclusion }
-                                ... on StatusContext { context state }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }`;
-            const { repository } = await github.graphql(q, { owner, repo, number });
-            const pr = repository.pullRequest;
-
-            // Log everything helpful
-            console.log('squashMergeAllowed:', repository.squashMergeAllowed);
-            console.log('mergeCommitAllowed:', repository.mergeCommitAllowed);
-            console.log('rebaseMergeAllowed:', repository.rebaseMergeAllowed);
-            console.log('isDraft:', pr.isDraft);
-            console.log('mergeStateStatus:', pr.mergeStateStatus);
-            console.log('reviewDecision:', pr.reviewDecision);
-            console.log('autoMerge enabledAt:', pr.autoMergeRequest?.enabledAt || 'not enabled');
-            const rollup = pr.commits.nodes[0].commit.statusCheckRollup;
-            console.log('statusCheckRollup.state:', rollup?.state);
-            for (const c of (rollup?.contexts.nodes || [])) {
-              if (c.__typename === 'CheckRun') console.log('CheckRun:', c.name, '=>', c.conclusion);
-              if (c.__typename === 'StatusContext') console.log('StatusContext:', c.context, '=>', c.state);
-            }
-
-            // Surface key blockers to subsequent steps
-            core.setOutput('mergeState', pr.mergeStateStatus);
-            core.setOutput('isDraft', pr.isDraft ? 'true':'false');
-            core.setOutput('reviewDecision', pr.reviewDecision || 'NONE');
-            core.setOutput('squashAllowed', repository.squashMergeAllowed ? 'true':'false');
-
-      # If branch is BEHIND and you require up-to-date, auto-update the branch
-      - name: Update branch if behind (maintainers can update branch must be enabled)
-        if: steps.diag.outputs.mergeState == 'BEHIND'
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const { owner, repo } = context.repo;
-            const pull_number = Number('${{ steps.pr.outputs.number }}');
-            try {
-              await github.rest.pulls.updateBranch({ owner, repo, pull_number });
-              console.log('Branch updated with base.');
-            } catch (e) {
-              console.log('Unable to update branch automatically:', e.message);
-              core.setFailed('Branch is behind and could not be auto-updated.');
-            }
-
-      # Enable auto-merge using an allowed merge method
       - name: Enable GitHub Auto-Merge
-        if: steps.diag.outputs.isDraft == 'false'
         uses: peter-evans/enable-pull-request-automerge@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          merge-method: ${{ steps.diag.outputs.squashAllowed == 'true' && 'squash' || 'merge' }}
+          merge-method: squash
