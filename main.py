@@ -3,8 +3,8 @@ main script
 """
 
 import logging
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
 
 import colorlog
 import flet as ft
