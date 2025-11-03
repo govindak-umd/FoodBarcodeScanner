@@ -114,7 +114,7 @@ jobs:
             const res = await github.graphql(q, { owner, repo, number });
             const state = res.repository.pullRequest.commits.nodes[0].commit.statusCheckRollup.state;
             if (state !== "SUCCESS") core.setFailed("Not all checks passed yet: " + state);
-            else console.log("✅ All checks successful, proceeding to auto-merge");
+            else console.log("All checks successful, proceeding to auto-merge");
 
 
       # Enable GitHub native auto-merge (shows banner on PR)
