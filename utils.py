@@ -3,11 +3,11 @@ Commonly used utilities file
 """
 
 import json
-import re
 import logging
+import re
 from pathlib import Path
-import yaml
 
+import yaml
 
 # Load UI YAML file
 with open("config/ui_config.yml", "r", encoding="utf-8") as file:

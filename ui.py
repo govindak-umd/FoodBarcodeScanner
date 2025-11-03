@@ -3,17 +3,13 @@ UI code
 """
 
 import logging
+
 import flet as ft
 import yaml
 
-from utils import (
-    check_json_file,
-    barcode_validity_checker,
-    clear_history,
-    check_and_retrieve_history,
-)
 from get_food_db import FoodDB
-
+from utils import (barcode_validity_checker, check_and_retrieve_history,
+                   check_json_file, clear_history)
 
 # Load UI YAML file
 with open("config/ui_config.yml", "r", encoding="utf-8") as file:

@@ -4,8 +4,9 @@ Get food nutritional info from: https://world.openfoodfacts.org
 
 import json
 import logging
-import yaml
+
 import requests
+import yaml
 
 logger = logging.getLogger(__name__)
 
