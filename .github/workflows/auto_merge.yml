@@ -1,9 +1,9 @@
-name: Auto Merge
+name: Auto Merge (after all checks)
 
 on:
   workflow_run:
     # IMPORTANT: these must match the *name:* at the top of each workflow
-    workflows: ["Python CI", "isort Check", "Auto Format with Black]
+    workflows: ["Python CI", "isort Check", "Auto Format with Black"]
     types: [completed]
 
 permissions:
@@ -84,7 +84,7 @@ jobs:
                 owner: context.repo.owner, repo: context.repo.repo,
                 pull_number: pr_number, merge_method: 'squash'
               });
-              core.info(`Auto-merged PR #${pr_number}`);
+              core.info('Auto-merged PR #${pr_number}`);
             } else {
               core.info(`Not mergeable. State=${pr.mergeable_state}. If 'behind', branch protection requires 'update branch'. If 'blocked', reviews or required checks not satisfied.`);
             }
