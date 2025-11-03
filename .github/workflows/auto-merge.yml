@@ -128,6 +128,71 @@ jobs:
             if (!pr) core.setFailed('No PR found for this event.');
             core.setOutput('number', pr.number);
 
+      - name: Verify required checks (GraphQL rollup; works for forks)
+        id: verify
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const REQUIRED_CONTEXTS = [
+              'isort_check / isort-fix (pull_request)',
+              'ci_check / ci-test (pull_request)',
+            ];
+
+            const { owner, repo } = context.repo;
+            const number = Number('${{ steps.pr.outputs.number }}');
+
+            const q = `
+              query($owner:String!, $repo:String!, $number:Int!) {
+                repository(owner:$owner, name:$repo) {
+                  pullRequest(number:$number) {
+                    commits(last:1) {
+                      nodes {
+                        commit {
+                          oid
+                          statusCheckRollup {
+                            state
+                            contexts(first:100) {
+                              nodes {
+                                __typename
+                                ... on CheckRun { name conclusion }
+                                ... on StatusContext { context state }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            `;
+            const data = await github.graphql(q, { owner, repo, number });
+            const rollup = data.repository.pullRequest.commits.nodes[0].commit.statusCheckRollup;
+
+            // Build a lookup of context -> state
+            const byContext = {};
+            for (const c of (rollup?.contexts.nodes || [])) {
+              if (c.__typename === 'StatusContext') byContext[c.context] = c.state;         // success|failure|pending
+              if (c.__typename === 'CheckRun')       byContext[c.name]    = c.conclusion;   // success|failure|neutral|...
+            }
+
+            console.log('Seen contexts:', byContext);
+
+            const missing = [];
+            const failed  = [];
+            for (const ctx of REQUIRED_CONTEXTS) {
+              if (!(ctx in byContext)) { missing.push(ctx); continue; }
+              const v = (byContext[ctx] || '').toLowerCase();
+              const ok = v === 'success';
+              if (!ok) failed.push(`${ctx} => ${v || 'unknown'}`);
+            }
+
+            if (missing.length) core.setFailed(`Missing required contexts: ${missing.join(', ')}`);
+            if (failed.length)  core.setFailed(`Failed/unstable contexts: ${failed.join('; ')}`);
+
+            core.setOutput('ready', (!missing.length && !failed.length) ? 'true' : 'false');
+
+
       - name: Enable GitHub Auto-Merge (squash)
         if: success()
         uses: peter-evans/enable-pull-request-automerge@v3
