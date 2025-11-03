@@ -1,16 +1,16 @@
-name: Auto Format with Black
+name: black format
 
 on:
   push:
-    branches: [ "**" ]
-
-permissions:
-  contents: write
-  pull-requests: write
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
 
 jobs:
-  format:
+  black-check:
+    name: Run Black (code formatting check)
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -23,17 +23,7 @@ jobs:
       - name: Install Black
         run: pip install black
 
-      - name: Run Black
-        run: black .
-
-      - name: Commit changes (if any)
+      - name: Check formatting with Black
         run: |
-          if [ -n "$(git status --porcelain)" ]; then
-            git config --global user.name "github-actions[bot]"
-            git config --global user.email "github-actions[bot]@users.noreply.github.com"
-            git add .
-            git commit -m "Apply Black formatting"
-            git push
-          else
-            echo "No formatting changes needed."
-          fi
+          echo "Running Black check..."
+          black --check .

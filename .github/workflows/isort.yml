@@ -1,4 +1,4 @@
-name: isort Check
+name: isort check
 
 on:
   push:
