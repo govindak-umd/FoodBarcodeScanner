@@ -1,0 +1,36 @@
+2025-11-03 12:16:13 | INFO     | root | Logs will be saved to logs/app_2025-11-03_12-16-13.log
+2025-11-03 12:16:13 | INFO     | flet | Assets path configured: /Users/govindajithkumar/PycharmProjects/FoodBarcodeScanner/assets
+2025-11-03 12:16:13 | INFO     | flet | Starting up UDS server on /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/4iW1x8pnK6
+2025-11-03 12:16:13 | INFO     | flet | Flet app has started...
+2025-11-03 12:16:13 | INFO     | flet | App URL: /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/4iW1x8pnK6
+2025-11-03 12:16:13 | INFO     | flet_desktop | Starting Flet View app...
+2025-11-03 12:16:13 | INFO     | flet_desktop | Flet View found in: /Users/govindajithkumar/.flet/bin/flet-0.28.3
+2025-11-03 12:16:13 | INFO     | flet | App session started
+2025-11-03 12:16:13 | INFO     | utils | Top 5 history barcodes : {'3017624010701': 12, '8445290728791': 8, '8445290728792': 8, '111': 8, '113': 8} 
+2025-11-03 12:16:13 | INFO     | utils | History updated successfully.
+2025-11-03 12:16:15 | INFO     | ui | Displaying Nutritional Information for s
+2025-11-03 12:16:15 | INFO     | ui | Checking Validity and Updating barcode for s
+2025-11-03 12:16:15 | ERROR    | utils | Barcode Update Failed - s is not a number
+2025-11-03 12:16:15 | ERROR    | ui | Barcode Validation Error
+2025-11-03 12:16:15 | INFO     | ui | Successfully showed image for None
+2025-11-03 12:16:15 | ERROR    | utils | Barcode Update Failed - Invalid Barcode - Please enter a numerical barcode is not a number
+2025-11-03 12:16:15 | ERROR    | ui | Cannot display nutritional info for an invalid barcode
+2025-11-03 12:16:15 | INFO     | ui | Buttons presented in the history tab before clearing []
+2025-11-03 12:16:15 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-11-03 12:16:15 | INFO     | ui | Generating new history tab buttons
+2025-11-03 12:16:25 | INFO     | ui | Displaying Nutritional Information for 8445290728791
+2025-11-03 12:16:25 | INFO     | ui | Checking Validity and Updating barcode for 8445290728791
+2025-11-03 12:16:25 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-11-03 12:16:25 | INFO     | utils | Top 5 history barcodes : {'3017624010701': 12, '8445290728791': 9, '8445290728792': 8, '111': 8, '113': 8} 
+2025-11-03 12:16:25 | INFO     | utils | History updated successfully.
+2025-11-03 12:16:25 | INFO     | utils | JSON file 8445290728791 exists in history directory.
+2025-11-03 12:16:25 | INFO     | ui | File found from history - will use that
+2025-11-03 12:16:25 | INFO     | get_food_db | Successfully fetched image from website
+2025-11-03 12:16:25 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-11-03 12:16:25 | INFO     | ui | New Barcode Data processed for 8445290728791
+2025-11-03 12:16:25 | INFO     | ui | Successfully showed image for 8445290728791
+2025-11-03 12:16:25 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-11-03 12:16:25 | INFO     | ui | Successfully updated nutritional info for 8445290728791
+2025-11-03 12:16:25 | INFO     | ui | Buttons presented in the history tab before clearing [ElevatedButton(text='8445290728791', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='8445290728792', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='111', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='113', style='{"padding":{},"side":{},"shape":{},"text_style":{}}')]
+2025-11-03 12:16:25 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-11-03 12:16:25 | INFO     | ui | Generating new history tab buttons
