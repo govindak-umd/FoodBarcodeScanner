@@ -1,4 +1,4 @@
-name: Auto Format with isort
+name: isort Check
 
 on:
   push:
