@@ -1,0 +1,27 @@
+2025-10-30 11:19:55 | INFO     | root | Logs will be saved to logs/app_2025-10-30_11-19-55.log
+2025-10-30 11:19:55 | INFO     | flet | Assets path configured: /Users/govindajithkumar/PycharmProjects/FoodBarcodeScanner/assets
+2025-10-30 11:19:55 | INFO     | flet | Starting up UDS server on /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/Z7mOFwTx23
+2025-10-30 11:19:55 | INFO     | flet | Flet app has started...
+2025-10-30 11:19:55 | INFO     | flet | App URL: /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/Z7mOFwTx23
+2025-10-30 11:19:55 | INFO     | flet_desktop | Starting Flet View app...
+2025-10-30 11:19:55 | INFO     | flet_desktop | Flet View found in: /Users/govindajithkumar/.flet/bin/flet-0.28.3
+2025-10-30 11:19:56 | INFO     | flet | App session started
+2025-10-30 11:19:56 | INFO     | utils | Top 5 history barcodes : {'8445290728791': 24, '111': 7, '722252153258': 1} 
+2025-10-30 11:19:56 | INFO     | utils | History updated successfully.
+2025-10-30 11:20:05 | INFO     | ui | Displaying Nutritional Information for None
+2025-10-30 11:20:05 | INFO     | utils | Barcode Updated - 722252153258 is a valid numerical barcode
+2025-10-30 11:20:05 | INFO     | utils | Top 5 history barcodes : {'8445290728791': 24, '111': 7, '722252153258': 2} 
+2025-10-30 11:20:05 | INFO     | utils | History updated successfully.
+2025-10-30 11:20:05 | INFO     | utils | JSON file 722252153258 exists in history directory.
+2025-10-30 11:20:05 | INFO     | ui | File found from history - will use that
+2025-10-30 11:20:05 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-30 11:20:05 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-30 11:20:05 | INFO     | ui | New Barcode Data processed for 722252153258
+2025-10-30 11:20:05 | INFO     | ui | Successfully showed image for 722252153258
+2025-10-30 11:20:05 | INFO     | utils | Barcode Updated - 722252153258 is a valid numerical barcode
+2025-10-30 11:20:05 | INFO     | ui | Successfully updated nutritional info for 722252153258
+2025-10-30 11:20:05 | INFO     | ui | Buttons presented in the history tab before clearing []
+2025-10-30 11:20:05 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-10-30 11:20:05 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:20:05 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:20:05 | INFO     | ui | Generating new history tab buttons

@@ -51,30 +51,30 @@ def barcode_validity_checker(barcode_input):
         return False
 
 
-def compute_top_n_history_barcodes(history_dict):
-    """
-    function computes the top 'n' history barcodes
-    :return: sorted keys of all the historical barcodes
-    """
-    max_history = ui_config["max_history"]
-
-    # get a sorted dictionary and then sort it in reverse order (descending) and then parse it only until max_hisory size
-    sorted_history = dict(
-        sorted(history_dict.items(), key=lambda item: item[1], reverse=True)[
-            : min(max_history, len(history_dict))
-        ]
-    )
-    logger.info(f"Top {max_history} history barcodes : {sorted_history} ")
-    return sorted_history.keys()
-
-
-def add_and_retrieve_history(food_barcode):
+def check_and_retrieve_history(food_barcode=None):
     """
     Function to manage history, add barcode search to history
     :param food_barcode:
     :return: top n history barcodes
     """
     Path("history").mkdir(exist_ok=True)  # ensure folder exists
+
+    def compute_top_n_history_barcodes(history_dict):
+        """
+        function computes the top 'n' history barcodes
+        :return: sorted keys of all the historical barcodes
+        """
+        max_history = ui_config["max_history"]
+
+        # get a sorted dictionary and then sort it in reverse order (descending) and then parse it only until max_hisory size
+        sorted_history = dict(
+            sorted(history_dict.items(), key=lambda item: item[1], reverse=True)[
+                : min(max_history, len(history_dict))
+            ]
+        )
+        logger.info(f"Top {max_history} history barcodes : {sorted_history} ")
+
+        return list(sorted_history.keys())
 
     try:
         with open("history/history.json", "r", encoding="utf-8") as f:
@@ -88,18 +88,23 @@ def add_and_retrieve_history(food_barcode):
         logger.error("JSON Error detected - creating a new JSON file")
         loaded_data = {}
 
-    if food_barcode in loaded_data:
-        loaded_data[food_barcode] += 1
-        logger.debug("Incremented count for %s", food_barcode)
-    else:
-        loaded_data[food_barcode] = 1
-        logger.debug("Added new food barcode %s to history", food_barcode)
+    if food_barcode is not None:
 
+        # increment the count if the barcode is in there
+        if food_barcode in loaded_data:
+            loaded_data[food_barcode] += 1
+            logger.debug("Incremented count for %s", food_barcode)
+        # add the count of 1 if the barcode is new
+        else:
+            loaded_data[food_barcode] = 1
+            logger.debug("Added new food barcode %s to history", food_barcode)
+
+    # save the JSON file
     with open("history/history.json", "w", encoding="utf-8") as f:
         json.dump(loaded_data, f, indent=4, ensure_ascii=False)
 
     top_n_history_barcodes = compute_top_n_history_barcodes(loaded_data)
-
+    print(top_n_history_barcodes)
     logger.info("History updated successfully.")
 
     return top_n_history_barcodes
@@ -117,7 +122,9 @@ def clear_history():
         with open("history/history.json", "r", encoding="utf-8") as f:
             logger.debug("History JSON file loaded")
     except FileNotFoundError:
-        logger.error(logger.error("FileNotFoundError detected - No History file file found"))
+        logger.error(
+            logger.error("FileNotFoundError detected - No History file file found")
+        )
     except json.JSONDecodeError:
         logger.error("JSONDecodeError detected - creating a new JSON file")
 

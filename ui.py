@@ -5,11 +5,12 @@ UI code
 import logging
 import flet as ft
 import yaml
+
 from utils import (
     check_json_file,
     barcode_validity_checker,
     clear_history,
-    add_and_retrieve_history,
+    check_and_retrieve_history,
 )
 from get_food_db import FoodDB
 
@@ -29,7 +30,8 @@ class DisplayHMI:
     def __init__(self, new_page):
 
         # barcode related
-        self.top_n_historical_barcodes = None
+        # update the history and retrieve the barcodes
+        self.top_n_historical_barcodes = check_and_retrieve_history()
         self.barcode = None
 
         # UI related variables and initialize UI
@@ -123,16 +125,21 @@ class DisplayHMI:
 
     def barcode_update(self):
         """
-        updates the barcode parameter when called
+        Validates the barcode format, and if that passes,
+        it updates the barcode parameter when called
         :return: True (No barcode validation error),  False (barcode validation error)
         """
+        logger.info(
+            "Checking Validity and Updating barcode for %s", self.txt_name.value
+        )
+        # checking validity
         if barcode_validity_checker(self.txt_name.value):
             self.barcode = self.txt_name.value  # read text from TextField
             self.txt_name.value = self.barcode
 
             self.page.update()
             # update the history and retrieve the barcodes
-            self.top_n_historical_barcodes = add_and_retrieve_history(self.barcode)
+            self.top_n_historical_barcodes = check_and_retrieve_history(self.barcode)
             return True
         logger.error("Barcode Validation Error")
         return False
@@ -158,14 +165,23 @@ class DisplayHMI:
 
         logger.info("New Barcode Data processed for %s", self.barcode)
 
-    def display_nutrition(self, e):
+    def display_nutrition(self, e, history_barcode=None):
         """
         calling this function should display all the nutritional
         information from the website. It will automatically update the
         barcode with whatever is in the text box (if its valid) and then
         display the nutritional information.
+        :param history_barcode: barcode associated with the click on the historical data button
         :param e: Mouse Event Click
         """
+
+        # when the history button is clicked, this block is executed
+        if history_barcode is not None:
+            print("History barcode is %s", history_barcode)
+            self.txt_name.value = history_barcode
+            self.txt_name.label = self.txt_name.value
+
+        logger.info("Displaying Nutritional Information for %s", self.txt_name.value)
         # blank out the previous nutrition info text
         spans = []
         self.nutritional_info.spans = spans
@@ -243,7 +259,7 @@ class DisplayHMI:
                 color = ui_config["text_color"]["error_text"]
                 spans.append(
                     ft.TextSpan(
-                        f"No data available",
+                        "No data available",
                         style=ft.TextStyle(
                             color=color, size=ui_config["common_text_size"]
                         ),
@@ -277,7 +293,7 @@ class DisplayHMI:
                 color = ui_config["text_color"]["error_text"]
                 spans.append(
                     ft.TextSpan(
-                        f"No data available",
+                        "No data available",
                         style=ft.TextStyle(
                             color=color, size=ui_config["common_text_size"]
                         ),
@@ -301,7 +317,13 @@ class DisplayHMI:
 
             logger.error("Cannot display nutritional info for an invalid barcode")
 
-    def show_all_history(self):
+        # perform history check - this includes:
+        # update history table
+        # grab new top barcodes
+        # update the history buttons
+        self.perform_history_check()
+
+    def perform_history_check(self):
         """
         placeholder function to display the history of all the
         previously scanned barcodes. The user should be able
@@ -309,4 +331,30 @@ class DisplayHMI:
         that product up to show nutritional information.
         :return:
         """
-        pass
+
+        # this ensures that we do not have more buttons that max_history
+        if len(self.history_row.controls) >= ui_config["max_history"]:
+            logger.debug("History button limit reached.")
+            self.history_row.controls.pop(0)
+
+        # get a list of all the barcodes that is in the buttons right now
+        logger.info(
+            "Buttons presented in the history tab before clearing %s",
+            self.history_row.controls,
+        )
+        self.history_row.controls = []
+        logger.info(
+            "Buttons presented in the history tab after clearing %s",
+            self.history_row.controls,
+        )
+
+        for each_barcode in self.top_n_historical_barcodes:
+
+            new_history_button = ft.ElevatedButton(
+                str(each_barcode),
+                on_click=lambda e, code=each_barcode: self.display_nutrition(e, code),
+            )
+
+            self.history_row.controls.append(new_history_button)
+            self.history_row.update()
+        logger.info("Generating new history tab buttons")
