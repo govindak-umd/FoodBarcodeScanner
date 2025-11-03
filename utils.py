@@ -53,7 +53,7 @@ def barcode_validity_checker(barcode_input):
 
 def check_and_retrieve_history(food_barcode=None):
     """
-    Function to manage history, add barcode search to history
+    Function to manage history, add the barcode search to history
     :param food_barcode:
     :return: top n history barcodes
     """
