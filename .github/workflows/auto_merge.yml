@@ -56,36 +56,34 @@ jobs:
         if: steps.label.outputs.has_label != 'true'
         run: echo "No auto-merge label; skipping."; exit 0
 
-      # Optional: sanity-check all check runs on the commit are successful/neutral/skipped
-      - name: Verify all checks on commit are green
-        id: checks
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const ref = "${{ steps.pr.outputs.head_sha }}";
-            const { data } = await github.rest.checks.listForRef({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              ref
-            });
-            const allGreen = data.check_runs.every(cr =>
-              ['success','neutral','skipped'].includes(cr.conclusion || '')
-            );
-            core.setOutput('all_green', allGreen);
-
-      - name: Merge if mergeable per Branch Protection (state=clean)
-        if: steps.checks.outputs.all_green == 'true'
+      - name: Merge when mergeable_state becomes clean (retry)
         uses: actions/github-script@v7
         with:
           script: |
             const pr_number = Number("${{ steps.pr.outputs.pr_number }}");
-            const { data: pr } = await github.rest.pulls.get({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              pull_number: pr_number
-            });
 
-            // 'clean' => all required checks + required reviews satisfied
+            async function getPR() {
+              const { data } = await github.rest.pulls.get({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: pr_number
+              });
+              return data;
+            }
+
+            // poll up to ~60s while GitHub calculates mergeability or waits on reviews
+            let pr = await getPR();
+            let tries = 12;
+            while (tries-- && (pr.mergeable_state === 'unknown' || pr.mergeable_state === 'blocked')) {
+              await new Promise(r => setTimeout(r, 5000));
+              pr = await getPR();
+            }
+
+            if (pr.draft) {
+              core.info(`⏭️ PR #${pr_number} is a draft; not merging.`);
+              return;
+            }
+
             if (pr.mergeable_state === 'clean' && !pr.merged) {
               await github.rest.pulls.merge({
                 owner: context.repo.owner,
@@ -93,7 +91,8 @@ jobs:
                 pull_number: pr_number,
                 merge_method: 'squash'
               });
-              core.info('Auto-merged PR #${pr_number}`);
+              core.info(`Auto-merged PR #${pr_number}`);
             } else {
-              core.info(`Not mergeable yet (state=${pr.mergeable_state}).`);
+              core.info(`Not mergeable (state=${pr.mergeable_state}). Ensure required checks & reviews are satisfied.`);
             }
+
