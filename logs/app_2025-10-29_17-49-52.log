@@ -1,0 +1,16 @@
+2025-10-29 17:49:52 | INFO     | root | Logs will be saved to logs/app_2025-10-29_17-49-52.log
+2025-10-29 17:49:52 | INFO     | flet | Assets path configured: /Users/govindajithkumar/PycharmProjects/FoodBarcodeScanner/assets
+2025-10-29 17:49:52 | INFO     | flet | Starting up UDS server on /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/StvGDaRA5k
+2025-10-29 17:49:52 | INFO     | flet | Flet app has started...
+2025-10-29 17:49:52 | INFO     | flet | App URL: /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/StvGDaRA5k
+2025-10-29 17:49:52 | INFO     | flet_desktop | Starting Flet View app...
+2025-10-29 17:49:52 | INFO     | flet_desktop | Flet View found in: /Users/govindajithkumar/.flet/bin/flet-0.28.3
+2025-10-29 17:49:53 | INFO     | flet | App session started
+2025-10-29 17:49:54 | ERROR    | utils | History cleared successfully.
+2025-10-29 17:49:54 | ERROR    | utils | No more history barcodes in the database
+2025-10-29 17:49:54 | ERROR    | utils | History cleared successfully.
+2025-10-29 17:49:54 | ERROR    | utils | No more history barcodes in the database
+2025-10-29 17:49:57 | ERROR    | utils | History cleared successfully.
+2025-10-29 17:49:57 | ERROR    | utils | No more history barcodes in the database
+2025-10-29 17:49:57 | ERROR    | utils | History cleared successfully.
+2025-10-29 17:49:57 | ERROR    | utils | No more history barcodes in the database

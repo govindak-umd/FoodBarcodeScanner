@@ -1,0 +1,198 @@
+2025-10-30 08:38:12 | INFO     | root | Logs will be saved to logs/app_2025-10-30_08-38-12.log
+2025-10-30 08:38:12 | INFO     | flet | Assets path configured: /Users/govindajithkumar/PycharmProjects/FoodBarcodeScanner/assets
+2025-10-30 08:38:12 | INFO     | flet | Starting up UDS server on /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/dQa8snXYc6
+2025-10-30 08:38:12 | INFO     | flet | Flet app has started...
+2025-10-30 08:38:12 | INFO     | flet | App URL: /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/dQa8snXYc6
+2025-10-30 08:38:12 | INFO     | flet_desktop | Starting Flet View app...
+2025-10-30 08:38:12 | INFO     | flet_desktop | Flet View found in: /Users/govindajithkumar/.flet/bin/flet-0.28.3
+2025-10-30 08:38:13 | INFO     | flet | App session started
+2025-10-30 08:38:28 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-30 08:38:28 | INFO     | utils | Top 5 history barcodes : {'8445290728791': 2, '8445290728792': 1, '859213005001': 1} 
+2025-10-30 08:38:28 | INFO     | utils | History updated successfully.
+2025-10-30 08:38:28 | WARNING  | utils | File not found in history for - 859213005001
+2025-10-30 08:38:28 | WARNING  | ui | File not found from history - retrieving data from internet
+2025-10-30 08:38:28 | INFO     | get_food_db | Successfully fetched data from website
+2025-10-30 08:38:28 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-30 08:38:28 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-30 08:38:28 | INFO     | ui | New Barcode Data processed for 859213005001
+2025-10-30 08:38:28 | INFO     | ui | Successfully showed image for 859213005001
+2025-10-30 08:38:28 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-30 08:38:28 | INFO     | ui | Successfully updated nutritional info for 859213005001
+2025-10-30 08:38:34 | ERROR    | utils | History cleared successfully.
+2025-10-30 08:38:34 | ERROR    | utils | No more history barcodes in the database
+2025-10-30 08:38:37 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-30 08:38:37 | INFO     | utils | Top 5 history barcodes : {'859213005001': 1} 
+2025-10-30 08:38:37 | INFO     | utils | History updated successfully.
+2025-10-30 08:38:37 | INFO     | utils | JSON file 859213005001 exists in history directory.
+2025-10-30 08:38:37 | INFO     | ui | File found from history - will use that
+2025-10-30 08:38:37 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-30 08:38:37 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-30 08:38:37 | INFO     | ui | New Barcode Data processed for 859213005001
+2025-10-30 08:38:37 | INFO     | ui | Successfully showed image for 859213005001
+2025-10-30 08:38:37 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-30 08:38:37 | INFO     | ui | Successfully updated nutritional info for 859213005001
+2025-10-30 08:38:38 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-30 08:38:38 | INFO     | utils | Top 5 history barcodes : {'859213005001': 2} 
+2025-10-30 08:38:38 | INFO     | utils | History updated successfully.
+2025-10-30 08:38:38 | INFO     | utils | JSON file 859213005001 exists in history directory.
+2025-10-30 08:38:38 | INFO     | ui | File found from history - will use that
+2025-10-30 08:38:38 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-30 08:38:38 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-30 08:38:38 | INFO     | ui | New Barcode Data processed for 859213005001
+2025-10-30 08:38:38 | INFO     | ui | Successfully showed image for 859213005001
+2025-10-30 08:38:38 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-30 08:38:38 | INFO     | ui | Successfully updated nutritional info for 859213005001
+2025-10-30 08:38:38 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-30 08:38:38 | INFO     | utils | Top 5 history barcodes : {'859213005001': 3} 
+2025-10-30 08:38:38 | INFO     | utils | History updated successfully.
+2025-10-30 08:38:38 | INFO     | utils | JSON file 859213005001 exists in history directory.
+2025-10-30 08:38:38 | INFO     | ui | File found from history - will use that
+2025-10-30 08:38:38 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-30 08:38:38 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-30 08:38:38 | INFO     | ui | New Barcode Data processed for 859213005001
+2025-10-30 08:38:38 | INFO     | ui | Successfully showed image for 859213005001
+2025-10-30 08:38:38 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-30 08:38:38 | INFO     | ui | Successfully updated nutritional info for 859213005001
+2025-10-30 08:38:39 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-30 08:38:39 | INFO     | utils | Top 5 history barcodes : {'859213005001': 4} 
+2025-10-30 08:38:39 | INFO     | utils | History updated successfully.
+2025-10-30 08:38:39 | INFO     | utils | JSON file 859213005001 exists in history directory.
+2025-10-30 08:38:39 | INFO     | ui | File found from history - will use that
+2025-10-30 08:38:39 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-30 08:38:39 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-30 08:38:39 | INFO     | ui | New Barcode Data processed for 859213005001
+2025-10-30 08:38:39 | INFO     | ui | Successfully showed image for 859213005001
+2025-10-30 08:38:39 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-30 08:38:39 | INFO     | ui | Successfully updated nutritional info for 859213005001
+2025-10-30 08:38:39 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-30 08:38:39 | INFO     | utils | Top 5 history barcodes : {'859213005001': 5} 
+2025-10-30 08:38:39 | INFO     | utils | History updated successfully.
+2025-10-30 08:38:39 | INFO     | utils | JSON file 859213005001 exists in history directory.
+2025-10-30 08:38:39 | INFO     | ui | File found from history - will use that
+2025-10-30 08:38:39 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-30 08:38:39 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-30 08:38:39 | INFO     | ui | New Barcode Data processed for 859213005001
+2025-10-30 08:38:39 | INFO     | ui | Successfully showed image for 859213005001
+2025-10-30 08:38:39 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-30 08:38:39 | INFO     | ui | Successfully updated nutritional info for 859213005001
+2025-10-30 08:38:39 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-30 08:38:39 | INFO     | utils | Top 5 history barcodes : {'859213005001': 6} 
+2025-10-30 08:38:39 | INFO     | utils | History updated successfully.
+2025-10-30 08:38:39 | INFO     | utils | JSON file 859213005001 exists in history directory.
+2025-10-30 08:38:39 | INFO     | ui | File found from history - will use that
+2025-10-30 08:38:39 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-30 08:38:39 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-30 08:38:39 | INFO     | ui | New Barcode Data processed for 859213005001
+2025-10-30 08:38:39 | INFO     | ui | Successfully showed image for 859213005001
+2025-10-30 08:38:39 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-30 08:38:39 | INFO     | ui | Successfully updated nutritional info for 859213005001
+2025-10-30 08:38:39 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-30 08:38:39 | INFO     | utils | Top 5 history barcodes : {'859213005001': 7} 
+2025-10-30 08:38:39 | INFO     | utils | History updated successfully.
+2025-10-30 08:38:39 | INFO     | utils | JSON file 859213005001 exists in history directory.
+2025-10-30 08:38:39 | INFO     | ui | File found from history - will use that
+2025-10-30 08:38:39 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-30 08:38:39 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-30 08:38:39 | INFO     | ui | New Barcode Data processed for 859213005001
+2025-10-30 08:38:39 | INFO     | ui | Successfully showed image for 859213005001
+2025-10-30 08:38:39 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-30 08:38:39 | INFO     | ui | Successfully updated nutritional info for 859213005001
+2025-10-30 08:38:39 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-30 08:38:39 | INFO     | utils | Top 5 history barcodes : {'859213005001': 8} 
+2025-10-30 08:38:39 | INFO     | utils | History updated successfully.
+2025-10-30 08:38:39 | INFO     | utils | JSON file 859213005001 exists in history directory.
+2025-10-30 08:38:39 | INFO     | ui | File found from history - will use that
+2025-10-30 08:38:39 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-30 08:38:39 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-30 08:38:39 | INFO     | ui | New Barcode Data processed for 859213005001
+2025-10-30 08:38:39 | INFO     | ui | Successfully showed image for 859213005001
+2025-10-30 08:38:39 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-30 08:38:39 | INFO     | ui | Successfully updated nutritional info for 859213005001
+2025-10-30 08:38:40 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-30 08:38:40 | INFO     | utils | Top 5 history barcodes : {'859213005001': 9} 
+2025-10-30 08:38:40 | INFO     | utils | History updated successfully.
+2025-10-30 08:38:40 | INFO     | utils | JSON file 859213005001 exists in history directory.
+2025-10-30 08:38:40 | INFO     | ui | File found from history - will use that
+2025-10-30 08:38:40 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-30 08:38:40 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-30 08:38:40 | INFO     | ui | New Barcode Data processed for 859213005001
+2025-10-30 08:38:40 | INFO     | ui | Successfully showed image for 859213005001
+2025-10-30 08:38:40 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-30 08:38:40 | INFO     | ui | Successfully updated nutritional info for 859213005001
+2025-10-30 08:38:43 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-30 08:38:43 | INFO     | utils | Top 5 history barcodes : {'859213005001': 10} 
+2025-10-30 08:38:43 | INFO     | utils | History updated successfully.
+2025-10-30 08:38:43 | INFO     | utils | JSON file 859213005001 exists in history directory.
+2025-10-30 08:38:43 | INFO     | ui | File found from history - will use that
+2025-10-30 08:38:43 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-30 08:38:43 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-30 08:38:43 | INFO     | ui | New Barcode Data processed for 859213005001
+2025-10-30 08:38:43 | INFO     | ui | Successfully showed image for 859213005001
+2025-10-30 08:38:43 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-30 08:38:43 | INFO     | ui | Successfully updated nutritional info for 859213005001
+2025-10-30 08:38:44 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-30 08:38:44 | INFO     | utils | Top 5 history barcodes : {'859213005001': 11} 
+2025-10-30 08:38:44 | INFO     | utils | History updated successfully.
+2025-10-30 08:38:44 | INFO     | utils | JSON file 859213005001 exists in history directory.
+2025-10-30 08:38:44 | INFO     | ui | File found from history - will use that
+2025-10-30 08:38:44 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-30 08:38:44 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-30 08:38:44 | INFO     | ui | New Barcode Data processed for 859213005001
+2025-10-30 08:38:44 | INFO     | ui | Successfully showed image for 859213005001
+2025-10-30 08:38:44 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-30 08:38:44 | INFO     | ui | Successfully updated nutritional info for 859213005001
+2025-10-30 08:38:44 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-30 08:38:44 | INFO     | utils | Top 5 history barcodes : {'859213005001': 12} 
+2025-10-30 08:38:44 | INFO     | utils | History updated successfully.
+2025-10-30 08:38:44 | INFO     | utils | JSON file 859213005001 exists in history directory.
+2025-10-30 08:38:44 | INFO     | ui | File found from history - will use that
+2025-10-30 08:38:44 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-30 08:38:44 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-30 08:38:44 | INFO     | ui | New Barcode Data processed for 859213005001
+2025-10-30 08:38:44 | INFO     | ui | Successfully showed image for 859213005001
+2025-10-30 08:38:44 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-30 08:38:44 | INFO     | ui | Successfully updated nutritional info for 859213005001
+2025-10-30 08:38:44 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-30 08:38:44 | INFO     | utils | Top 5 history barcodes : {'859213005001': 13} 
+2025-10-30 08:38:44 | INFO     | utils | History updated successfully.
+2025-10-30 08:38:44 | INFO     | utils | JSON file 859213005001 exists in history directory.
+2025-10-30 08:38:44 | INFO     | ui | File found from history - will use that
+2025-10-30 08:38:44 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-30 08:38:44 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-30 08:38:44 | INFO     | ui | New Barcode Data processed for 859213005001
+2025-10-30 08:38:44 | INFO     | ui | Successfully showed image for 859213005001
+2025-10-30 08:38:44 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-30 08:38:44 | INFO     | ui | Successfully updated nutritional info for 859213005001
+2025-10-30 08:38:44 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-30 08:38:44 | INFO     | utils | Top 5 history barcodes : {'859213005001': 14} 
+2025-10-30 08:38:44 | INFO     | utils | History updated successfully.
+2025-10-30 08:38:44 | INFO     | utils | JSON file 859213005001 exists in history directory.
+2025-10-30 08:38:44 | INFO     | ui | File found from history - will use that
+2025-10-30 08:38:44 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-30 08:38:44 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-30 08:38:44 | INFO     | ui | New Barcode Data processed for 859213005001
+2025-10-30 08:38:44 | INFO     | ui | Successfully showed image for 859213005001
+2025-10-30 08:38:44 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-10-30 08:38:44 | INFO     | ui | Successfully updated nutritional info for 859213005001
+2025-10-30 08:38:47 | INFO     | utils | Barcode Updated - 859213005002 is a valid numerical barcode
+2025-10-30 08:38:47 | INFO     | utils | Top 5 history barcodes : {'859213005001': 14, '859213005002': 1} 
+2025-10-30 08:38:47 | INFO     | utils | History updated successfully.
+2025-10-30 08:38:47 | WARNING  | utils | File not found in history for - 859213005002
+2025-10-30 08:38:47 | WARNING  | ui | File not found from history - retrieving data from internet
+2025-10-30 08:38:48 | INFO     | get_food_db | Successfully fetched data from website
+2025-10-30 08:38:48 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-30 08:38:48 | ERROR    | get_food_db | Image not available on the website
+2025-10-30 08:38:48 | ERROR    | get_food_db | Serving Size not available on the website
+2025-10-30 08:38:48 | ERROR    | get_food_db | Product Name not available on the website
+2025-10-30 08:38:48 | ERROR    | get_food_db | Nutriments not available on the website
+2025-10-30 08:38:48 | ERROR    | get_food_db | Nutrient Levels not available on the website
+2025-10-30 08:38:48 | ERROR    | get_food_db | Nutrient Level Tags not available on the website
+2025-10-30 08:38:48 | ERROR    | get_food_db | Nutrient Score Graded not available on the website
+2025-10-30 08:38:48 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-30 08:38:48 | INFO     | ui | New Barcode Data processed for 859213005002
+2025-10-30 08:38:48 | INFO     | ui | Successfully showed image for 859213005002
+2025-10-30 08:38:48 | INFO     | utils | Barcode Updated - 859213005002 is a valid numerical barcode
+2025-10-30 08:38:48 | ERROR    | ui | 'str' object has no attribute 'items'
+2025-10-30 08:38:48 | ERROR    | ui | 'Nutrient Score Graded Unavailable from source'
+2025-10-30 08:38:49 | ERROR    | utils | History cleared successfully.
+2025-10-30 08:38:49 | ERROR    | utils | No more history barcodes in the database

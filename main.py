@@ -3,14 +3,15 @@ main script
 """
 
 import logging
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
 
 import colorlog
 import flet as ft
 
 from ui import DisplayHMI
 
+# logging setup
 Path("logs").mkdir(exist_ok=True)
 timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 LOG_FILENAME = f"logs/app_{timestamp}.log"
@@ -61,7 +62,7 @@ def main(page):
 
 def dummy_test(x):
     """
-    This fn serves no purpose, its only for testing
+    This fn serves no purpose, it's only for testing
     :param x:
     :return: 5x
     """

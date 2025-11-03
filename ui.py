@@ -3,10 +3,17 @@ UI code
 """
 
 import logging
-import flet as ft
-from utils import check_json_file, barcode_validity_checker
-from get_food_db import get_website_food_db, retrieve_nutrition_data
 
+import flet as ft
+import yaml
+
+from get_food_db import FoodDB
+from utils import (barcode_validity_checker, check_and_retrieve_history,
+                   check_json_file, clear_history)
+
+# Load UI YAML file
+with open("config/ui_config.yml", "r", encoding="utf-8") as file:
+    ui_config = yaml.safe_load(file)
 
 logger = logging.getLogger(__name__)
 
@@ -17,21 +24,45 @@ class DisplayHMI:
     """
 
     def __init__(self, new_page):
-        # BARCODE related
+
+        # barcode related
+        # update the history and retrieve the barcodes
+        self.top_n_historical_barcodes = check_and_retrieve_history()
         self.barcode = None
 
-        # UI related
+        # UI related variables and initialize UI
+        self.nutritional_info = None
+        self.text_color_severity = None
+        self.txt_name = None
+        self.food_image = None
+        self.processed_nutritional_info = None
+        self.history_row = None
         self.page = new_page
+        self.initialize_ui()
+
+        # query food information from the database upon UI initialization
+        self.food_database_query = FoodDB(self.barcode)
+
+    def initialize_ui(self):
+        """
+        Calling this function will initialize the UI.
+        It will bring up all the text boxes, image,and title.
+
+        :return:
+        """
         self.page.title = "Nutritional Info"
         self.processed_nutritional_info = None
         # placeholder image
         # alignment of the image to be top and center of the page
         self.page.vertical_alignment = ft.MainAxisAlignment.START
         self.page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
+
+        # placeholder image, this is just to have an image object. Does not
+        # display anything
         self.food_image = ft.Image(
             src="https://via.placeholder.com/300x200?text=No+Image",
-            width=300,
-            height=200,
+            width=ui_config["display_img"]["width"],
+            height=ui_config["display_img"]["height"],
             fit=ft.ImageFit.CONTAIN,
         )
         self.page.add(
@@ -46,52 +77,72 @@ class DisplayHMI:
         )
 
         # colors of data based on severity
-        self.ui_colors = {"low": "green", "moderate": "orange", "high": "red"}
+        # colors are taken from the ui_config
+        self.text_color_severity = ui_config["text_color"][
+            "severity_colors_nutrition_levels"
+        ]
 
         # the label is the text on top of the text box
         self.txt_name.label = "Enter food here ... "
-        self.nutr = ft.Text()
-        self.display_main_ui()
+        self.nutritional_info = ft.Text()
 
-    def barcode_update(self):
-        """
-        function to manage and maintain barcode information input by the user
-        :return:
-        """
-        if barcode_validity_checker(self.txt_name.value):
-            self.barcode = self.txt_name.value  # read text from TextField
-            self.txt_name.value = self.barcode
+        # row with all history information
+        self.history_row = ft.Row(
+            [],
+            alignment=ft.MainAxisAlignment.CENTER,
+            spacing=10,
+        )
 
-            self.page.update()
-            logger.info("Barcode Updated - %s is a valid barcode", self.barcode)
-            return True
-        logger.error("Barcode Update failed - %s is not a number", self.barcode)
-        logger.error("Barcode Validation Error")
-        return False
-
-    def display_main_ui(self):
-        """
-        Main function to display the main UI.
-        :return:
-        """
-
+        # stacking buttons, text boxes and text sections on the page
         self.page.add(
             self.txt_name,
             ft.Row(
                 [
                     ft.ElevatedButton(
-                        "Display Nutritional Info", on_click=self.display_nutrition
+                        "Display Nutritional Info",
+                        on_click=self.display_nutrition,
                     ),
                 ],
                 alignment=ft.MainAxisAlignment.CENTER,
             ),
-            self.nutr,
+            self.nutritional_info,
+            self.history_row,
+            ft.Row(
+                [
+                    ft.ElevatedButton(
+                        "Clear history",
+                        on_click=lambda e: clear_history(),
+                        color=ui_config["button_colors"]["clear_history_button_color"],
+                    ),
+                ],
+                alignment=ft.MainAxisAlignment.CENTER,
+            ),
         )
+
+    def barcode_update(self):
+        """
+        Validates the barcode format, and if that passes,
+        it updates the barcode parameter when called
+        :return: True (No barcode validation error),  False (barcode validation error)
+        """
+        logger.info(
+            "Checking Validity and Updating barcode for %s", self.txt_name.value
+        )
+        # checking validity
+        if barcode_validity_checker(self.txt_name.value):
+            self.barcode = self.txt_name.value  # read text from TextField
+            self.txt_name.value = self.barcode
+
+            self.page.update()
+            # update the history and retrieve the barcodes
+            self.top_n_historical_barcodes = check_and_retrieve_history(self.barcode)
+            return True
+        logger.error("Barcode Validation Error")
+        return False
 
     def retrieve_all_data(self):
         """
-        Function to retrieve all food data from the website.
-        :return:
+        Function to retrieve all food nutritional data from the website.
         """
         if check_json_file(self.barcode):
             logger.info("File found from history - will use that")
@@ -101,34 +152,50 @@ class DisplayHMI:
             )
             try:
                 # Retrieve food info from nutrition website
-                get_website_food_db(self.barcode)
+                self.food_database_query.get_website_food_db()
             except Exception as err:
                 logger.error(err)
-        self.processed_nutritional_info = retrieve_nutrition_data(self.barcode)
+        self.processed_nutritional_info = (
+            self.food_database_query.retrieve_nutrition_data()
+        )
+
         logger.info("New Barcode Data processed for %s", self.barcode)
 
-    def display_nutrition(self, e):
+    def display_nutrition(self, e, history_barcode=None):
         """
-        function to parse correct nutrients and display the nutritional info
+        calling this function should display all the nutritional
+        information from the website. It will automatically update the
+        barcode with whatever is in the text box (if its valid) and then
+        display the nutritional information.
+        :param history_barcode: barcode associated with the click on the historical data button
         :param e: Mouse Event Click
         """
+
+        # when the history button is clicked, this block is executed
+        if history_barcode is not None:
+            print("History barcode is %s", history_barcode)
+            self.txt_name.value = history_barcode
+            self.txt_name.label = self.txt_name.value
+
+        logger.info("Displaying Nutritional Information for %s", self.txt_name.value)
         # blank out the previous nutrition info text
         spans = []
-        self.nutr.spans = spans
+        self.nutritional_info.spans = spans
 
         # update barcode
         if self.barcode_update():
+            self.food_database_query = FoodDB(self.barcode)
             # happy path - incase the barcode is correct format
             # after updating barcode, retrieve all food data
             self.retrieve_all_data()
             # update the text box after data has been retrieved
             self.txt_name.value = self.barcode
-            self.txt_name.color = "white"
+            self.txt_name.color = ui_config["text_color"]["regular_text"]
             self.food_image.src = self.processed_nutritional_info["image_url"]
         else:
             # exception case - incase the barcode is NOT correct format
             self.txt_name.value = "Invalid Barcode - Please enter a numerical barcode"
-            self.txt_name.color = "red"
+            self.txt_name.color = ui_config["text_color"]["error_text"]
             self.food_image.src = "https://via.placeholder.com/300x200?text=No+Image"
         self.page.update()
         logger.info("Successfully showed image for %s", self.barcode)
@@ -136,55 +203,153 @@ class DisplayHMI:
         # Initialize a span
         spans = []
 
-        # if else case for when barcode is valid and when its not
+        # if else case for when barcode is valid and when it's not
         if barcode_validity_checker(self.txt_name.value):
             self.txt_name.value = self.barcode
             self.page.update()
             spans.append(
                 ft.TextSpan(
                     f"{self.processed_nutritional_info['product_name_en']}\n",
-                    style=ft.TextStyle(color="white", size=16),
+                    style=ft.TextStyle(
+                        color=self.txt_name.color, size=ui_config["common_text_size"]
+                    ),
                 )
             )
             spans.append(
                 ft.TextSpan(
                     f"\nServing Size - {self.processed_nutritional_info['serving_size']}\n",
-                    style=ft.TextStyle(color="white", size=16),
+                    style=ft.TextStyle(
+                        color=self.txt_name.color, size=ui_config["common_text_size"]
+                    ),
                 )
             )
-            for nutrient_key, nutrient_val in self.processed_nutritional_info[
-                "nutrient_levels"
-            ].items():
-                # retrieve unit of the nutrient measurement from the nutriments dictionary
-                nutrient_unit = self.processed_nutritional_info["nutriments"][
-                    str(nutrient_key + "_unit")
-                ]
 
-                # add text and set color for the text based on value
-                color = self.ui_colors.get(nutrient_val, "white")
+            try:
+                for nutrient_key, nutrient_val in self.processed_nutritional_info[
+                    "nutrient_levels"
+                ].items():
+
+                    # adding nutrient information on the UI
+                    ## retrieve unit of the nutrient measurement from the nutriments dictionary
+                    nutrient_unit = self.processed_nutritional_info["nutriments"][
+                        str(nutrient_key + "_unit")
+                    ]
+                    ## add text and set color for the text based on value
+                    color = ui_config["text_color"]["severity_colors_nutrition_levels"][
+                        nutrient_val
+                    ]
+
+                    spans.append(
+                        ft.TextSpan(
+                            f"{nutrient_key.capitalize()} - {nutrient_val} - "
+                            f"{self.processed_nutritional_info['nutriments'][nutrient_key]} "
+                            f"{nutrient_unit}\n",
+                            style=ft.TextStyle(
+                                color=color, size=ui_config["common_text_size"]
+                            ),
+                        )
+                    )
+
+            except AttributeError as err:
+                logger.error(err)
+                color = ui_config["text_color"]["error_text"]
                 spans.append(
                     ft.TextSpan(
-                        f"{nutrient_key.capitalize()} - {nutrient_val} - "
-                        f"{self.processed_nutritional_info['nutriments'][nutrient_key]} "
-                        f"{nutrient_unit}\n",
-                        style=ft.TextStyle(color=color, size=16),
+                        "No data available",
+                        style=ft.TextStyle(
+                            color=color, size=ui_config["common_text_size"]
+                        ),
+                    )
+                )
+            try:
+
+
+                ## add text and set color for the text based on value
+                color = ui_config["text_color"]["nutri_score_color_grade"][
+                    self.processed_nutritional_info["nutriscore_grade"]
+                ]
+
+                spans.append(
+                    ft.TextSpan(
+                        f"Nutri grade - {self.processed_nutritional_info['nutriscore_grade'].capitalize()} ",
+                        style=ft.TextStyle(
+                            color=color, size=ui_config["common_text_size"]
+                        ),
                     )
                 )
 
-            self.nutr.spans = spans
-            self.page.update()
-            logger.info("Successfully updated nutritional info for %s", self.barcode)
+                self.nutritional_info.spans = spans
+                self.page.update()
+                logger.info(
+                    "Successfully updated nutritional info for %s", self.barcode
+                )
+
+            except KeyError as err:
+                color = ui_config["text_color"]["error_text"]
+                spans.append(
+                    ft.TextSpan(
+                        "No data available",
+                        style=ft.TextStyle(
+                            color=color, size=ui_config["common_text_size"]
+                        ),
+                    )
+                )
+                logger.error(err)
 
         else:
 
             spans.append(
                 ft.TextSpan(
                     "Cannot display nutritional info for an invalid barcode",
-                    style=ft.TextStyle(color="red", size=16),
+                    style=ft.TextStyle(
+                        color=self.txt_name.color, size=ui_config["common_text_size"]
+                    ),
                 )
             )
 
-            self.nutr.spans = spans
+            self.nutritional_info.spans = spans
             self.page.update()
 
             logger.error("Cannot display nutritional info for an invalid barcode")
+
+        # perform history check - this includes:
+        # update history table
+        # grab new top barcodes
+        # update the history buttons
+        self.perform_history_check()
+
+    def perform_history_check(self):
+        """
+        placeholder function to display the history of all the
+        previously scanned barcodes. The user should be able
+        to click on the previously scanned barcodes and bring
+        that product up to show nutritional information.
+        :return:
+        """
+
+        # this ensures that we do not have more buttons that max_history
+        if len(self.history_row.controls) >= ui_config["max_history"]:
+            logger.debug("History button limit reached.")
+            self.history_row.controls.pop(0)
+
+        # get a list of all the barcodes that is in the buttons right now
+        logger.info(
+            "Buttons presented in the history tab before clearing %s",
+            self.history_row.controls,
+        )
+        self.history_row.controls = []
+        logger.info(
+            "Buttons presented in the history tab after clearing %s",
+            self.history_row.controls,
+        )
+
+        for each_barcode in self.top_n_historical_barcodes:
+
+            new_history_button = ft.ElevatedButton(
+                str(each_barcode),
+                on_click=lambda e, code=each_barcode: self.display_nutrition(e, code),
+            )
+
+            self.history_row.controls.append(new_history_button)
+            self.history_row.update()
+        logger.info("Generating new history tab buttons")

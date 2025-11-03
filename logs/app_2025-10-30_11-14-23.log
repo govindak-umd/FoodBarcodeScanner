@@ -1,0 +1,24 @@
+2025-10-30 11:14:23 | INFO     | root | Logs will be saved to logs/app_2025-10-30_11-14-23.log
+2025-10-30 11:14:23 | INFO     | flet | Assets path configured: /Users/govindajithkumar/PycharmProjects/FoodBarcodeScanner/assets
+2025-10-30 11:14:23 | INFO     | flet | Starting up UDS server on /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/YK7n7sCnHw
+2025-10-30 11:14:23 | INFO     | flet | Flet app has started...
+2025-10-30 11:14:23 | INFO     | flet | App URL: /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/YK7n7sCnHw
+2025-10-30 11:14:23 | INFO     | flet_desktop | Starting Flet View app...
+2025-10-30 11:14:23 | INFO     | flet_desktop | Flet View found in: /Users/govindajithkumar/.flet/bin/flet-0.28.3
+2025-10-30 11:14:23 | INFO     | flet | App session started
+2025-10-30 11:14:23 | INFO     | utils | Top 5 history barcodes : {'111': 7, '8445290728791': 6, '722252153258': 1} 
+2025-10-30 11:14:23 | INFO     | utils | History updated successfully.
+2025-10-30 11:14:30 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-30 11:14:30 | INFO     | utils | Top 5 history barcodes : {'8445290728791': 7, '111': 7, '722252153258': 1} 
+2025-10-30 11:14:30 | INFO     | utils | History updated successfully.
+2025-10-30 11:14:30 | INFO     | utils | JSON file 8445290728791 exists in history directory.
+2025-10-30 11:14:30 | INFO     | ui | File found from history - will use that
+2025-10-30 11:14:30 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-30 11:14:30 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-30 11:14:30 | INFO     | ui | New Barcode Data processed for 8445290728791
+2025-10-30 11:14:30 | INFO     | ui | Successfully showed image for 8445290728791
+2025-10-30 11:14:30 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-30 11:14:30 | INFO     | ui | Successfully updated nutritional info for 8445290728791
+2025-10-30 11:14:30 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:14:30 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:14:30 | INFO     | ui | Generating new history tab buttons

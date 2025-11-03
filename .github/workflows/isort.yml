@@ -1,0 +1,45 @@
+name: isort_check
+
+on:
+  push:
+    branches: [ "**" ]
+  pull_request:
+    branches: [ "**" ]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  isort-fix:
+    runs-on: ubuntu-latest
+
+    env:
+      PYTHONPATH: .  # allows imports like `from main import dummy_test`
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install isort
+        run: pip install isort
+
+      - name: Run isort auto-fix
+        run: isort .
+
+      - name: Commit and push changes (if any)
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config --global user.name "github-actions[bot]"
+            git config --global user.email "github-actions[bot]@users.noreply.github.com"
+            git add .
+            git commit -m "Auto-Applying isort formatting"
+            git push
+          else
+            echo "No import changes needed."
+          fi

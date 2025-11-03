@@ -1,0 +1,484 @@
+2025-11-03 10:41:07 | INFO     | root | Logs will be saved to logs/app_2025-11-03_10-41-07.log
+2025-11-03 10:41:07 | INFO     | flet | Assets path configured: /Users/govindajithkumar/PycharmProjects/FoodBarcodeScanner/assets
+2025-11-03 10:41:07 | INFO     | flet | Starting up UDS server on /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/fRF6I81d8a
+2025-11-03 10:41:07 | INFO     | flet | Flet app has started...
+2025-11-03 10:41:07 | INFO     | flet | App URL: /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/fRF6I81d8a
+2025-11-03 10:41:07 | INFO     | flet_desktop | Starting Flet View app...
+2025-11-03 10:41:07 | INFO     | flet_desktop | Flet View found in: /Users/govindajithkumar/.flet/bin/flet-0.28.3
+2025-11-03 10:41:07 | INFO     | flet | App session started
+2025-11-03 10:41:07 | INFO     | utils | Top 5 history barcodes : {} 
+2025-11-03 10:41:07 | INFO     | utils | History updated successfully.
+2025-11-03 10:41:10 | INFO     | ui | Displaying Nutritional Information for 8445290728791
+2025-11-03 10:41:10 | INFO     | ui | Checking Validity and Updating barcode for 8445290728791
+2025-11-03 10:41:10 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-11-03 10:41:10 | INFO     | utils | Top 5 history barcodes : {'8445290728791': 1} 
+2025-11-03 10:41:10 | INFO     | utils | History updated successfully.
+2025-11-03 10:41:10 | INFO     | utils | JSON file 8445290728791 exists in history directory.
+2025-11-03 10:41:10 | INFO     | ui | File found from history - will use that
+2025-11-03 10:41:10 | INFO     | get_food_db | Successfully fetched image from website
+2025-11-03 10:41:10 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-11-03 10:41:10 | INFO     | ui | New Barcode Data processed for 8445290728791
+2025-11-03 10:41:10 | INFO     | ui | Successfully showed image for 8445290728791
+2025-11-03 10:41:10 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-11-03 10:41:10 | INFO     | ui | Successfully updated nutritional info for 8445290728791
+2025-11-03 10:41:10 | INFO     | ui | Buttons presented in the history tab before clearing []
+2025-11-03 10:41:10 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-11-03 10:41:10 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:14 | INFO     | ui | Displaying Nutritional Information for 8445290728792
+2025-11-03 10:41:14 | INFO     | ui | Checking Validity and Updating barcode for 8445290728792
+2025-11-03 10:41:14 | INFO     | utils | Barcode Updated - 8445290728792 is a valid numerical barcode
+2025-11-03 10:41:14 | INFO     | utils | Top 5 history barcodes : {'8445290728791': 1, '8445290728792': 1} 
+2025-11-03 10:41:14 | INFO     | utils | History updated successfully.
+2025-11-03 10:41:14 | INFO     | utils | JSON file 8445290728792 exists in history directory.
+2025-11-03 10:41:14 | INFO     | ui | File found from history - will use that
+2025-11-03 10:41:14 | INFO     | get_food_db | Successfully fetched image from website
+2025-11-03 10:41:14 | ERROR    | get_food_db | Image not available on the website
+2025-11-03 10:41:14 | ERROR    | get_food_db | Serving Size not available on the website
+2025-11-03 10:41:14 | ERROR    | get_food_db | Product Name not available on the website
+2025-11-03 10:41:14 | ERROR    | get_food_db | Nutriments not available on the website
+2025-11-03 10:41:14 | ERROR    | get_food_db | Nutrient Levels not available on the website
+2025-11-03 10:41:14 | ERROR    | get_food_db | Nutrient Level Tags not available on the website
+2025-11-03 10:41:14 | ERROR    | get_food_db | Nutrient Score Graded not available on the website
+2025-11-03 10:41:14 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-11-03 10:41:14 | INFO     | ui | New Barcode Data processed for 8445290728792
+2025-11-03 10:41:14 | INFO     | ui | Successfully showed image for 8445290728792
+2025-11-03 10:41:14 | INFO     | utils | Barcode Updated - 8445290728792 is a valid numerical barcode
+2025-11-03 10:41:14 | ERROR    | ui | 'str' object has no attribute 'items'
+2025-11-03 10:41:14 | ERROR    | ui | 'Nutrient Score Graded Unavailable from source'
+2025-11-03 10:41:14 | INFO     | ui | Buttons presented in the history tab before clearing [ElevatedButton(text='8445290728791', style='{"padding":{},"side":{},"shape":{},"text_style":{}}')]
+2025-11-03 10:41:14 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-11-03 10:41:14 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:14 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:17 | INFO     | ui | Displaying Nutritional Information for 8445290728792
+2025-11-03 10:41:17 | INFO     | ui | Checking Validity and Updating barcode for 8445290728792
+2025-11-03 10:41:17 | INFO     | utils | Barcode Updated - 8445290728792 is a valid numerical barcode
+2025-11-03 10:41:17 | INFO     | utils | Top 5 history barcodes : {'8445290728792': 2, '8445290728791': 1} 
+2025-11-03 10:41:17 | INFO     | utils | History updated successfully.
+2025-11-03 10:41:17 | INFO     | utils | JSON file 8445290728792 exists in history directory.
+2025-11-03 10:41:17 | INFO     | ui | File found from history - will use that
+2025-11-03 10:41:17 | INFO     | get_food_db | Successfully fetched image from website
+2025-11-03 10:41:17 | ERROR    | get_food_db | Image not available on the website
+2025-11-03 10:41:17 | ERROR    | get_food_db | Serving Size not available on the website
+2025-11-03 10:41:17 | ERROR    | get_food_db | Product Name not available on the website
+2025-11-03 10:41:17 | ERROR    | get_food_db | Nutriments not available on the website
+2025-11-03 10:41:17 | ERROR    | get_food_db | Nutrient Levels not available on the website
+2025-11-03 10:41:17 | ERROR    | get_food_db | Nutrient Level Tags not available on the website
+2025-11-03 10:41:17 | ERROR    | get_food_db | Nutrient Score Graded not available on the website
+2025-11-03 10:41:17 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-11-03 10:41:17 | INFO     | ui | New Barcode Data processed for 8445290728792
+2025-11-03 10:41:17 | INFO     | ui | Successfully showed image for 8445290728792
+2025-11-03 10:41:17 | INFO     | utils | Barcode Updated - 8445290728792 is a valid numerical barcode
+2025-11-03 10:41:17 | ERROR    | ui | 'str' object has no attribute 'items'
+2025-11-03 10:41:17 | ERROR    | ui | 'Nutrient Score Graded Unavailable from source'
+2025-11-03 10:41:17 | INFO     | ui | Buttons presented in the history tab before clearing [ElevatedButton(text='8445290728791', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='8445290728792', style='{"padding":{},"side":{},"shape":{},"text_style":{}}')]
+2025-11-03 10:41:17 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-11-03 10:41:17 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:17 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:19 | INFO     | ui | Displaying Nutritional Information for 8445290728791
+2025-11-03 10:41:19 | INFO     | ui | Checking Validity and Updating barcode for 8445290728791
+2025-11-03 10:41:19 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-11-03 10:41:19 | INFO     | utils | Top 5 history barcodes : {'8445290728791': 2, '8445290728792': 2} 
+2025-11-03 10:41:19 | INFO     | utils | History updated successfully.
+2025-11-03 10:41:19 | INFO     | utils | JSON file 8445290728791 exists in history directory.
+2025-11-03 10:41:19 | INFO     | ui | File found from history - will use that
+2025-11-03 10:41:19 | INFO     | get_food_db | Successfully fetched image from website
+2025-11-03 10:41:19 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-11-03 10:41:19 | INFO     | ui | New Barcode Data processed for 8445290728791
+2025-11-03 10:41:19 | INFO     | ui | Successfully showed image for 8445290728791
+2025-11-03 10:41:19 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-11-03 10:41:19 | INFO     | ui | Successfully updated nutritional info for 8445290728791
+2025-11-03 10:41:19 | INFO     | ui | Buttons presented in the history tab before clearing [ElevatedButton(text='8445290728792', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='8445290728791', style='{"padding":{},"side":{},"shape":{},"text_style":{}}')]
+2025-11-03 10:41:19 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-11-03 10:41:19 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:19 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:25 | INFO     | ui | Displaying Nutritional Information for 111
+2025-11-03 10:41:25 | INFO     | ui | Checking Validity and Updating barcode for 111
+2025-11-03 10:41:25 | INFO     | utils | Barcode Updated - 111 is a valid numerical barcode
+2025-11-03 10:41:25 | INFO     | utils | Top 5 history barcodes : {'8445290728791': 2, '8445290728792': 2, '111': 1} 
+2025-11-03 10:41:25 | INFO     | utils | History updated successfully.
+2025-11-03 10:41:25 | INFO     | utils | JSON file 111 exists in history directory.
+2025-11-03 10:41:25 | INFO     | ui | File found from history - will use that
+2025-11-03 10:41:25 | INFO     | get_food_db | Successfully fetched image from website
+2025-11-03 10:41:25 | ERROR    | get_food_db | Image not available on the website
+2025-11-03 10:41:25 | ERROR    | get_food_db | Serving Size not available on the website
+2025-11-03 10:41:25 | ERROR    | get_food_db | Product Name not available on the website
+2025-11-03 10:41:25 | ERROR    | get_food_db | Nutriments not available on the website
+2025-11-03 10:41:25 | ERROR    | get_food_db | Nutrient Levels not available on the website
+2025-11-03 10:41:25 | ERROR    | get_food_db | Nutrient Level Tags not available on the website
+2025-11-03 10:41:25 | ERROR    | get_food_db | Nutrient Score Graded not available on the website
+2025-11-03 10:41:25 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-11-03 10:41:25 | INFO     | ui | New Barcode Data processed for 111
+2025-11-03 10:41:25 | INFO     | ui | Successfully showed image for 111
+2025-11-03 10:41:25 | INFO     | utils | Barcode Updated - 111 is a valid numerical barcode
+2025-11-03 10:41:25 | ERROR    | ui | 'str' object has no attribute 'items'
+2025-11-03 10:41:25 | ERROR    | ui | 'Nutrient Score Graded Unavailable from source'
+2025-11-03 10:41:25 | INFO     | ui | Buttons presented in the history tab before clearing [ElevatedButton(text='8445290728791', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='8445290728792', style='{"padding":{},"side":{},"shape":{},"text_style":{}}')]
+2025-11-03 10:41:25 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-11-03 10:41:25 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:25 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:25 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:28 | INFO     | ui | Displaying Nutritional Information for 112
+2025-11-03 10:41:28 | INFO     | ui | Checking Validity and Updating barcode for 112
+2025-11-03 10:41:28 | INFO     | utils | Barcode Updated - 112 is a valid numerical barcode
+2025-11-03 10:41:28 | INFO     | utils | Top 5 history barcodes : {'8445290728791': 2, '8445290728792': 2, '111': 1, '112': 1} 
+2025-11-03 10:41:28 | INFO     | utils | History updated successfully.
+2025-11-03 10:41:28 | WARNING  | utils | File not found in history for - 112
+2025-11-03 10:41:28 | WARNING  | ui | File not found from history - retrieving data from internet
+2025-11-03 10:41:28 | INFO     | get_food_db | Successfully fetched data from website
+2025-11-03 10:41:28 | INFO     | get_food_db | Successfully fetched image from website
+2025-11-03 10:41:28 | ERROR    | get_food_db | Image not available on the website
+2025-11-03 10:41:28 | ERROR    | get_food_db | Serving Size not available on the website
+2025-11-03 10:41:28 | ERROR    | get_food_db | Product Name not available on the website
+2025-11-03 10:41:28 | ERROR    | get_food_db | Nutriments not available on the website
+2025-11-03 10:41:28 | ERROR    | get_food_db | Nutrient Levels not available on the website
+2025-11-03 10:41:28 | ERROR    | get_food_db | Nutrient Level Tags not available on the website
+2025-11-03 10:41:28 | ERROR    | get_food_db | Nutrient Score Graded not available on the website
+2025-11-03 10:41:28 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-11-03 10:41:28 | INFO     | ui | New Barcode Data processed for 112
+2025-11-03 10:41:28 | INFO     | ui | Successfully showed image for 112
+2025-11-03 10:41:28 | INFO     | utils | Barcode Updated - 112 is a valid numerical barcode
+2025-11-03 10:41:28 | ERROR    | ui | 'str' object has no attribute 'items'
+2025-11-03 10:41:28 | ERROR    | ui | 'Nutrient Score Graded Unavailable from source'
+2025-11-03 10:41:28 | INFO     | ui | Buttons presented in the history tab before clearing [ElevatedButton(text='8445290728791', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='8445290728792', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='111', style='{"padding":{},"side":{},"shape":{},"text_style":{}}')]
+2025-11-03 10:41:28 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-11-03 10:41:28 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:28 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:28 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:28 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:29 | INFO     | ui | Displaying Nutritional Information for 112
+2025-11-03 10:41:29 | INFO     | ui | Checking Validity and Updating barcode for 112
+2025-11-03 10:41:29 | INFO     | utils | Barcode Updated - 112 is a valid numerical barcode
+2025-11-03 10:41:29 | INFO     | utils | Top 5 history barcodes : {'8445290728791': 2, '8445290728792': 2, '112': 2, '111': 1} 
+2025-11-03 10:41:29 | INFO     | utils | History updated successfully.
+2025-11-03 10:41:29 | INFO     | utils | JSON file 112 exists in history directory.
+2025-11-03 10:41:29 | INFO     | ui | File found from history - will use that
+2025-11-03 10:41:29 | INFO     | get_food_db | Successfully fetched image from website
+2025-11-03 10:41:29 | ERROR    | get_food_db | Image not available on the website
+2025-11-03 10:41:29 | ERROR    | get_food_db | Serving Size not available on the website
+2025-11-03 10:41:29 | ERROR    | get_food_db | Product Name not available on the website
+2025-11-03 10:41:29 | ERROR    | get_food_db | Nutriments not available on the website
+2025-11-03 10:41:29 | ERROR    | get_food_db | Nutrient Levels not available on the website
+2025-11-03 10:41:29 | ERROR    | get_food_db | Nutrient Level Tags not available on the website
+2025-11-03 10:41:29 | ERROR    | get_food_db | Nutrient Score Graded not available on the website
+2025-11-03 10:41:29 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-11-03 10:41:29 | INFO     | ui | New Barcode Data processed for 112
+2025-11-03 10:41:29 | INFO     | ui | Successfully showed image for 112
+2025-11-03 10:41:29 | INFO     | utils | Barcode Updated - 112 is a valid numerical barcode
+2025-11-03 10:41:29 | ERROR    | ui | 'str' object has no attribute 'items'
+2025-11-03 10:41:29 | ERROR    | ui | 'Nutrient Score Graded Unavailable from source'
+2025-11-03 10:41:29 | INFO     | ui | Buttons presented in the history tab before clearing [ElevatedButton(text='8445290728791', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='8445290728792', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='111', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='112', style='{"padding":{},"side":{},"shape":{},"text_style":{}}')]
+2025-11-03 10:41:29 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-11-03 10:41:29 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:29 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:29 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:29 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:30 | INFO     | ui | Displaying Nutritional Information for 113
+2025-11-03 10:41:30 | INFO     | ui | Checking Validity and Updating barcode for 113
+2025-11-03 10:41:30 | INFO     | utils | Barcode Updated - 113 is a valid numerical barcode
+2025-11-03 10:41:30 | INFO     | utils | Top 5 history barcodes : {'8445290728791': 2, '8445290728792': 2, '112': 2, '111': 1, '113': 1} 
+2025-11-03 10:41:30 | INFO     | utils | History updated successfully.
+2025-11-03 10:41:30 | WARNING  | utils | File not found in history for - 113
+2025-11-03 10:41:30 | WARNING  | ui | File not found from history - retrieving data from internet
+2025-11-03 10:41:30 | INFO     | get_food_db | Successfully fetched data from website
+2025-11-03 10:41:30 | INFO     | get_food_db | Successfully fetched image from website
+2025-11-03 10:41:30 | ERROR    | get_food_db | Image not available on the website
+2025-11-03 10:41:30 | ERROR    | get_food_db | Serving Size not available on the website
+2025-11-03 10:41:30 | ERROR    | get_food_db | Product Name not available on the website
+2025-11-03 10:41:30 | ERROR    | get_food_db | Nutriments not available on the website
+2025-11-03 10:41:30 | ERROR    | get_food_db | Nutrient Levels not available on the website
+2025-11-03 10:41:30 | ERROR    | get_food_db | Nutrient Level Tags not available on the website
+2025-11-03 10:41:30 | ERROR    | get_food_db | Nutrient Score Graded not available on the website
+2025-11-03 10:41:30 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-11-03 10:41:30 | INFO     | ui | New Barcode Data processed for 113
+2025-11-03 10:41:30 | INFO     | ui | Successfully showed image for 113
+2025-11-03 10:41:30 | INFO     | utils | Barcode Updated - 113 is a valid numerical barcode
+2025-11-03 10:41:30 | ERROR    | ui | 'str' object has no attribute 'items'
+2025-11-03 10:41:30 | ERROR    | ui | 'Nutrient Score Graded Unavailable from source'
+2025-11-03 10:41:30 | INFO     | ui | Buttons presented in the history tab before clearing [ElevatedButton(text='8445290728791', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='8445290728792', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='112', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='111', style='{"padding":{},"side":{},"shape":{},"text_style":{}}')]
+2025-11-03 10:41:30 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-11-03 10:41:30 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:30 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:30 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:30 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:30 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:32 | INFO     | ui | Displaying Nutritional Information for 114
+2025-11-03 10:41:32 | INFO     | ui | Checking Validity and Updating barcode for 114
+2025-11-03 10:41:32 | INFO     | utils | Barcode Updated - 114 is a valid numerical barcode
+2025-11-03 10:41:32 | INFO     | utils | Top 5 history barcodes : {'8445290728791': 2, '8445290728792': 2, '112': 2, '111': 1, '113': 1} 
+2025-11-03 10:41:32 | INFO     | utils | History updated successfully.
+2025-11-03 10:41:32 | WARNING  | utils | File not found in history for - 114
+2025-11-03 10:41:32 | WARNING  | ui | File not found from history - retrieving data from internet
+2025-11-03 10:41:32 | INFO     | get_food_db | Successfully fetched data from website
+2025-11-03 10:41:32 | INFO     | get_food_db | Successfully fetched image from website
+2025-11-03 10:41:32 | ERROR    | get_food_db | Image not available on the website
+2025-11-03 10:41:32 | ERROR    | get_food_db | Serving Size not available on the website
+2025-11-03 10:41:32 | ERROR    | get_food_db | Product Name not available on the website
+2025-11-03 10:41:32 | ERROR    | get_food_db | Nutriments not available on the website
+2025-11-03 10:41:32 | ERROR    | get_food_db | Nutrient Levels not available on the website
+2025-11-03 10:41:32 | ERROR    | get_food_db | Nutrient Level Tags not available on the website
+2025-11-03 10:41:32 | ERROR    | get_food_db | Nutrient Score Graded not available on the website
+2025-11-03 10:41:32 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-11-03 10:41:32 | INFO     | ui | New Barcode Data processed for 114
+2025-11-03 10:41:32 | INFO     | ui | Successfully showed image for 114
+2025-11-03 10:41:32 | INFO     | utils | Barcode Updated - 114 is a valid numerical barcode
+2025-11-03 10:41:32 | ERROR    | ui | 'str' object has no attribute 'items'
+2025-11-03 10:41:32 | ERROR    | ui | 'Nutrient Score Graded Unavailable from source'
+2025-11-03 10:41:32 | INFO     | ui | Buttons presented in the history tab before clearing [ElevatedButton(text='8445290728792', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='112', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='111', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='113', style='{"padding":{},"side":{},"shape":{},"text_style":{}}')]
+2025-11-03 10:41:32 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-11-03 10:41:32 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:32 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:32 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:32 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:32 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:35 | INFO     | ui | Displaying Nutritional Information for 113
+2025-11-03 10:41:35 | INFO     | ui | Checking Validity and Updating barcode for 113
+2025-11-03 10:41:35 | INFO     | utils | Barcode Updated - 113 is a valid numerical barcode
+2025-11-03 10:41:35 | INFO     | utils | Top 5 history barcodes : {'8445290728791': 2, '8445290728792': 2, '112': 2, '113': 2, '111': 1} 
+2025-11-03 10:41:35 | INFO     | utils | History updated successfully.
+2025-11-03 10:41:35 | INFO     | utils | JSON file 113 exists in history directory.
+2025-11-03 10:41:35 | INFO     | ui | File found from history - will use that
+2025-11-03 10:41:35 | INFO     | get_food_db | Successfully fetched image from website
+2025-11-03 10:41:35 | ERROR    | get_food_db | Image not available on the website
+2025-11-03 10:41:35 | ERROR    | get_food_db | Serving Size not available on the website
+2025-11-03 10:41:35 | ERROR    | get_food_db | Product Name not available on the website
+2025-11-03 10:41:35 | ERROR    | get_food_db | Nutriments not available on the website
+2025-11-03 10:41:35 | ERROR    | get_food_db | Nutrient Levels not available on the website
+2025-11-03 10:41:35 | ERROR    | get_food_db | Nutrient Level Tags not available on the website
+2025-11-03 10:41:35 | ERROR    | get_food_db | Nutrient Score Graded not available on the website
+2025-11-03 10:41:35 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-11-03 10:41:35 | INFO     | ui | New Barcode Data processed for 113
+2025-11-03 10:41:35 | INFO     | ui | Successfully showed image for 113
+2025-11-03 10:41:35 | INFO     | utils | Barcode Updated - 113 is a valid numerical barcode
+2025-11-03 10:41:35 | ERROR    | ui | 'str' object has no attribute 'items'
+2025-11-03 10:41:35 | ERROR    | ui | 'Nutrient Score Graded Unavailable from source'
+2025-11-03 10:41:35 | INFO     | ui | Buttons presented in the history tab before clearing [ElevatedButton(text='8445290728792', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='112', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='111', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='113', style='{"padding":{},"side":{},"shape":{},"text_style":{}}')]
+2025-11-03 10:41:35 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-11-03 10:41:35 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:35 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:35 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:35 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:35 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:36 | INFO     | ui | Displaying Nutritional Information for 111
+2025-11-03 10:41:36 | INFO     | ui | Checking Validity and Updating barcode for 111
+2025-11-03 10:41:36 | INFO     | utils | Barcode Updated - 111 is a valid numerical barcode
+2025-11-03 10:41:36 | INFO     | utils | Top 5 history barcodes : {'8445290728791': 2, '8445290728792': 2, '111': 2, '112': 2, '113': 2} 
+2025-11-03 10:41:36 | INFO     | utils | History updated successfully.
+2025-11-03 10:41:36 | INFO     | utils | JSON file 111 exists in history directory.
+2025-11-03 10:41:36 | INFO     | ui | File found from history - will use that
+2025-11-03 10:41:36 | INFO     | get_food_db | Successfully fetched image from website
+2025-11-03 10:41:36 | ERROR    | get_food_db | Image not available on the website
+2025-11-03 10:41:36 | ERROR    | get_food_db | Serving Size not available on the website
+2025-11-03 10:41:36 | ERROR    | get_food_db | Product Name not available on the website
+2025-11-03 10:41:36 | ERROR    | get_food_db | Nutriments not available on the website
+2025-11-03 10:41:36 | ERROR    | get_food_db | Nutrient Levels not available on the website
+2025-11-03 10:41:36 | ERROR    | get_food_db | Nutrient Level Tags not available on the website
+2025-11-03 10:41:36 | ERROR    | get_food_db | Nutrient Score Graded not available on the website
+2025-11-03 10:41:36 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-11-03 10:41:36 | INFO     | ui | New Barcode Data processed for 111
+2025-11-03 10:41:36 | INFO     | ui | Successfully showed image for 111
+2025-11-03 10:41:36 | INFO     | utils | Barcode Updated - 111 is a valid numerical barcode
+2025-11-03 10:41:36 | ERROR    | ui | 'str' object has no attribute 'items'
+2025-11-03 10:41:36 | ERROR    | ui | 'Nutrient Score Graded Unavailable from source'
+2025-11-03 10:41:36 | INFO     | ui | Buttons presented in the history tab before clearing [ElevatedButton(text='8445290728792', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='112', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='113', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='111', style='{"padding":{},"side":{},"shape":{},"text_style":{}}')]
+2025-11-03 10:41:36 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-11-03 10:41:36 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:36 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:36 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:36 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:36 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:37 | INFO     | ui | Displaying Nutritional Information for 113
+2025-11-03 10:41:37 | INFO     | ui | Checking Validity and Updating barcode for 113
+2025-11-03 10:41:37 | INFO     | utils | Barcode Updated - 113 is a valid numerical barcode
+2025-11-03 10:41:37 | INFO     | utils | Top 5 history barcodes : {'113': 3, '8445290728791': 2, '8445290728792': 2, '111': 2, '112': 2} 
+2025-11-03 10:41:37 | INFO     | utils | History updated successfully.
+2025-11-03 10:41:37 | INFO     | utils | JSON file 113 exists in history directory.
+2025-11-03 10:41:37 | INFO     | ui | File found from history - will use that
+2025-11-03 10:41:37 | INFO     | get_food_db | Successfully fetched image from website
+2025-11-03 10:41:37 | ERROR    | get_food_db | Image not available on the website
+2025-11-03 10:41:37 | ERROR    | get_food_db | Serving Size not available on the website
+2025-11-03 10:41:37 | ERROR    | get_food_db | Product Name not available on the website
+2025-11-03 10:41:37 | ERROR    | get_food_db | Nutriments not available on the website
+2025-11-03 10:41:37 | ERROR    | get_food_db | Nutrient Levels not available on the website
+2025-11-03 10:41:37 | ERROR    | get_food_db | Nutrient Level Tags not available on the website
+2025-11-03 10:41:37 | ERROR    | get_food_db | Nutrient Score Graded not available on the website
+2025-11-03 10:41:37 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-11-03 10:41:37 | INFO     | ui | New Barcode Data processed for 113
+2025-11-03 10:41:37 | INFO     | ui | Successfully showed image for 113
+2025-11-03 10:41:37 | INFO     | utils | Barcode Updated - 113 is a valid numerical barcode
+2025-11-03 10:41:37 | ERROR    | ui | 'str' object has no attribute 'items'
+2025-11-03 10:41:37 | ERROR    | ui | 'Nutrient Score Graded Unavailable from source'
+2025-11-03 10:41:37 | INFO     | ui | Buttons presented in the history tab before clearing [ElevatedButton(text='8445290728792', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='111', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='112', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='113', style='{"padding":{},"side":{},"shape":{},"text_style":{}}')]
+2025-11-03 10:41:37 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-11-03 10:41:37 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:37 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:37 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:37 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:37 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:39 | INFO     | ui | Displaying Nutritional Information for 112
+2025-11-03 10:41:39 | INFO     | ui | Checking Validity and Updating barcode for 112
+2025-11-03 10:41:39 | INFO     | utils | Barcode Updated - 112 is a valid numerical barcode
+2025-11-03 10:41:39 | INFO     | utils | Top 5 history barcodes : {'112': 3, '113': 3, '8445290728791': 2, '8445290728792': 2, '111': 2} 
+2025-11-03 10:41:39 | INFO     | utils | History updated successfully.
+2025-11-03 10:41:39 | INFO     | utils | JSON file 112 exists in history directory.
+2025-11-03 10:41:39 | INFO     | ui | File found from history - will use that
+2025-11-03 10:41:39 | INFO     | get_food_db | Successfully fetched image from website
+2025-11-03 10:41:39 | ERROR    | get_food_db | Image not available on the website
+2025-11-03 10:41:39 | ERROR    | get_food_db | Serving Size not available on the website
+2025-11-03 10:41:39 | ERROR    | get_food_db | Product Name not available on the website
+2025-11-03 10:41:39 | ERROR    | get_food_db | Nutriments not available on the website
+2025-11-03 10:41:39 | ERROR    | get_food_db | Nutrient Levels not available on the website
+2025-11-03 10:41:39 | ERROR    | get_food_db | Nutrient Level Tags not available on the website
+2025-11-03 10:41:39 | ERROR    | get_food_db | Nutrient Score Graded not available on the website
+2025-11-03 10:41:39 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-11-03 10:41:39 | INFO     | ui | New Barcode Data processed for 112
+2025-11-03 10:41:39 | INFO     | ui | Successfully showed image for 112
+2025-11-03 10:41:39 | INFO     | utils | Barcode Updated - 112 is a valid numerical barcode
+2025-11-03 10:41:39 | ERROR    | ui | 'str' object has no attribute 'items'
+2025-11-03 10:41:39 | ERROR    | ui | 'Nutrient Score Graded Unavailable from source'
+2025-11-03 10:41:39 | INFO     | ui | Buttons presented in the history tab before clearing [ElevatedButton(text='8445290728791', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='8445290728792', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='111', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='112', style='{"padding":{},"side":{},"shape":{},"text_style":{}}')]
+2025-11-03 10:41:39 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-11-03 10:41:39 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:39 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:39 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:39 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:39 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:40 | INFO     | ui | Displaying Nutritional Information for 112
+2025-11-03 10:41:40 | INFO     | ui | Checking Validity and Updating barcode for 112
+2025-11-03 10:41:40 | INFO     | utils | Barcode Updated - 112 is a valid numerical barcode
+2025-11-03 10:41:40 | INFO     | utils | Top 5 history barcodes : {'112': 4, '113': 3, '8445290728791': 2, '8445290728792': 2, '111': 2} 
+2025-11-03 10:41:40 | INFO     | utils | History updated successfully.
+2025-11-03 10:41:40 | INFO     | utils | JSON file 112 exists in history directory.
+2025-11-03 10:41:40 | INFO     | ui | File found from history - will use that
+2025-11-03 10:41:40 | INFO     | get_food_db | Successfully fetched image from website
+2025-11-03 10:41:40 | ERROR    | get_food_db | Image not available on the website
+2025-11-03 10:41:40 | ERROR    | get_food_db | Serving Size not available on the website
+2025-11-03 10:41:40 | ERROR    | get_food_db | Product Name not available on the website
+2025-11-03 10:41:40 | ERROR    | get_food_db | Nutriments not available on the website
+2025-11-03 10:41:40 | ERROR    | get_food_db | Nutrient Levels not available on the website
+2025-11-03 10:41:40 | ERROR    | get_food_db | Nutrient Level Tags not available on the website
+2025-11-03 10:41:40 | ERROR    | get_food_db | Nutrient Score Graded not available on the website
+2025-11-03 10:41:40 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-11-03 10:41:40 | INFO     | ui | New Barcode Data processed for 112
+2025-11-03 10:41:40 | INFO     | ui | Successfully showed image for 112
+2025-11-03 10:41:40 | INFO     | utils | Barcode Updated - 112 is a valid numerical barcode
+2025-11-03 10:41:40 | ERROR    | ui | 'str' object has no attribute 'items'
+2025-11-03 10:41:40 | ERROR    | ui | 'Nutrient Score Graded Unavailable from source'
+2025-11-03 10:41:40 | INFO     | ui | Buttons presented in the history tab before clearing [ElevatedButton(text='113', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='8445290728791', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='8445290728792', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='111', style='{"padding":{},"side":{},"shape":{},"text_style":{}}')]
+2025-11-03 10:41:40 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-11-03 10:41:40 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:40 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:40 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:40 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:40 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:41 | INFO     | ui | Displaying Nutritional Information for 111
+2025-11-03 10:41:41 | INFO     | ui | Checking Validity and Updating barcode for 111
+2025-11-03 10:41:41 | INFO     | utils | Barcode Updated - 111 is a valid numerical barcode
+2025-11-03 10:41:41 | INFO     | utils | Top 5 history barcodes : {'112': 4, '111': 3, '113': 3, '8445290728791': 2, '8445290728792': 2} 
+2025-11-03 10:41:41 | INFO     | utils | History updated successfully.
+2025-11-03 10:41:41 | INFO     | utils | JSON file 111 exists in history directory.
+2025-11-03 10:41:41 | INFO     | ui | File found from history - will use that
+2025-11-03 10:41:41 | INFO     | get_food_db | Successfully fetched image from website
+2025-11-03 10:41:41 | ERROR    | get_food_db | Image not available on the website
+2025-11-03 10:41:41 | ERROR    | get_food_db | Serving Size not available on the website
+2025-11-03 10:41:41 | ERROR    | get_food_db | Product Name not available on the website
+2025-11-03 10:41:41 | ERROR    | get_food_db | Nutriments not available on the website
+2025-11-03 10:41:41 | ERROR    | get_food_db | Nutrient Levels not available on the website
+2025-11-03 10:41:41 | ERROR    | get_food_db | Nutrient Level Tags not available on the website
+2025-11-03 10:41:41 | ERROR    | get_food_db | Nutrient Score Graded not available on the website
+2025-11-03 10:41:41 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-11-03 10:41:41 | INFO     | ui | New Barcode Data processed for 111
+2025-11-03 10:41:41 | INFO     | ui | Successfully showed image for 111
+2025-11-03 10:41:41 | INFO     | utils | Barcode Updated - 111 is a valid numerical barcode
+2025-11-03 10:41:41 | ERROR    | ui | 'str' object has no attribute 'items'
+2025-11-03 10:41:41 | ERROR    | ui | 'Nutrient Score Graded Unavailable from source'
+2025-11-03 10:41:41 | INFO     | ui | Buttons presented in the history tab before clearing [ElevatedButton(text='113', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='8445290728791', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='8445290728792', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='111', style='{"padding":{},"side":{},"shape":{},"text_style":{}}')]
+2025-11-03 10:41:41 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-11-03 10:41:41 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:41 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:41 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:41 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:41 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:41 | INFO     | ui | Displaying Nutritional Information for 111
+2025-11-03 10:41:41 | INFO     | ui | Checking Validity and Updating barcode for 111
+2025-11-03 10:41:41 | INFO     | utils | Barcode Updated - 111 is a valid numerical barcode
+2025-11-03 10:41:41 | INFO     | utils | Top 5 history barcodes : {'111': 4, '112': 4, '113': 3, '8445290728791': 2, '8445290728792': 2} 
+2025-11-03 10:41:41 | INFO     | utils | History updated successfully.
+2025-11-03 10:41:41 | INFO     | utils | JSON file 111 exists in history directory.
+2025-11-03 10:41:41 | INFO     | ui | File found from history - will use that
+2025-11-03 10:41:41 | INFO     | get_food_db | Successfully fetched image from website
+2025-11-03 10:41:41 | ERROR    | get_food_db | Image not available on the website
+2025-11-03 10:41:41 | ERROR    | get_food_db | Serving Size not available on the website
+2025-11-03 10:41:41 | ERROR    | get_food_db | Product Name not available on the website
+2025-11-03 10:41:41 | ERROR    | get_food_db | Nutriments not available on the website
+2025-11-03 10:41:41 | ERROR    | get_food_db | Nutrient Levels not available on the website
+2025-11-03 10:41:41 | ERROR    | get_food_db | Nutrient Level Tags not available on the website
+2025-11-03 10:41:41 | ERROR    | get_food_db | Nutrient Score Graded not available on the website
+2025-11-03 10:41:41 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-11-03 10:41:41 | INFO     | ui | New Barcode Data processed for 111
+2025-11-03 10:41:41 | INFO     | ui | Successfully showed image for 111
+2025-11-03 10:41:41 | INFO     | utils | Barcode Updated - 111 is a valid numerical barcode
+2025-11-03 10:41:41 | ERROR    | ui | 'str' object has no attribute 'items'
+2025-11-03 10:41:41 | ERROR    | ui | 'Nutrient Score Graded Unavailable from source'
+2025-11-03 10:41:41 | INFO     | ui | Buttons presented in the history tab before clearing [ElevatedButton(text='111', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='113', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='8445290728791', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='8445290728792', style='{"padding":{},"side":{},"shape":{},"text_style":{}}')]
+2025-11-03 10:41:41 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-11-03 10:41:41 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:41 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:41 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:41 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:41:41 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:42:17 | INFO     | ui | Displaying Nutritional Information for 8445290728792
+2025-11-03 10:42:17 | INFO     | ui | Checking Validity and Updating barcode for 8445290728792
+2025-11-03 10:42:17 | INFO     | utils | Barcode Updated - 8445290728792 is a valid numerical barcode
+2025-11-03 10:42:17 | INFO     | utils | Top 5 history barcodes : {'111': 4, '112': 4, '8445290728792': 3, '113': 3, '8445290728791': 2} 
+2025-11-03 10:42:17 | INFO     | utils | History updated successfully.
+2025-11-03 10:42:17 | INFO     | utils | JSON file 8445290728792 exists in history directory.
+2025-11-03 10:42:17 | INFO     | ui | File found from history - will use that
+2025-11-03 10:42:17 | INFO     | get_food_db | Successfully fetched image from website
+2025-11-03 10:42:17 | ERROR    | get_food_db | Image not available on the website
+2025-11-03 10:42:17 | ERROR    | get_food_db | Serving Size not available on the website
+2025-11-03 10:42:17 | ERROR    | get_food_db | Product Name not available on the website
+2025-11-03 10:42:17 | ERROR    | get_food_db | Nutriments not available on the website
+2025-11-03 10:42:17 | ERROR    | get_food_db | Nutrient Levels not available on the website
+2025-11-03 10:42:17 | ERROR    | get_food_db | Nutrient Level Tags not available on the website
+2025-11-03 10:42:17 | ERROR    | get_food_db | Nutrient Score Graded not available on the website
+2025-11-03 10:42:17 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-11-03 10:42:17 | INFO     | ui | New Barcode Data processed for 8445290728792
+2025-11-03 10:42:17 | INFO     | ui | Successfully showed image for 8445290728792
+2025-11-03 10:42:17 | INFO     | utils | Barcode Updated - 8445290728792 is a valid numerical barcode
+2025-11-03 10:42:17 | ERROR    | ui | 'str' object has no attribute 'items'
+2025-11-03 10:42:17 | ERROR    | ui | 'Nutrient Score Graded Unavailable from source'
+2025-11-03 10:42:17 | INFO     | ui | Buttons presented in the history tab before clearing [ElevatedButton(text='112', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='113', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='8445290728791', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='8445290728792', style='{"padding":{},"side":{},"shape":{},"text_style":{}}')]
+2025-11-03 10:42:17 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-11-03 10:42:17 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:42:17 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:42:17 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:42:17 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:42:17 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:42:19 | INFO     | ui | Displaying Nutritional Information for 8445290728792
+2025-11-03 10:42:19 | INFO     | ui | Checking Validity and Updating barcode for 8445290728792
+2025-11-03 10:42:19 | INFO     | utils | Barcode Updated - 8445290728792 is a valid numerical barcode
+2025-11-03 10:42:19 | INFO     | utils | Top 5 history barcodes : {'8445290728792': 4, '111': 4, '112': 4, '113': 3, '8445290728791': 2} 
+2025-11-03 10:42:19 | INFO     | utils | History updated successfully.
+2025-11-03 10:42:19 | INFO     | utils | JSON file 8445290728792 exists in history directory.
+2025-11-03 10:42:19 | INFO     | ui | File found from history - will use that
+2025-11-03 10:42:19 | INFO     | get_food_db | Successfully fetched image from website
+2025-11-03 10:42:19 | ERROR    | get_food_db | Image not available on the website
+2025-11-03 10:42:19 | ERROR    | get_food_db | Serving Size not available on the website
+2025-11-03 10:42:19 | ERROR    | get_food_db | Product Name not available on the website
+2025-11-03 10:42:19 | ERROR    | get_food_db | Nutriments not available on the website
+2025-11-03 10:42:19 | ERROR    | get_food_db | Nutrient Levels not available on the website
+2025-11-03 10:42:19 | ERROR    | get_food_db | Nutrient Level Tags not available on the website
+2025-11-03 10:42:19 | ERROR    | get_food_db | Nutrient Score Graded not available on the website
+2025-11-03 10:42:19 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-11-03 10:42:19 | INFO     | ui | New Barcode Data processed for 8445290728792
+2025-11-03 10:42:19 | INFO     | ui | Successfully showed image for 8445290728792
+2025-11-03 10:42:19 | INFO     | utils | Barcode Updated - 8445290728792 is a valid numerical barcode
+2025-11-03 10:42:19 | ERROR    | ui | 'str' object has no attribute 'items'
+2025-11-03 10:42:19 | ERROR    | ui | 'Nutrient Score Graded Unavailable from source'
+2025-11-03 10:42:19 | INFO     | ui | Buttons presented in the history tab before clearing [ElevatedButton(text='112', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='8445290728792', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='113', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='8445290728791', style='{"padding":{},"side":{},"shape":{},"text_style":{}}')]
+2025-11-03 10:42:19 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-11-03 10:42:19 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:42:19 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:42:19 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:42:19 | INFO     | ui | Generating new history tab buttons
+2025-11-03 10:42:19 | INFO     | ui | Generating new history tab buttons

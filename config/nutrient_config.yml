@@ -1,0 +1,9 @@
+# all_display_fields: all the fields that will be accessed from the downloaded
+# json file
+all_display_fields:
+  serving_size: "Serving Size"
+  product_name_en: "Product Name"
+  nutriments: "Nutriments"
+  nutrient_levels: "Nutrient Levels"
+  nutrient_levels_tags: "Nutrient Level Tags"
+  nutriscore_grade: "Nutrient Score Graded"

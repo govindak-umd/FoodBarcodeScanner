@@ -1,0 +1,144 @@
+2025-10-29 18:01:35 | INFO     | root | Logs will be saved to logs/app_2025-10-29_18-01-35.log
+2025-10-29 18:01:35 | INFO     | flet | Assets path configured: /Users/govindajithkumar/PycharmProjects/FoodBarcodeScanner/assets
+2025-10-29 18:01:35 | INFO     | flet | Starting up UDS server on /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/SqoY13eKPN
+2025-10-29 18:01:35 | INFO     | flet | Flet app has started...
+2025-10-29 18:01:35 | INFO     | flet | App URL: /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/SqoY13eKPN
+2025-10-29 18:01:35 | INFO     | flet_desktop | Starting Flet View app...
+2025-10-29 18:01:35 | INFO     | flet_desktop | Flet View found in: /Users/govindajithkumar/.flet/bin/flet-0.28.3
+2025-10-29 18:01:36 | INFO     | flet | App session started
+2025-10-29 18:01:38 | INFO     | utils | Barcode Updated - 722252153258 is a valid numerical barcode
+2025-10-29 18:01:38 | INFO     | utils | Top 5 history barcodes : {'722252153258': 3} 
+2025-10-29 18:01:38 | INFO     | utils | History updated successfully.
+2025-10-29 18:01:38 | INFO     | utils | JSON file 722252153258 exists in history directory.
+2025-10-29 18:01:38 | INFO     | ui | File found from history - will use that
+2025-10-29 18:01:38 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-29 18:01:38 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-29 18:01:38 | INFO     | ui | New Barcode Data processed for 722252153258
+2025-10-29 18:01:38 | INFO     | ui | Successfully showed image for 722252153258
+2025-10-29 18:01:38 | INFO     | utils | Barcode Updated - 722252153258 is a valid numerical barcode
+2025-10-29 18:01:38 | INFO     | ui | Successfully updated nutritional info for 722252153258
+2025-10-29 18:01:40 | INFO     | utils | Barcode Updated - 722252153258 is a valid numerical barcode
+2025-10-29 18:01:40 | INFO     | utils | Top 5 history barcodes : {'722252153258': 4} 
+2025-10-29 18:01:40 | INFO     | utils | History updated successfully.
+2025-10-29 18:01:40 | INFO     | utils | JSON file 722252153258 exists in history directory.
+2025-10-29 18:01:40 | INFO     | ui | File found from history - will use that
+2025-10-29 18:01:40 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-29 18:01:40 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-29 18:01:40 | INFO     | ui | New Barcode Data processed for 722252153258
+2025-10-29 18:01:40 | INFO     | ui | Successfully showed image for 722252153258
+2025-10-29 18:01:40 | INFO     | utils | Barcode Updated - 722252153258 is a valid numerical barcode
+2025-10-29 18:01:40 | INFO     | ui | Successfully updated nutritional info for 722252153258
+2025-10-29 18:01:42 | INFO     | utils | Barcode Updated - 722252153258 is a valid numerical barcode
+2025-10-29 18:01:42 | INFO     | utils | Top 5 history barcodes : {'722252153258': 5} 
+2025-10-29 18:01:42 | INFO     | utils | History updated successfully.
+2025-10-29 18:01:42 | INFO     | utils | JSON file 722252153258 exists in history directory.
+2025-10-29 18:01:42 | INFO     | ui | File found from history - will use that
+2025-10-29 18:01:42 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-29 18:01:42 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-29 18:01:42 | INFO     | ui | New Barcode Data processed for 722252153258
+2025-10-29 18:01:42 | INFO     | ui | Successfully showed image for 722252153258
+2025-10-29 18:01:42 | INFO     | utils | Barcode Updated - 722252153258 is a valid numerical barcode
+2025-10-29 18:01:42 | INFO     | ui | Successfully updated nutritional info for 722252153258
+2025-10-29 18:01:42 | INFO     | utils | Barcode Updated - 722252153258 is a valid numerical barcode
+2025-10-29 18:01:42 | INFO     | utils | Top 5 history barcodes : {'722252153258': 6} 
+2025-10-29 18:01:42 | INFO     | utils | History updated successfully.
+2025-10-29 18:01:42 | INFO     | utils | JSON file 722252153258 exists in history directory.
+2025-10-29 18:01:42 | INFO     | ui | File found from history - will use that
+2025-10-29 18:01:42 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-29 18:01:42 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-29 18:01:42 | INFO     | ui | New Barcode Data processed for 722252153258
+2025-10-29 18:01:42 | INFO     | ui | Successfully showed image for 722252153258
+2025-10-29 18:01:42 | INFO     | utils | Barcode Updated - 722252153258 is a valid numerical barcode
+2025-10-29 18:01:42 | INFO     | ui | Successfully updated nutritional info for 722252153258
+2025-10-29 18:01:43 | INFO     | utils | Barcode Updated - 722252153258 is a valid numerical barcode
+2025-10-29 18:01:43 | INFO     | utils | Top 5 history barcodes : {'722252153258': 7} 
+2025-10-29 18:01:43 | INFO     | utils | History updated successfully.
+2025-10-29 18:01:43 | INFO     | utils | JSON file 722252153258 exists in history directory.
+2025-10-29 18:01:43 | INFO     | ui | File found from history - will use that
+2025-10-29 18:01:43 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-29 18:01:43 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-29 18:01:43 | INFO     | ui | New Barcode Data processed for 722252153258
+2025-10-29 18:01:43 | INFO     | ui | Successfully showed image for 722252153258
+2025-10-29 18:01:43 | INFO     | utils | Barcode Updated - 722252153258 is a valid numerical barcode
+2025-10-29 18:01:43 | INFO     | ui | Successfully updated nutritional info for 722252153258
+2025-10-29 18:01:43 | INFO     | utils | Barcode Updated - 722252153258 is a valid numerical barcode
+2025-10-29 18:01:43 | INFO     | utils | Top 5 history barcodes : {'722252153258': 8} 
+2025-10-29 18:01:43 | INFO     | utils | History updated successfully.
+2025-10-29 18:01:43 | INFO     | utils | JSON file 722252153258 exists in history directory.
+2025-10-29 18:01:43 | INFO     | ui | File found from history - will use that
+2025-10-29 18:01:43 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-29 18:01:43 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-29 18:01:43 | INFO     | ui | New Barcode Data processed for 722252153258
+2025-10-29 18:01:43 | INFO     | ui | Successfully showed image for 722252153258
+2025-10-29 18:01:43 | INFO     | utils | Barcode Updated - 722252153258 is a valid numerical barcode
+2025-10-29 18:01:43 | INFO     | ui | Successfully updated nutritional info for 722252153258
+2025-10-29 18:01:43 | INFO     | utils | Barcode Updated - 722252153258 is a valid numerical barcode
+2025-10-29 18:01:43 | INFO     | utils | Top 5 history barcodes : {'722252153258': 9} 
+2025-10-29 18:01:43 | INFO     | utils | History updated successfully.
+2025-10-29 18:01:43 | INFO     | utils | JSON file 722252153258 exists in history directory.
+2025-10-29 18:01:43 | INFO     | ui | File found from history - will use that
+2025-10-29 18:01:43 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-29 18:01:43 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-29 18:01:43 | INFO     | ui | New Barcode Data processed for 722252153258
+2025-10-29 18:01:43 | INFO     | ui | Successfully showed image for 722252153258
+2025-10-29 18:01:43 | INFO     | utils | Barcode Updated - 722252153258 is a valid numerical barcode
+2025-10-29 18:01:43 | INFO     | ui | Successfully updated nutritional info for 722252153258
+2025-10-29 18:01:44 | INFO     | utils | Barcode Updated - 722252153258 is a valid numerical barcode
+2025-10-29 18:01:44 | INFO     | utils | Top 5 history barcodes : {'722252153258': 10} 
+2025-10-29 18:01:44 | INFO     | utils | History updated successfully.
+2025-10-29 18:01:44 | INFO     | utils | JSON file 722252153258 exists in history directory.
+2025-10-29 18:01:44 | INFO     | ui | File found from history - will use that
+2025-10-29 18:01:44 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-29 18:01:44 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-29 18:01:44 | INFO     | ui | New Barcode Data processed for 722252153258
+2025-10-29 18:01:44 | INFO     | ui | Successfully showed image for 722252153258
+2025-10-29 18:01:44 | INFO     | utils | Barcode Updated - 722252153258 is a valid numerical barcode
+2025-10-29 18:01:44 | INFO     | ui | Successfully updated nutritional info for 722252153258
+2025-10-29 18:01:45 | ERROR    | asyncio | Future exception was never retrieved
+future: <Future finished exception=TypeError("'dict_keys' object is not subscriptable")>
+Traceback (most recent call last):
+  File [35m"/opt/anaconda3/envs/proj_env/lib/python3.13/concurrent/futures/thread.py"[0m, line [35m59[0m, in [35mrun[0m
+    result = self.fn(*self.args, **self.kwargs)
+  File [35m"/opt/anaconda3/envs/proj_env/lib/python3.13/site-packages/flet/core/page.py"[0m, line [35m906[0m, in [35mwrapper[0m
+    [31mhandler[0m[1;31m(*args)[0m
+    [31m~~~~~~~[0m[1;31m^^^^^^^[0m
+  File [35m"/Users/govindajithkumar/PycharmProjects/FoodBarcodeScanner/ui.py"[0m, line [35m309[0m, in [35m<lambda>[0m
+    on_click=lambda e, name='xxx': [31mself.top_n_historical_barcodes[0m[1;31m[0][0m,
+                                   [31m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[1;31m^^^[0m
+[1;35mTypeError[0m: [35m'dict_keys' object is not subscriptable[0m
+2025-10-29 18:01:46 | ERROR    | asyncio | Future exception was never retrieved
+future: <Future finished exception=TypeError("'dict_keys' object is not subscriptable")>
+Traceback (most recent call last):
+  File [35m"/opt/anaconda3/envs/proj_env/lib/python3.13/concurrent/futures/thread.py"[0m, line [35m59[0m, in [35mrun[0m
+    result = self.fn(*self.args, **self.kwargs)
+  File [35m"/opt/anaconda3/envs/proj_env/lib/python3.13/site-packages/flet/core/page.py"[0m, line [35m906[0m, in [35mwrapper[0m
+    [31mhandler[0m[1;31m(*args)[0m
+    [31m~~~~~~~[0m[1;31m^^^^^^^[0m
+  File [35m"/Users/govindajithkumar/PycharmProjects/FoodBarcodeScanner/ui.py"[0m, line [35m309[0m, in [35m<lambda>[0m
+    on_click=lambda e, name='xxx': [31mself.top_n_historical_barcodes[0m[1;31m[0][0m,
+                                   [31m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[1;31m^^^[0m
+[1;35mTypeError[0m: [35m'dict_keys' object is not subscriptable[0m
+2025-10-29 18:01:47 | ERROR    | asyncio | Future exception was never retrieved
+future: <Future finished exception=TypeError("'dict_keys' object is not subscriptable")>
+Traceback (most recent call last):
+  File [35m"/opt/anaconda3/envs/proj_env/lib/python3.13/concurrent/futures/thread.py"[0m, line [35m59[0m, in [35mrun[0m
+    result = self.fn(*self.args, **self.kwargs)
+  File [35m"/opt/anaconda3/envs/proj_env/lib/python3.13/site-packages/flet/core/page.py"[0m, line [35m906[0m, in [35mwrapper[0m
+    [31mhandler[0m[1;31m(*args)[0m
+    [31m~~~~~~~[0m[1;31m^^^^^^^[0m
+  File [35m"/Users/govindajithkumar/PycharmProjects/FoodBarcodeScanner/ui.py"[0m, line [35m309[0m, in [35m<lambda>[0m
+    on_click=lambda e, name='xxx': [31mself.top_n_historical_barcodes[0m[1;31m[0][0m,
+                                   [31m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[1;31m^^^[0m
+[1;35mTypeError[0m: [35m'dict_keys' object is not subscriptable[0m
+2025-10-29 18:01:49 | ERROR    | asyncio | Future exception was never retrieved
+future: <Future finished exception=TypeError("'dict_keys' object is not subscriptable")>
+Traceback (most recent call last):
+  File [35m"/opt/anaconda3/envs/proj_env/lib/python3.13/concurrent/futures/thread.py"[0m, line [35m59[0m, in [35mrun[0m
+    result = self.fn(*self.args, **self.kwargs)
+  File [35m"/opt/anaconda3/envs/proj_env/lib/python3.13/site-packages/flet/core/page.py"[0m, line [35m906[0m, in [35mwrapper[0m
+    [31mhandler[0m[1;31m(*args)[0m
+    [31m~~~~~~~[0m[1;31m^^^^^^^[0m
+  File [35m"/Users/govindajithkumar/PycharmProjects/FoodBarcodeScanner/ui.py"[0m, line [35m309[0m, in [35m<lambda>[0m
+    on_click=lambda e, name='xxx': [31mself.top_n_historical_barcodes[0m[1;31m[0][0m,
+                                   [31m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[1;31m^^^[0m
+[1;35mTypeError[0m: [35m'dict_keys' object is not subscriptable[0m

@@ -1,0 +1,282 @@
+2025-10-30 11:16:01 | INFO     | root | Logs will be saved to logs/app_2025-10-30_11-16-01.log
+2025-10-30 11:16:01 | INFO     | flet | Assets path configured: /Users/govindajithkumar/PycharmProjects/FoodBarcodeScanner/assets
+2025-10-30 11:16:01 | INFO     | flet | Starting up UDS server on /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/QDHYoCU6mZ
+2025-10-30 11:16:01 | INFO     | flet | Flet app has started...
+2025-10-30 11:16:01 | INFO     | flet | App URL: /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/QDHYoCU6mZ
+2025-10-30 11:16:01 | INFO     | flet_desktop | Starting Flet View app...
+2025-10-30 11:16:01 | INFO     | flet_desktop | Flet View found in: /Users/govindajithkumar/.flet/bin/flet-0.28.3
+2025-10-30 11:16:02 | INFO     | flet | App session started
+2025-10-30 11:16:02 | INFO     | utils | Top 5 history barcodes : {'8445290728791': 7, '111': 7, '722252153258': 1} 
+2025-10-30 11:16:02 | INFO     | utils | History updated successfully.
+2025-10-30 11:16:04 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-30 11:16:04 | INFO     | utils | Top 5 history barcodes : {'8445290728791': 8, '111': 7, '722252153258': 1} 
+2025-10-30 11:16:04 | INFO     | utils | History updated successfully.
+2025-10-30 11:16:04 | INFO     | utils | JSON file 8445290728791 exists in history directory.
+2025-10-30 11:16:04 | INFO     | ui | File found from history - will use that
+2025-10-30 11:16:04 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-30 11:16:04 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-30 11:16:04 | INFO     | ui | New Barcode Data processed for 8445290728791
+2025-10-30 11:16:04 | INFO     | ui | Successfully showed image for 8445290728791
+2025-10-30 11:16:04 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-30 11:16:04 | INFO     | ui | Successfully updated nutritional info for 8445290728791
+2025-10-30 11:16:04 | INFO     | ui | Buttons presented in the history tab before clearing []
+2025-10-30 11:16:04 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-10-30 11:16:04 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:04 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:04 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:08 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-30 11:16:08 | INFO     | utils | Top 5 history barcodes : {'8445290728791': 9, '111': 7, '722252153258': 1} 
+2025-10-30 11:16:08 | INFO     | utils | History updated successfully.
+2025-10-30 11:16:08 | INFO     | utils | JSON file 8445290728791 exists in history directory.
+2025-10-30 11:16:08 | INFO     | ui | File found from history - will use that
+2025-10-30 11:16:08 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-30 11:16:08 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-30 11:16:08 | INFO     | ui | New Barcode Data processed for 8445290728791
+2025-10-30 11:16:08 | INFO     | ui | Successfully showed image for 8445290728791
+2025-10-30 11:16:08 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-30 11:16:08 | INFO     | ui | Successfully updated nutritional info for 8445290728791
+2025-10-30 11:16:08 | INFO     | ui | Buttons presented in the history tab before clearing [ElevatedButton(text='8445290728791', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='111', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='722252153258', style='{"padding":{},"side":{},"shape":{},"text_style":{}}')]
+2025-10-30 11:16:08 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-10-30 11:16:08 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:08 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:08 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:17 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-30 11:16:17 | INFO     | utils | Top 5 history barcodes : {'8445290728791': 10, '111': 7, '722252153258': 1} 
+2025-10-30 11:16:17 | INFO     | utils | History updated successfully.
+2025-10-30 11:16:17 | INFO     | utils | JSON file 8445290728791 exists in history directory.
+2025-10-30 11:16:17 | INFO     | ui | File found from history - will use that
+2025-10-30 11:16:17 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-30 11:16:17 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-30 11:16:17 | INFO     | ui | New Barcode Data processed for 8445290728791
+2025-10-30 11:16:17 | INFO     | ui | Successfully showed image for 8445290728791
+2025-10-30 11:16:17 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-30 11:16:17 | INFO     | ui | Successfully updated nutritional info for 8445290728791
+2025-10-30 11:16:17 | INFO     | ui | Buttons presented in the history tab before clearing [ElevatedButton(text='8445290728791', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='111', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='722252153258', style='{"padding":{},"side":{},"shape":{},"text_style":{}}')]
+2025-10-30 11:16:17 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-10-30 11:16:17 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:17 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:17 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:18 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-30 11:16:18 | INFO     | utils | Top 5 history barcodes : {'8445290728791': 11, '111': 7, '722252153258': 1} 
+2025-10-30 11:16:18 | INFO     | utils | History updated successfully.
+2025-10-30 11:16:18 | INFO     | utils | JSON file 8445290728791 exists in history directory.
+2025-10-30 11:16:18 | INFO     | ui | File found from history - will use that
+2025-10-30 11:16:18 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-30 11:16:18 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-30 11:16:18 | INFO     | ui | New Barcode Data processed for 8445290728791
+2025-10-30 11:16:18 | INFO     | ui | Successfully showed image for 8445290728791
+2025-10-30 11:16:18 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-30 11:16:18 | INFO     | ui | Successfully updated nutritional info for 8445290728791
+2025-10-30 11:16:18 | INFO     | ui | Buttons presented in the history tab before clearing [ElevatedButton(text='8445290728791', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='111', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='722252153258', style='{"padding":{},"side":{},"shape":{},"text_style":{}}')]
+2025-10-30 11:16:18 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-10-30 11:16:18 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:18 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:18 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:19 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-30 11:16:19 | INFO     | utils | Top 5 history barcodes : {'8445290728791': 12, '111': 7, '722252153258': 1} 
+2025-10-30 11:16:19 | INFO     | utils | History updated successfully.
+2025-10-30 11:16:19 | INFO     | utils | JSON file 8445290728791 exists in history directory.
+2025-10-30 11:16:19 | INFO     | ui | File found from history - will use that
+2025-10-30 11:16:19 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-30 11:16:19 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-30 11:16:19 | INFO     | ui | New Barcode Data processed for 8445290728791
+2025-10-30 11:16:19 | INFO     | ui | Successfully showed image for 8445290728791
+2025-10-30 11:16:19 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-30 11:16:19 | INFO     | ui | Successfully updated nutritional info for 8445290728791
+2025-10-30 11:16:19 | INFO     | ui | Buttons presented in the history tab before clearing [ElevatedButton(text='8445290728791', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='111', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='722252153258', style='{"padding":{},"side":{},"shape":{},"text_style":{}}')]
+2025-10-30 11:16:19 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-10-30 11:16:19 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:19 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:19 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:20 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-30 11:16:20 | INFO     | utils | Top 5 history barcodes : {'8445290728791': 13, '111': 7, '722252153258': 1} 
+2025-10-30 11:16:20 | INFO     | utils | History updated successfully.
+2025-10-30 11:16:20 | INFO     | utils | JSON file 8445290728791 exists in history directory.
+2025-10-30 11:16:20 | INFO     | ui | File found from history - will use that
+2025-10-30 11:16:20 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-30 11:16:20 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-30 11:16:20 | INFO     | ui | New Barcode Data processed for 8445290728791
+2025-10-30 11:16:20 | INFO     | ui | Successfully showed image for 8445290728791
+2025-10-30 11:16:20 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-30 11:16:20 | INFO     | ui | Successfully updated nutritional info for 8445290728791
+2025-10-30 11:16:20 | INFO     | ui | Buttons presented in the history tab before clearing [ElevatedButton(text='8445290728791', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='111', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='722252153258', style='{"padding":{},"side":{},"shape":{},"text_style":{}}')]
+2025-10-30 11:16:20 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-10-30 11:16:20 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:20 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:20 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:21 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-30 11:16:21 | INFO     | utils | Top 5 history barcodes : {'8445290728791': 14, '111': 7, '722252153258': 1} 
+2025-10-30 11:16:21 | INFO     | utils | History updated successfully.
+2025-10-30 11:16:21 | INFO     | utils | JSON file 8445290728791 exists in history directory.
+2025-10-30 11:16:21 | INFO     | ui | File found from history - will use that
+2025-10-30 11:16:21 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-30 11:16:21 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-30 11:16:21 | INFO     | ui | New Barcode Data processed for 8445290728791
+2025-10-30 11:16:21 | INFO     | ui | Successfully showed image for 8445290728791
+2025-10-30 11:16:21 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-30 11:16:21 | INFO     | ui | Successfully updated nutritional info for 8445290728791
+2025-10-30 11:16:21 | INFO     | ui | Buttons presented in the history tab before clearing [ElevatedButton(text='8445290728791', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='111', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='722252153258', style='{"padding":{},"side":{},"shape":{},"text_style":{}}')]
+2025-10-30 11:16:21 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-10-30 11:16:21 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:21 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:21 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:21 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-30 11:16:21 | INFO     | utils | Top 5 history barcodes : {'8445290728791': 15, '111': 7, '722252153258': 1} 
+2025-10-30 11:16:21 | INFO     | utils | History updated successfully.
+2025-10-30 11:16:21 | INFO     | utils | JSON file 8445290728791 exists in history directory.
+2025-10-30 11:16:21 | INFO     | ui | File found from history - will use that
+2025-10-30 11:16:21 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-30 11:16:21 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-30 11:16:21 | INFO     | ui | New Barcode Data processed for 8445290728791
+2025-10-30 11:16:21 | INFO     | ui | Successfully showed image for 8445290728791
+2025-10-30 11:16:21 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-30 11:16:21 | INFO     | ui | Successfully updated nutritional info for 8445290728791
+2025-10-30 11:16:21 | INFO     | ui | Buttons presented in the history tab before clearing [ElevatedButton(text='8445290728791', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='111', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='722252153258', style='{"padding":{},"side":{},"shape":{},"text_style":{}}')]
+2025-10-30 11:16:21 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-10-30 11:16:21 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:21 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:21 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:21 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-30 11:16:21 | INFO     | utils | Top 5 history barcodes : {'8445290728791': 16, '111': 7, '722252153258': 1} 
+2025-10-30 11:16:21 | INFO     | utils | History updated successfully.
+2025-10-30 11:16:21 | INFO     | utils | JSON file 8445290728791 exists in history directory.
+2025-10-30 11:16:21 | INFO     | ui | File found from history - will use that
+2025-10-30 11:16:21 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-30 11:16:21 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-30 11:16:21 | INFO     | ui | New Barcode Data processed for 8445290728791
+2025-10-30 11:16:21 | INFO     | ui | Successfully showed image for 8445290728791
+2025-10-30 11:16:21 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-30 11:16:21 | INFO     | ui | Successfully updated nutritional info for 8445290728791
+2025-10-30 11:16:21 | INFO     | ui | Buttons presented in the history tab before clearing [ElevatedButton(text='8445290728791', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='111', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='722252153258', style='{"padding":{},"side":{},"shape":{},"text_style":{}}')]
+2025-10-30 11:16:21 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-10-30 11:16:21 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:21 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:21 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:21 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-30 11:16:21 | INFO     | utils | Top 5 history barcodes : {'8445290728791': 17, '111': 7, '722252153258': 1} 
+2025-10-30 11:16:21 | INFO     | utils | History updated successfully.
+2025-10-30 11:16:21 | INFO     | utils | JSON file 8445290728791 exists in history directory.
+2025-10-30 11:16:21 | INFO     | ui | File found from history - will use that
+2025-10-30 11:16:21 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-30 11:16:21 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-30 11:16:21 | INFO     | ui | New Barcode Data processed for 8445290728791
+2025-10-30 11:16:21 | INFO     | ui | Successfully showed image for 8445290728791
+2025-10-30 11:16:21 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-30 11:16:21 | INFO     | ui | Successfully updated nutritional info for 8445290728791
+2025-10-30 11:16:21 | INFO     | ui | Buttons presented in the history tab before clearing [ElevatedButton(text='8445290728791', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='111', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='722252153258', style='{"padding":{},"side":{},"shape":{},"text_style":{}}')]
+2025-10-30 11:16:21 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-10-30 11:16:21 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:21 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:21 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:21 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-30 11:16:21 | INFO     | utils | Top 5 history barcodes : {'8445290728791': 18, '111': 7, '722252153258': 1} 
+2025-10-30 11:16:21 | INFO     | utils | History updated successfully.
+2025-10-30 11:16:21 | INFO     | utils | JSON file 8445290728791 exists in history directory.
+2025-10-30 11:16:21 | INFO     | ui | File found from history - will use that
+2025-10-30 11:16:21 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-30 11:16:21 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-30 11:16:21 | INFO     | ui | New Barcode Data processed for 8445290728791
+2025-10-30 11:16:21 | INFO     | ui | Successfully showed image for 8445290728791
+2025-10-30 11:16:21 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-30 11:16:21 | INFO     | ui | Successfully updated nutritional info for 8445290728791
+2025-10-30 11:16:21 | INFO     | ui | Buttons presented in the history tab before clearing [ElevatedButton(text='8445290728791', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='111', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='722252153258', style='{"padding":{},"side":{},"shape":{},"text_style":{}}')]
+2025-10-30 11:16:21 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-10-30 11:16:21 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:21 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:21 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:21 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-30 11:16:21 | INFO     | utils | Top 5 history barcodes : {'8445290728791': 19, '111': 7, '722252153258': 1} 
+2025-10-30 11:16:21 | INFO     | utils | History updated successfully.
+2025-10-30 11:16:21 | INFO     | utils | JSON file 8445290728791 exists in history directory.
+2025-10-30 11:16:21 | INFO     | ui | File found from history - will use that
+2025-10-30 11:16:21 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-30 11:16:21 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-30 11:16:21 | INFO     | ui | New Barcode Data processed for 8445290728791
+2025-10-30 11:16:21 | INFO     | ui | Successfully showed image for 8445290728791
+2025-10-30 11:16:21 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-30 11:16:21 | INFO     | ui | Successfully updated nutritional info for 8445290728791
+2025-10-30 11:16:21 | INFO     | ui | Buttons presented in the history tab before clearing [ElevatedButton(text='8445290728791', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='111', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='722252153258', style='{"padding":{},"side":{},"shape":{},"text_style":{}}')]
+2025-10-30 11:16:21 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-10-30 11:16:21 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:21 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:21 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:21 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-30 11:16:21 | INFO     | utils | Top 5 history barcodes : {'8445290728791': 20, '111': 7, '722252153258': 1} 
+2025-10-30 11:16:21 | INFO     | utils | History updated successfully.
+2025-10-30 11:16:21 | INFO     | utils | JSON file 8445290728791 exists in history directory.
+2025-10-30 11:16:21 | INFO     | ui | File found from history - will use that
+2025-10-30 11:16:21 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-30 11:16:21 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-30 11:16:21 | INFO     | ui | New Barcode Data processed for 8445290728791
+2025-10-30 11:16:21 | INFO     | ui | Successfully showed image for 8445290728791
+2025-10-30 11:16:21 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-30 11:16:21 | INFO     | ui | Successfully updated nutritional info for 8445290728791
+2025-10-30 11:16:22 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-30 11:16:22 | INFO     | ui | Buttons presented in the history tab before clearing [ElevatedButton(text='8445290728791', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='111', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='722252153258', style='{"padding":{},"side":{},"shape":{},"text_style":{}}')]
+2025-10-30 11:16:22 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-10-30 11:16:22 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:22 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:22 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:22 | INFO     | utils | Top 5 history barcodes : {'8445290728791': 21, '111': 7, '722252153258': 1} 
+2025-10-30 11:16:22 | INFO     | utils | History updated successfully.
+2025-10-30 11:16:22 | INFO     | utils | JSON file 8445290728791 exists in history directory.
+2025-10-30 11:16:22 | INFO     | ui | File found from history - will use that
+2025-10-30 11:16:22 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-30 11:16:22 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-30 11:16:22 | INFO     | ui | New Barcode Data processed for 8445290728791
+2025-10-30 11:16:22 | INFO     | ui | Successfully showed image for 8445290728791
+2025-10-30 11:16:22 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-30 11:16:22 | INFO     | ui | Successfully updated nutritional info for 8445290728791
+2025-10-30 11:16:22 | INFO     | ui | Buttons presented in the history tab before clearing [ElevatedButton(text='8445290728791', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='111', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='722252153258', style='{"padding":{},"side":{},"shape":{},"text_style":{}}')]
+2025-10-30 11:16:22 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-10-30 11:16:22 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:22 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:22 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:24 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-30 11:16:24 | INFO     | utils | Top 5 history barcodes : {'8445290728791': 22, '111': 7, '722252153258': 1} 
+2025-10-30 11:16:24 | INFO     | utils | History updated successfully.
+2025-10-30 11:16:24 | INFO     | utils | JSON file 8445290728791 exists in history directory.
+2025-10-30 11:16:24 | INFO     | ui | File found from history - will use that
+2025-10-30 11:16:24 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-30 11:16:24 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-30 11:16:24 | INFO     | ui | New Barcode Data processed for 8445290728791
+2025-10-30 11:16:24 | INFO     | ui | Successfully showed image for 8445290728791
+2025-10-30 11:16:24 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-30 11:16:24 | INFO     | ui | Successfully updated nutritional info for 8445290728791
+2025-10-30 11:16:24 | INFO     | ui | Buttons presented in the history tab before clearing [ElevatedButton(text='8445290728791', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='111', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='722252153258', style='{"padding":{},"side":{},"shape":{},"text_style":{}}')]
+2025-10-30 11:16:24 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-10-30 11:16:24 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:24 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:24 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:24 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-30 11:16:24 | INFO     | utils | Top 5 history barcodes : {'8445290728791': 23, '111': 7, '722252153258': 1} 
+2025-10-30 11:16:24 | INFO     | utils | History updated successfully.
+2025-10-30 11:16:24 | INFO     | utils | JSON file 8445290728791 exists in history directory.
+2025-10-30 11:16:24 | INFO     | ui | File found from history - will use that
+2025-10-30 11:16:24 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-30 11:16:24 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-30 11:16:24 | INFO     | ui | New Barcode Data processed for 8445290728791
+2025-10-30 11:16:24 | INFO     | ui | Successfully showed image for 8445290728791
+2025-10-30 11:16:24 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-30 11:16:24 | INFO     | ui | Successfully updated nutritional info for 8445290728791
+2025-10-30 11:16:24 | INFO     | ui | Buttons presented in the history tab before clearing [ElevatedButton(text='8445290728791', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='111', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='722252153258', style='{"padding":{},"side":{},"shape":{},"text_style":{}}')]
+2025-10-30 11:16:24 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-10-30 11:16:24 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:24 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:24 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:32 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-30 11:16:32 | INFO     | utils | Top 5 history barcodes : {'8445290728791': 24, '111': 7, '722252153258': 1} 
+2025-10-30 11:16:32 | INFO     | utils | History updated successfully.
+2025-10-30 11:16:32 | INFO     | utils | JSON file 8445290728791 exists in history directory.
+2025-10-30 11:16:32 | INFO     | ui | File found from history - will use that
+2025-10-30 11:16:32 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-30 11:16:32 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-30 11:16:32 | INFO     | ui | New Barcode Data processed for 8445290728791
+2025-10-30 11:16:32 | INFO     | ui | Successfully showed image for 8445290728791
+2025-10-30 11:16:32 | INFO     | utils | Barcode Updated - 8445290728791 is a valid numerical barcode
+2025-10-30 11:16:32 | INFO     | ui | Successfully updated nutritional info for 8445290728791
+2025-10-30 11:16:32 | INFO     | ui | Buttons presented in the history tab before clearing [ElevatedButton(text='8445290728791', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='111', style='{"padding":{},"side":{},"shape":{},"text_style":{}}'), ElevatedButton(text='722252153258', style='{"padding":{},"side":{},"shape":{},"text_style":{}}')]
+2025-10-30 11:16:32 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-10-30 11:16:32 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:32 | INFO     | ui | Generating new history tab buttons
+2025-10-30 11:16:32 | INFO     | ui | Generating new history tab buttons

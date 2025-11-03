@@ -1,0 +1,62 @@
+2025-10-29 15:48:06 | INFO     | root | Logs will be saved to logs/app_2025-10-29_15-48-06.log
+2025-10-29 15:48:06 | INFO     | flet | Assets path configured: /Users/govindajithkumar/PycharmProjects/FoodBarcodeScanner/assets
+2025-10-29 15:48:06 | INFO     | flet | Starting up UDS server on /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/p0iLgDkC67
+2025-10-29 15:48:06 | INFO     | flet | Flet app has started...
+2025-10-29 15:48:06 | INFO     | flet | App URL: /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/p0iLgDkC67
+2025-10-29 15:48:06 | INFO     | flet_desktop | Starting Flet View app...
+2025-10-29 15:48:06 | INFO     | flet_desktop | Flet View found in: /Users/govindajithkumar/.flet/bin/flet-0.28.3
+2025-10-29 15:48:06 | INFO     | flet | App session started
+2025-10-29 15:48:06 | INFO     | utils | History cleared successfully.
+2025-10-29 15:48:06 | ERROR    | utils | No more history barcodes in the database
+2025-10-29 15:48:09 | INFO     | utils | Barcode Updated - 722252153258 is a valid numerical barcode
+2025-10-29 15:48:09 | INFO     | utils | Top 5 history barcodes : {'722252153258': 1} 
+2025-10-29 15:48:09 | INFO     | utils | History updated successfully.
+2025-10-29 15:48:09 | INFO     | utils | JSON file 722252153258 exists in history directory.
+2025-10-29 15:48:09 | INFO     | ui | File found from history - will use that
+2025-10-29 15:48:09 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-29 15:48:09 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-29 15:48:09 | INFO     | ui | New Barcode Data processed for 722252153258
+2025-10-29 15:48:09 | INFO     | ui | Successfully showed image for 722252153258
+2025-10-29 15:48:09 | INFO     | utils | Barcode Updated - 722252153258 is a valid numerical barcode
+2025-10-29 15:48:09 | INFO     | ui | Successfully updated nutritional info for 722252153258
+2025-10-29 15:48:15 | INFO     | utils | Barcode Updated - 722252153258 is a valid numerical barcode
+2025-10-29 15:48:15 | INFO     | utils | Top 5 history barcodes : {'722252153258': 2} 
+2025-10-29 15:48:15 | INFO     | utils | History updated successfully.
+2025-10-29 15:48:15 | INFO     | utils | JSON file 722252153258 exists in history directory.
+2025-10-29 15:48:15 | INFO     | ui | File found from history - will use that
+2025-10-29 15:48:15 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-29 15:48:15 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-29 15:48:15 | INFO     | ui | New Barcode Data processed for 722252153258
+2025-10-29 15:48:15 | INFO     | ui | Successfully showed image for 722252153258
+2025-10-29 15:48:15 | INFO     | utils | Barcode Updated - 722252153258 is a valid numerical barcode
+2025-10-29 15:48:15 | INFO     | ui | Successfully updated nutritional info for 722252153258
+2025-10-29 15:48:20 | INFO     | utils | Barcode Updated - 722252153252 is a valid numerical barcode
+2025-10-29 15:48:20 | INFO     | utils | Top 5 history barcodes : {'722252153258': 2, '722252153252': 1} 
+2025-10-29 15:48:20 | INFO     | utils | History updated successfully.
+2025-10-29 15:48:20 | WARNING  | utils | File not found in history for - 722252153252
+2025-10-29 15:48:20 | WARNING  | ui | File not found from history - retrieving data from internet
+2025-10-29 15:48:21 | INFO     | get_food_db | Successfully fetched data from website
+2025-10-29 15:48:21 | INFO     | get_food_db | Successfully fetched image from website
+2025-10-29 15:48:21 | ERROR    | get_food_db | Image not available on the website
+2025-10-29 15:48:21 | ERROR    | get_food_db | Serving Size not available on the website
+2025-10-29 15:48:21 | ERROR    | get_food_db | Product Name not available on the website
+2025-10-29 15:48:21 | ERROR    | get_food_db | Nutriments not available on the website
+2025-10-29 15:48:21 | ERROR    | get_food_db | Nutrient Levels not available on the website
+2025-10-29 15:48:21 | ERROR    | get_food_db | Nutrient Level Tags not available on the website
+2025-10-29 15:48:21 | ERROR    | get_food_db | Nutrient Score Graded not available on the website
+2025-10-29 15:48:21 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-10-29 15:48:21 | INFO     | ui | New Barcode Data processed for 722252153252
+2025-10-29 15:48:21 | INFO     | ui | Successfully showed image for 722252153252
+2025-10-29 15:48:21 | INFO     | utils | Barcode Updated - 722252153252 is a valid numerical barcode
+2025-10-29 15:48:21 | ERROR    | asyncio | Future exception was never retrieved
+future: <Future finished exception=AttributeError("'str' object has no attribute 'items'")>
+Traceback (most recent call last):
+  File [35m"/opt/anaconda3/envs/proj_env/lib/python3.13/concurrent/futures/thread.py"[0m, line [35m59[0m, in [35mrun[0m
+    result = self.fn(*self.args, **self.kwargs)
+  File [35m"/opt/anaconda3/envs/proj_env/lib/python3.13/site-packages/flet/core/page.py"[0m, line [35m906[0m, in [35mwrapper[0m
+    [31mhandler[0m[1;31m(*args)[0m
+    [31m~~~~~~~[0m[1;31m^^^^^^^[0m
+  File [35m"/Users/govindajithkumar/PycharmProjects/FoodBarcodeScanner/ui.py"[0m, line [35m232[0m, in [35mdisplay_nutrition[0m
+    ].[1;31mitems[0m():
+      [1;31m^^^^^[0m
+[1;35mAttributeError[0m: [35m'str' object has no attribute 'items'[0m

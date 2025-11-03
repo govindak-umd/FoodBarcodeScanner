@@ -1,0 +1,32 @@
+# text size for words on the ui
+common_text_size: 16
+
+# display_img: dims of the image displayed
+display_img:
+  width: 300
+  height: 200
+
+# text_color: specify the color of different texts on the UI
+text_color:
+  regular_text: "white"
+  error_text: "red"
+  # severity colors: Colors of the text that is displayed
+  severity_colors_nutrition_levels:
+    low: "green"
+    moderate: "orange"
+    high: "red"
+  # nutri_score_color_grade: color grading based on the nutri_score
+  nutri_score_color_grade:
+    a: "green"
+    b: "cyan"
+    c: "yellow"
+    d: "yellow"
+    e: "red"
+    'not-applicable': "red" # for some food this information is not present
+
+# button_colors: specify the color of every button you want in the UI
+button_colors:
+  history_button_color: "yellow"
+  clear_history_button_color: "red"
+# max_history: number of buttons you want generated
+max_history: 5
