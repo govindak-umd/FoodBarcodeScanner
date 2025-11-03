@@ -2,7 +2,7 @@ name: Auto Merge
 
 on:
   pull_request_target:
-    types: [opened, reopened, synchronize, labeled]
+    types: [labeled, reopened, synchronize]
   check_suite:
     types: [completed]
 
@@ -13,11 +13,11 @@ permissions:
   statuses: read
 
 jobs:
-  auto-merge:
+  enable:
     runs-on: ubuntu-latest
     steps:
-      # Resolve the PR for both event types (PR + check_suite)
-      - name: Resolve PR context
+      # Resolve the PR for both event types
+      - name: Resolve PR
         id: pr
         uses: actions/github-script@v7
         with:
@@ -39,74 +39,78 @@ jobs:
             core.setOutput('sha', pr.head.sha);
             core.setOutput('labels', JSON.stringify(pr.labels.map(l => l.name)));
 
-      # Verify your required checks (treats both Checks + Status contexts)
-      - name: Verify required checks
-        id: verify
+      # (Optional) auto-add the 'automerge' label when BOTH checks are green
+      - name: Add 'automerge' label when both checks passed
+        if: always()
         uses: actions/github-script@v7
         with:
           script: |
-            const REQUIRED = [
+            const required = [
               { job: 'isort-fix', status: 'isort_check / isort-fix (pull_request)' },
-              { job: 'ci-test',      status: 'ci_check / test (pull_request)' },
+              { job: 'ci-test',      status: 'ci_check / ci-test (pull_request)' },
             ];
-
             const { owner, repo } = context.repo;
             const sha = '${{ steps.pr.outputs.sha }}';
+            const number = Number('${{ steps.pr.outputs.number }}');
 
-            // Checks API (job names)
-            const checksResp = await github.rest.checks.listForRef({ owner, repo, ref: sha, status: 'completed' });
-            const checkRuns = checksResp.data.check_runs || [];
-            const checksByName = Object.fromEntries(checkRuns.map(c => [c.name, c.conclusion]));
+            const checks = await github.rest.checks.listForRef({ owner, repo, ref: sha, status: 'completed' });
+            const byJob = Object.fromEntries(checks.data.check_runs.map(c => [c.name, c.conclusion]));
 
-            // Statuses API (UI contexts)
-            const statusResp = await github.rest.repos.getCombinedStatusForRef({ owner, repo, ref: sha });
-            const statuses = statusResp.data.statuses || [];
-            const statusesByContext = Object.fromEntries(statuses.map(s => [s.context, s.state])); // success|failure|pending
+            const combined = await github.rest.repos.getCombinedStatusForRef({ owner, repo, ref: sha });
+            const byCtx = Object.fromEntries(combined.data.statuses.map(s => [s.context, s.state]));
 
-            console.log('--- Check Runs ---'); console.log(checksByName);
-            console.log('--- Status Contexts ---'); console.log(statusesByContext);
+            const ok = (j,c) =>
+              (j in byJob && byJob[j] === 'success') || (c in byCtx && byCtx[c] === 'success');
 
-            function ok(nameJob, nameCtx) {
-              const jobOk = nameJob in checksByName ? checksByName[nameJob] === 'success' : null;
-              const ctxOk = nameCtx in statusesByContext ? statusesByContext[nameCtx] === 'success' : null;
-              return jobOk === true || ctxOk === true ? true : (jobOk === null && ctxOk === null ? null : false);
+            const allPass = required.every(r => ok(r.job, r.status));
+            const hasLabel = JSON.parse('${{ steps.pr.outputs.labels }}').includes('automerge');
+
+            console.log('CheckRuns:', byJob);
+            console.log('StatusContexts:', byCtx);
+            console.log('All required passed:', allPass, 'Has label:', hasLabel);
+
+            if (allPass && !hasLabel) {
+              await github.rest.issues.addLabels({ owner, repo, issue_number: number, labels: ['automerge'] });
+              console.log('Added label: automerge');
             }
 
-            const missing = [], failed = [];
-            for (const req of REQUIRED) {
-              const res = ok(req.job, req.status);
-              if (res === null) missing.push(`${req.job} / ${req.status}`);
-              else if (res === false) failed.push(`${req.job} / ${req.status}`);
-            }
-
-            core.setOutput('missing', missing.join(', '));
-            core.setOutput('failed', failed.join(', '));
-
-            if (missing.length || failed.length) {
-              core.setOutput('ready', 'false');
-              console.log('Not ready. Missing:', missing, 'Failed:', failed);
-            } else {
-              core.setOutput('ready', 'true');
-              console.log('✅ All required checks passed.');
-            }
-
-      # Add the label automatically if all checks passed and it’s not already there
-      - name: Add `automerge` label when ready
-        if: steps.verify.outputs.ready == 'true' && !contains(steps.pr.outputs.labels, '"automerge"')
+      # Diagnostics: tell you EXACTLY why merge is blocked
+      - name: Diagnose merge blockers
+        id: diag
         uses: actions/github-script@v7
         with:
           script: |
-            await github.rest.issues.addLabels({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: Number('${{ steps.pr.outputs.number }}'),
-              labels: ['automerge']
-            });
-            console.log('Label `automerge` added.');
+            const { owner, repo } = context.repo;
+            const number = Number('${{ steps.pr.outputs.number }}');
+            const q = `
+              query($owner:String!, $repo:String!, $number:Int!) {
+                repository(owner:$owner, name:$repo) {
+                  squashMergeAllowed
+                  mergeCommitAllowed
+                  rebaseMergeAllowed
+                  pullRequest(number:$number){
+                    isDraft
+                    mergeStateStatus
+                    reviewDecision
+                    autoMergeRequest { enabledAt }
+                    title
+                  }
+                }
+              }`;
+            const { repository } = await github.graphql(q, { owner, repo, number });
+            const pr = repository.pullRequest;
+            console.log('PR:', pr.title);
+            console.log('Banner enabledAt:', pr.autoMergeRequest?.enabledAt || 'not enabled');
+            console.log('mergeStateStatus:', pr.mergeStateStatus); // CLEAN, BLOCKED, DIRTY, BEHIND, UNSTABLE...
+            console.log('reviewDecision:', pr.reviewDecision);     // APPROVED, REVIEW_REQUIRED...
+            console.log('isDraft:', pr.isDraft);
+            console.log('squashMergeAllowed:', repository.squashMergeAllowed);
+            console.log('mergeCommitAllowed:', repository.mergeCommitAllowed);
+            console.log('rebaseMergeAllowed:', repository.rebaseMergeAllowed);
 
-      # Enable native auto-merge (GitHub will merge once all requirements are satisfied)
-      - name: Enable GitHub Auto-Merge (squash)
-        if: steps.verify.outputs.ready == 'true'
+      # Enable native auto-merge (label must be present)
+      - name: Enable auto-merge (squash)
+        if: contains(steps.pr.outputs.labels, 'automerge')
         uses: peter-evans/enable-pull-request-automerge@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
