@@ -1,4 +1,4 @@
-name: Auto Merge
+name: automerge
 
 on:
   pull_request_target:
@@ -8,38 +8,70 @@ permissions:
   pull-requests: write
   contents: write
   checks: read
+  statuses: read
 
 jobs:
   enable-auto-merge:
     if: contains(github.event.pull_request.labels.*.name, 'automerge')
     runs-on: ubuntu-latest
     steps:
-      - name: Check that CI and Sort checks passed
+      - name: Verify required checks (Checks API + Statuses API)
         uses: actions/github-script@v7
         with:
           script: |
-            const required = ['python ci check', 'isort check'];
-            const { owner, repo } = context.repo;
-            const sha = context.payload.pull_request.head.sha;
+            const required = ['python ci check', 'isort check']; 
 
-            const checks = await github.rest.checks.listForRef({
+            const { owner, repo } = context.repo;
+            const pr = context.payload.pull_request;
+            const sha = pr.head.sha;
+
+            // 1) Checks API
+            const checksResp = await github.rest.checks.listForRef({
               owner, repo, ref: sha, status: 'completed'
             });
-
-            const byName = Object.fromEntries(
-              checks.data.check_runs.map(c => [c.name, c.conclusion])
+            const checkRuns = checksResp.data.check_runs || [];
+            const checksByName = Object.fromEntries(
+              checkRuns.map(c => [c.name, c.conclusion])
             );
 
-            const missing = required.filter(n => !(n in byName));
-            const failed  = required.filter(n => byName[n] !== 'success');
+            // 2) Statuses API (legacy “contexts”)
+            const statusResp = await github.rest.repos.getCombinedStatusForRef({
+              owner, repo, ref: sha
+            });
+            const statuses = statusResp.data.statuses || [];
+            const statusesByContext = Object.fromEntries(
+              statuses.map(s => [s.context, s.state]) // state: success|failure|pending
+            );
 
-            if (missing.length) core.setFailed(`Missing required checks: ${missing.join(', ')}`);
-            if (failed.length)  core.setFailed(`Failed checks: ${failed.join(', ')}`);
-            if (!missing.length && !failed.length) {
-              console.log('✅ All required checks passed.');
+            // Debug logs so you can see what's available
+            console.log('--- Check Runs (name -> conclusion) ---');
+            for (const [k,v] of Object.entries(checksByName)) console.log(`${k} -> ${v}`);
+            console.log('--- Status Contexts (context -> state) ---');
+            for (const [k,v] of Object.entries(statusesByContext)) console.log(`${k} -> ${v}`);
+
+            // Normalize to success/failure across both APIs
+            function isSuccess(name) {
+              // Prefer Checks API match, fall back to Statuses API
+              if (name in checksByName) return checksByName[name] === 'success';
+              if (name in statusesByContext) return statusesByContext[name] === 'success';
+              return null; // missing
             }
 
-      - name: Enable GitHub Auto-Merge (Squash)
+            const missing = [];
+            const failed  = [];
+            for (const name of required) {
+              const ok = isSuccess(name);
+              if (ok === null) missing.push(name);
+              else if (ok === false) failed.push(name);
+            }
+
+            if (missing.length) core.setFailed(`Missing required checks/statuses: ${missing.join(', ')}`);
+            if (failed.length)  core.setFailed(`Failed checks/statuses: ${failed.join(', ')}`);
+            if (!missing.length && !failed.length) {
+              console.log('✅ All required checks/statuses passed.');
+            }
+
+      - name: Enable GitHub Auto-Merge (squash)
         if: success()
         uses: peter-evans/enable-pull-request-automerge@v3
         with:
