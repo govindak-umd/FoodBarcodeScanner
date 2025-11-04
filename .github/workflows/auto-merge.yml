@@ -1,10 +1,8 @@
-name: Auto-merge (after CI workflows)
+name: PR Checks + Wait and Auto-merge
 
 on:
-  # Fire when either workflow finishes; we'll verify both passed before merging
-  workflow_run:
-    workflows: ["python CI Check", "isort check"]   # <-- must match the `name:` in those files
-    types: [completed]
+  pull_request:
+    types: [opened, synchronize, reopened, labeled]
     branches: ["**"]
 
 permissions:
@@ -12,169 +10,99 @@ permissions:
   pull-requests: write
 
 concurrency:
-  group: automerge-${{ github.event.workflow_run.head_sha }}
+  group: pr-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
+  sort:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install isort
+        run: pip install isort
+
+      # On PRs: check only (fail if imports need sorting)
+      - name: isort check (PR)
+        if: github.event_name == 'pull_request'
+        run: |
+          isort --check-only --diff .
+
+      # On pushes: auto-fix and (if needed) commit the changes
+      - name: isort auto-fix & push (push)
+        if: github.event_name == 'push'
+        run: |
+          isort .
+          if [ -n "$(git status --porcelain)" ]; then
+            git config --global user.name "github-actions[bot]"
+            git config --global user.email "github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "Auto-apply isort"
+            git push
+          else
+            echo "No import changes needed."
+          fi
+
+
+  lint:
+    runs-on: ubuntu-latest
+    needs: [sort]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          fi
+          pip install black pytest
+
+      - name: Black (check only)
+        run: |
+          echo "Checking code formatting with Black..."
+          black .
 
   wait_and_merge:
     runs-on: ubuntu-latest
-    needs: [sort, black, lint, tests]   # <-- gate this job
+    needs: [sort, black, lint, tests]   # <— only starts after all checks succeed
     steps:
-      - name: Wait for checks (poll until SUCCESS/FAILURE)
+      - name: Require 'automerge' label
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const pr = context.payload.pull_request;
+            if (!pr) { core.setFailed('Not a PR context.'); return; }
+            if (!pr.labels?.some(l => l.name === 'automerge')) {
+              core.setFailed("PR is missing required 'automerge' label");
+            }
+
+      - name: Wait for rollup to be SUCCESS (poll)
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const { owner, repo } = context.repo;
-            const number = context.payload.pull_request.number;  // don't hard-code
+            const number = context.payload.pull_request.number;
 
             async function rollup() {
-              const q = `
-                query($owner:String!, $repo:String!, $number:Int!) {
-                  repository(owner:$owner, name:$repo) {
-                    pullRequest(number:$number) {
-                      commits(last:1) {
-                        nodes { commit { statusCheckRollup { state } } }
-                      }
-                    }
-                  }
-                }`;
-              const res = await github.graphql(q, { owner, repo, number });
-              return res.repository.pullRequest.commits.nodes[0].commit.statusCheckRollup?.state ?? "PENDING";
-            }
-
-            // Poll ~40 minutes (120 * 20s)
-            for (let i = 0; i < 120; i++) {
-              const state = await rollup();
-              core.info(`statusCheckRollup = ${state}`);
-              if (state === "SUCCESS") return;
-              if (state === "FAILURE") { core.setFailed("Some checks failed."); return; }
-              await new Promise(r => setTimeout(r, 60000));
-            }
-            core.setFailed("Timed out waiting for checks to become SUCCESS.");
-
-  gate-and-merge:
-    # Only consider successful completions for this *particular* workflow_run
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Verify both workflows succeeded for this commit, find PR, require label, then auto-merge
-        uses: actions/github-script@v7
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const {owner, repo} = context.repo;
-            const sha = context.payload.workflow_run.head_sha;
-
-            // 1) Find the PR associated with this commit SHA
-            const prs = await github.rest.repos.listPullRequestsAssociatedWithCommit({
-              owner, repo, commit_sha: sha
-            });
-            if (!prs.data.length) {
-              core.setFailed(`No PR found for commit ${sha}`);
-              return;
-            }
-            const pr = prs.data[0];
-            core.info(`Found PR #${pr.number}`);
-
-            // 2) Require the "automerge" label
-            const hasAutoLabel = pr.labels?.some(l => l.name === 'automerge');
-            if (!hasAutoLabel) {
-              core.setFailed(`PR #${pr.number} is missing required 'automerge' label`);
-              return;
-            }
-
-            // 3) Ensure BOTH named workflows have completed successfully for this same SHA
-            const requiredWorkflows = ["Python CI Check", "isort check"]; // <-- keep in sync with 'on.workflow_run.workflows'
-            const runs = await github.rest.actions.listWorkflowRunsForRepo({
-              owner, repo, head_sha: sha, status: 'completed', per_page: 100
-            });
-
-            const neededStatus = Object.fromEntries(requiredWorkflows.map(n => [n, false]));
-            for (const run of runs.data.workflow_runs) {
-              if (requiredWorkflows.includes(run.name)) {
-                core.info(`Workflow "${run.name}" → conclusion: ${run.conclusion}`);
-                if (run.conclusion === 'success') neededStatus[run.name] = true;
-              }
-            }
-            const missing = Object.entries(neededStatus).filter(([, ok]) => !ok).map(([n]) => n);
-            if (missing.length) {
-              core.setFailed(`Not all required workflows are green for ${sha}: missing success from [${missing.join(', ')}]`);
-              return;
-            }
-
-            // 4) Double-check *all* required status checks for the head commit are green
-            //    (covers any branch protection required checks too)
-            const q = `
-              query($owner:String!, $repo:String!, $number:Int!) {
-                repository(owner:$owner, name:$repo) {
-                  pullRequest(number:$number) {
-                    commits(last:1) {
-                      nodes {
-                        commit {
-                          statusCheckRollup { state }
-                        }
-                      }
-                    }
-                  }
-                }
-              }`;
-            const res = await github.graphql(q, { owner, repo, number: pr.number });
-            const state = res.repository.pullRequest.commits.nodes[0].commit.statusCheckRollup?.state || "PENDING";
-            core.info(`statusCheckRollup.state = ${state}`);
-            if (state !== "SUCCESS") {
-              core.setFailed(`Some checks are not green yet (state=${state})`);
-              return;
-            }
-
-            // 5) Enable native auto-merge and/or just merge now (since everything is green)
-            // Option A: one-shot merge now
-            try {
-              await github.rest.pulls.merge({
-                owner, repo, pull_number: pr.number,
-                merge_method: "squash" // or "merge" / "rebase"
-              });
-              core.info(`PR #${pr.number} merged successfully 🎉`);
-              return;
-            } catch (e) {
-              core.warning(`Direct merge failed (likely due to branch protections). Falling back to 'gh pr merge --auto'... ${e.message}`);
-            }
-
-      - name:
-        Fallback: enable GitHub auto-merge
-        if: ${{ always() }}
-        run: |
-          PR=${{ github.event.workflow_run.pull_requests[0].number }}
-          if [ -z "$PR" ]; then
-            # Find PR via commit SHA as a fallback
-            SHA=${{ github.event.workflow_run.head_sha }}
-            PR=$(gh pr list --search "$SHA" --state open --json number --jq '.[0].number' || true)
-          fi
-
-          if [ -n "$PR" ]; then
-            gh pr merge "$PR" --auto --squash --delete-branch
-            echo "Enabled auto-merge for PR #$PR"
-          else
-            echo "No PR found to enable auto-merge on."
-          fi
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Wait for all checks to be green
-        uses: actions/github-script@v7
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const { owner, repo } = context.repo;
-            let number = context.payload.pull_request?.number;
-            if (!number) {
-              core.setFailed("Not a PR context and no PR number available.");
-              return;
-            }
-            core.info(`Using PR #${number}`);
-      
-            async function getRollupState() {
               const q = `
                 query($owner:String!, $repo:String!, $number:Int!) {
                   repository(owner:$owner, name:$repo) {
@@ -188,7 +116,7 @@ jobs:
                               contexts(last:50) {
                                 nodes {
                                   __typename
-                                  ... on CheckRun { name conclusion status }
+                                  ... on CheckRun { name status conclusion }
                                   ... on StatusContext { context state }
                                 }
                               }
@@ -207,17 +135,39 @@ jobs:
                 contexts: node?.statusCheckRollup?.contexts?.nodes ?? []
               };
             }
-      
-            for (let i = 0; i < 120; i++) { // ~40m @20s
-              const { sha, state, contexts } = await getRollupState();
+
+            for (let i = 0; i < 60; i++) { // ~60 minutes @60s
+              const { sha, state, contexts } = await rollup();
               core.info(`Head ${sha} rollup = ${state}`);
               contexts.slice(0, 10).forEach((c, i) => {
                 if (c.__typename === "CheckRun") core.info(`  [${i}] ${c.name}: ${c.status}/${c.conclusion}`);
                 else core.info(`  [${i}] ${c.context}: ${c.state}`);
               });
-      
-              if (state === "SUCCESS") { core.info("All checks green."); return; }
+              if (state === "SUCCESS") return;
               if (state === "FAILURE") { core.setFailed("Some checks failed."); return; }
               await new Promise(r => setTimeout(r, 60000));
             }
             core.setFailed("Timed out waiting for checks to become SUCCESS.");
+
+      - name: Merge (squash)
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { owner, repo } = context.repo;
+            const number = context.payload.pull_request.number;
+            try {
+              await github.rest.pulls.merge({ owner, repo, pull_number: number, merge_method: "squash" });
+              core.info(`PR #${number} merged 🎉`);
+            } catch (e) {
+              core.warning(`Direct merge failed (likely protections): ${e.message}`);
+              core.exportVariable('NEED_FALLBACK', '1');
+
+      - name: Fallback — enable native auto-merge
+        if: env.NEED_FALLBACK == '1'
+        run: |
+          PR=${{ github.event.pull_request.number }}
+          gh pr merge "$PR" --auto --squash --delete-branch
+          echo "Enabled native auto-merge on PR #$PR"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
