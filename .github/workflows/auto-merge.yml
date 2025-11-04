@@ -14,7 +14,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  sort:
+  format:
+    name: isort & black (checks)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -27,44 +28,34 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+          cache: pip
 
-      - name: Install isort
-        run: pip install isort
-
-      # On PRs: check only (fail if imports need sorting)
-      - name: isort check (PR)
-        if: github.event_name == 'pull_request'
+      - name: Install formatting tools
         run: |
-          isort --check-only --diff .
+          python -m pip install --upgrade pip
+          pip install isort black
 
-      # On pushes: auto-fix and (if needed) commit the changes
-      - name: isort auto-fix & push (push)
-        if: github.event_name == 'push'
-        run: |
-          isort .
-          if [ -n "$(git status --porcelain)" ]; then
-            git config --global user.name "github-actions[bot]"
-            git config --global user.email "github-actions[bot]@users.noreply.github.com"
-            git add -A
-            git commit -m "Auto-apply isort"
-            git push
-          else
-            echo "No import changes needed."
-          fi
+      - name: isort (check only)
+        run: isort --check-only --diff .
 
+      - name: black (check only)
+        run: black --check --diff .
 
-  lint:
+  tests:
+    name: pytest (if tests present)
     runs-on: ubuntu-latest
-    needs: [sort]
+    needs: [format]
     steps:
-      - uses: actions/checkout@v4
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+          cache: pip
 
       - name: Install dependencies
         run: |
@@ -72,16 +63,20 @@ jobs:
           if [ -f requirements.txt ]; then
             pip install -r requirements.txt
           fi
-          pip install black pytest
+          pip install pytest
 
-      - name: Black (check only)
-        run: |
-          echo "Checking code formatting with Black..."
-          black .
+      - name: Run pytest
+        if: ${{ hashFiles('**/tests/**') != '' }}
+        run: pytest -q
+
+      - name: No tests detected
+        if: ${{ hashFiles('**/tests/**') == '' }}
+        run: echo "No tests directory found; skipping pytest."
 
   wait_and_merge:
+    name: Wait for checks & merge (label-gated)
     runs-on: ubuntu-latest
-    needs: [sort, black, lint, tests]   # <— only starts after all checks succeed
+    needs: [format, tests]   # only starts after checks/tests are done
     steps:
       - name: Require 'automerge' label
         uses: actions/github-script@v7
