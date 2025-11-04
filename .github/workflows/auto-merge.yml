@@ -129,20 +129,9 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const { owner, repo } = context.repo;
-      
-            // 1) Resolve PR number robustly (works for pull_request + workflow_run w/ PR)
             let number = context.payload.pull_request?.number;
-            if (!number && context.payload.workflow_run?.head_sha) {
-              const sha = context.payload.workflow_run.head_sha;
-              const prs = await github.rest.repos.listPullRequestsAssociatedWithCommit({ owner, repo, commit_sha: sha });
-              if (!prs.data.length) {
-                core.setFailed(`No PR found for commit ${sha}`);
-                return;
-              }
-              number = prs.data[0].number;
-            }
             if (!number) {
-              core.setFailed("Could not determine PR number from context.");
+              core.setFailed("Not a PR context and no PR number available.");
               return;
             }
             core.info(`Using PR #${number}`);
@@ -174,36 +163,23 @@ jobs:
                 }`;
               const res = await github.graphql(q, { owner, repo, number });
               const node = res?.repository?.pullRequest?.commits?.nodes?.[0]?.commit;
-              const sha = node?.oid;
-              const rollup = node?.statusCheckRollup;
-              const state = rollup?.state ?? "PENDING";
-              return { sha, state, contexts: rollup?.contexts?.nodes ?? [] };
+              return {
+                sha: node?.oid,
+                state: node?.statusCheckRollup?.state ?? "PENDING",
+                contexts: node?.statusCheckRollup?.contexts?.nodes ?? []
+              };
             }
       
-            // 2) Poll up to ~40 minutes (120 * 20s)
-            for (let i = 0; i < 120; i++) {
+            for (let i = 0; i < 120; i++) { // ~40m @20s
               const { sha, state, contexts } = await getRollupState();
-              core.info(`Head SHA ${sha} statusCheckRollup.state = ${state}`);
-      
-              // Log some context detail (first 10) to help debugging
-              contexts.slice(0, 10).forEach((c, idx) => {
-                if (c.__typename === "CheckRun") {
-                  core.info(`  [${idx}] CheckRun "${c.name}" → status=${c.status} conclusion=${c.conclusion}`);
-                } else {
-                  core.info(`  [${idx}] StatusContext "${c.context}" → state=${c.state}`);
-                }
+              core.info(`Head ${sha} rollup = ${state}`);
+              contexts.slice(0, 10).forEach((c, i) => {
+                if (c.__typename === "CheckRun") core.info(`  [${i}] ${c.name}: ${c.status}/${c.conclusion}`);
+                else core.info(`  [${i}] ${c.context}: ${c.state}`);
               });
       
-              if (state === "SUCCESS") {
-                core.info("All checks successful. Proceeding.");
-                return;
-              }
-              if (state === "FAILURE") {
-                core.setFailed("Some checks failed. Aborting.");
-                return;
-              }
-              await new Promise(r => setTimeout(r, 60000)); // wait 60s
+              if (state === "SUCCESS") { core.info("All checks green."); return; }
+              if (state === "FAILURE") { core.setFailed("Some checks failed."); return; }
+              await new Promise(r => setTimeout(r, 60000));
             }
-      
             core.setFailed("Timed out waiting for checks to become SUCCESS.");
-      
