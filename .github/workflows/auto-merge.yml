@@ -1,0 +1,126 @@
+name: Auto Merge
+
+on:
+  pull_request_target:
+    types: [opened, reopened, synchronize, labeled]
+  check_suite:
+    types: [completed]
+
+permissions:
+  pull-requests: write
+  contents: write
+  checks: read
+  statuses: read
+
+jobs:
+  auto-merge:
+    runs-on: ubuntu-latest
+    steps:
+      # Resolve the PR for both event types (PR + check_suite)
+      - name: Resolve PR context
+        id: pr
+        uses: actions/github-script@v7
+        with:
+          script: |
+            let pr = context.payload.pull_request;
+            if (!pr && context.eventName === 'check_suite') {
+              const prs = context.payload.check_suite.pull_requests || [];
+              if (prs.length) {
+                const { data } = await github.rest.pulls.get({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  pull_number: prs[0].number
+                });
+                pr = data;
+              }
+            }
+            if (!pr) core.setFailed('No PR found for this event.');
+            core.setOutput('number', pr.number);
+
+      # Auto-add `automerge` label once BOTH checks are green (works for forks via GraphQL rollup)
+      - name: Add `automerge` label when checks passed
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const REQUIRED_CONTEXTS = [
+              'isort check / isort-fix (pull_request)',
+              'python ci check / test (pull_request)',
+            ];
+            const { owner, repo } = context.repo;
+            const number = Number('${{ steps.pr.outputs.number }}');
+
+            const q = `
+              query($owner:String!, $repo:String!, $number:Int!) {
+                repository(owner:$owner, name:$repo) {
+                  pullRequest(number:$number) {
+                    labels(first:100){ nodes{ name } }
+                    commits(last:1) {
+                      nodes {
+                        commit {
+                          statusCheckRollup {
+                            contexts(first:100) {
+                              nodes {
+                                __typename
+                                ... on CheckRun     { name conclusion }
+                                ... on StatusContext{ context state }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }`;
+            const data = await github.graphql(q, { owner, repo, number });
+            const pr = data.repository.pullRequest;
+
+            const labels = pr.labels.nodes.map(l => l.name);
+            const contexts = Object.fromEntries(
+              (pr.commits.nodes[0].commit.statusCheckRollup?.contexts.nodes || []).map(n => {
+                const key = n.__typename === 'CheckRun' ? n.name : n.context;
+                const val = (n.__typename === 'CheckRun' ? n.conclusion : n.state) || '';
+                return [key, val.toLowerCase()];
+              })
+            );
+
+            const allPass = REQUIRED_CONTEXTS.every(k => contexts[k] === 'success');
+
+            if (allPass && !labels.includes('automerge')) {
+              await github.rest.issues.addLabels({
+                owner, repo, issue_number: number, labels: ['automerge']
+              });
+              console.log('Added label: automerge');
+            } else {
+              console.log('No label change. allPass=', allPass, 'labels=', labels);
+            }
+      - name: Wait and verify all checks are green
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const number = Number('${{ steps.pr.outputs.number }}');
+            await new Promise(r => setTimeout(r, 20000)); // wait 20s
+            const q = `
+              query($owner:String!, $repo:String!, $number:Int!) {
+                repository(owner:$owner, name:$repo) {
+                  pullRequest(number:$number) {
+                    commits(last:1) {
+                      nodes { commit { statusCheckRollup { state } } }
+                    }
+                  }
+                }
+              }`;
+            const res = await github.graphql(q, { owner, repo, number });
+            const state = res.repository.pullRequest.commits.nodes[0].commit.statusCheckRollup.state;
+            if (state !== "SUCCESS") core.setFailed("Not all checks passed yet: " + state);
+            else console.log("All checks successful, proceeding to auto-merge");
+
+
+      # Enable GitHub native auto-merge (shows banner on PR)
+      - name: Enable GitHub Auto-Merge (squash)
+        uses: peter-evans/enable-pull-request-automerge@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          pull-request-number: ${{ steps.pr.outputs.number }}
+          merge-method: squash
