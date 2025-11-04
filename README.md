@@ -23,7 +23,11 @@ Food Barcode retrieval app that can then produce nutritional information
   - search for all previous products and have the data stored and ready to go
   - user can click on a past search and see the nutritional information 
   - clear search history, add a new button for this
-
+- workflows
+  - pylint check
+  - black check
+  - isort check
+  - auto merge workflow 
 Machine Learning aspect of the project
 - Suggest healthier alternatives
   - Machine learning
