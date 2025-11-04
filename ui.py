@@ -8,8 +8,12 @@ import flet as ft
 import yaml
 
 from get_food_db import FoodDB
-from utils import (barcode_validity_checker, check_and_retrieve_history,
-                   check_json_file, clear_history)
+from utils import (
+    barcode_validity_checker,
+    check_and_retrieve_history,
+    check_json_file,
+    clear_history,
+)
 
 # Load UI YAML file
 with open("config/ui_config.yml", "r", encoding="utf-8") as file:
@@ -262,7 +266,6 @@ class DisplayHMI:
                     )
                 )
             try:
-
 
                 ## add text and set color for the text based on value
                 color = ui_config["text_color"]["nutri_score_color_grade"][
