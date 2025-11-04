@@ -1,0 +1,50 @@
+name: isort check
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
+
+permissions:
+  contents: write
+
+jobs:
+  isort-fix:
+    name: isort-fix
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install isort
+        run: pip install isort
+
+      # PRs: check-only (no changes)
+      - name: isort check (pull_request)
+        if: github.event_name == 'pull_request'
+        run: isort --check-only --diff .
+
+      # Pushes: auto-fix and commit if needed
+      - name: isort auto-fix & commit (push)
+        if: github.event_name == 'push'
+        run: |
+          isort .
+          if [ -n "$(git status --porcelain)" ]; then
+            git config --global user.name  "github-actions[bot]"
+            git config --global user.email "github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "chore(isort): auto-apply import sorting [skip ci]"
+            git push
+          else
+            echo "No import changes needed."
+          fi
