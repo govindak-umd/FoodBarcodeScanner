@@ -30,11 +30,11 @@ Food Barcode retrieval app that can then produce nutritional information
   - auto merge workflow 
     - should run only when the other workflows are done
 
-Machine Learning aspect of the project
-- Suggest healthier alternatives
-  - Machine learning
-  - all food database info
-  - rank food based on health
+- Machine Learning aspect of the project
+  - Suggest healthier alternatives
+    - Machine learning
+    - all food database info
+    - rank food based on health
 
 ### Running 
 
