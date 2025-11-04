@@ -202,7 +202,7 @@ jobs:
                 core.setFailed("Some checks failed. Aborting.");
                 return;
               }
-              await new Promise(r => setTimeout(r, 20000)); // wait 20s
+              await new Promise(r => setTimeout(r, 60000)); // wait 60s
             }
       
             core.setFailed("Timed out waiting for checks to become SUCCESS.");
