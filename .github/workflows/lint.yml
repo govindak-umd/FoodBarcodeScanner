@@ -1,0 +1,62 @@
+name: lint check
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
+
+permissions:
+  contents: write
+
+jobs:
+  lint:
+    name: lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps (project + linters)
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          fi
+          pip install pylint
+
+      # PRs: run lint (no auto-fix for pylint)
+      - name: Pylint (pull_request)
+        if: github.event_name == 'pull_request'
+        run: |
+          # Adjust package/module path as needed
+          pylint $(git ls-files '*.py')
+
+      # Pushes: (optional) try to auto-fix with ruff, then re-lint & commit if changed
+      - name: Optional auto-fix with ruff & commit (push)
+        if: github.event_name == 'push'
+        run: |
+          pip install ruff
+          # Try fixable lint rules; safe defaults
+          ruff check . --fix || true
+          FIXED=0
+          if [ -n "$(git status --porcelain)" ]; then
+            git config --global user.name  "github-actions[bot]"
+            git config --global user.email "github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "chore(lint): auto-fix simple issues via ruff [skip ci]" && FIXED=1 || true
+          fi
+          # Always run pylint to enforce remaining issues
+          pylint $(git ls-files '*.py')
+          if [ $FIXED -eq 1 ]; then
+            git push
+          fi
