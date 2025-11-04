@@ -36,17 +36,6 @@ Machine Learning aspect of the project
   - all food database info
   - rank food based on health
 
-## DONE
-
-
-### Setup
-
-### Test Setup
-
-- GitHub actions being used
-  - all test specs in the ci.yml file
-- tests triggered on push/pull
-
 ### Running 
 
     python main.py
