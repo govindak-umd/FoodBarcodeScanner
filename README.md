@@ -16,17 +16,19 @@ Food Barcode retrieval app that can then produce nutritional information
   - configurable in a larger yml file on how many past searches
   - user can click on a past search and see the nutritional information 
   - clear search history, add a new button for this
-- 
+- workflows 
+  - pylint check
+  - black check
+  - isort check
+
 ## Feature Requests (future TODO)
 
 - asyncio
   - in the future, always search for healthier alternatives along with originally requested products health information
 
-- workflows 
-  - pylint check
-  - black check
-  - isort check
+- workflows
   - auto merge workflow 
+    - should run only when the other workflows are done
 
 Machine Learning aspect of the project
 - Suggest healthier alternatives
