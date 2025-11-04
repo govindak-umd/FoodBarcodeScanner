@@ -3,7 +3,7 @@
 # FoodBarcodeScanner
 Food Barcode retrieval app that can then produce nutritional information 
 
-## Features
+## Features (DONE)
 
 - Retrieve Nutritional Information with a barcode
   - User types a barcode in the texbox
@@ -11,28 +11,31 @@ Food Barcode retrieval app that can then produce nutritional information
 - Logs user input and outputs
 - Can change barcode upon request
 - Auto search and retrieve when 'enter' is hit on the text box
-
+- Product History feature
+  - show history of products that were searched 
+  - configurable in a larger yml file on how many past searches
+  - user can click on a past search and see the nutritional information 
+  - clear search history, add a new button for this
+- 
 ## Feature Requests (future TODO)
 
 - asyncio
-  - Retrieve food data in parallel as the user starts typing on the text box
   - in the future, always search for healthier alternatives along with originally requested products health information
-- Product History
-  - show history of products that were searched
-  - configurable in a larger yml file on how many past searches
-  - search for all previous products and have the data stored and ready to go
-  - user can click on a past search and see the nutritional information 
-  - clear search history, add a new button for this
-- workflows
+
+- workflows 
   - pylint check
   - black check
   - isort check
   - auto merge workflow 
+
 Machine Learning aspect of the project
 - Suggest healthier alternatives
   - Machine learning
   - all food database info
   - rank food based on health
+
+## DONE
+
 
 ### Setup
 
