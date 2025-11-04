@@ -1,69 +1,124 @@
-name: PR Checks + Auto-merge
+name: Auto-merge (after CI workflows)
 
 on:
-  pull_request:
-    types: [opened, synchronize, reopened, labeled]
+  # Fire when either workflow finishes; we'll verify both passed before merging
+  workflow_run:
+    workflows: ["python CI Check", "isort check"]   # <-- must match the `name:` in those files
+    types: [completed]
     branches: ["**"]
 
 permissions:
   contents: write
   pull-requests: write
 
-# Prevents multiple runs fighting each other on the same PR
 concurrency:
-  group: pr-${{ github.event.pull_request.number || github.ref }}
+  group: automerge-${{ github.event.workflow_run.head_sha }}
   cancel-in-progress: true
 
 jobs:
-  sort:
+  gate-and-merge:
+    # Only consider successful completions for this *particular* workflow_run
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      # your sort steps here
-
-  black:
-    runs-on: ubuntu-latest
-    needs: [sort]
-    steps:
-      - uses: actions/checkout@v4
-      # your black steps here
-
-  lint:
-    runs-on: ubuntu-latest
-    needs: [black]
-    steps:
-      - uses: actions/checkout@v4
-      # your pylint/flake8 steps here
-
-  # (Optional) tests job if you have one
-  tests:
-    runs-on: ubuntu-latest
-    needs: [lint]
-    steps:
-      - uses: actions/checkout@v4
-      # your pytest steps here
-
-  enable-automerge:
-    # Only enable when the PR has the "automerge" label
-    if: contains(github.event.pull_request.labels.*.name, 'automerge')
-    runs-on: ubuntu-latest
-    # Make this wait for your checks. Include 'tests' if you use it.
-    needs: [lint, tests]
-    steps:
-      - name: Enable PR auto-merge (GitHub native)
-        uses: peter-evans/enable-pull-request-automerge@v3
+      - name: Verify both workflows succeeded for this commit, find PR, require label, then auto-merge
+        uses: actions/github-script@v7
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          merge-method: squash   # or "merge" / "rebase"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const {owner, repo} = context.repo;
+            const sha = context.payload.workflow_run.head_sha;
 
-  merge-when-green:
-    if: contains(github.event.pull_request.labels.*.name, 'automerge')
-    runs-on: ubuntu-latest
-    needs: [enable-automerge]
-    steps:
-      - name: Merge when green (waits for *all* required checks)
-        uses: peter-evans/merge-when-green@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          interval-seconds: 20
-          retries: 120
+            // 1) Find the PR associated with this commit SHA
+            const prs = await github.rest.repos.listPullRequestsAssociatedWithCommit({
+              owner, repo, commit_sha: sha
+            });
+            if (!prs.data.length) {
+              core.setFailed(`No PR found for commit ${sha}`);
+              return;
+            }
+            const pr = prs.data[0];
+            core.info(`Found PR #${pr.number}`);
+
+            // 2) Require the "automerge" label
+            const hasAutoLabel = pr.labels?.some(l => l.name === 'automerge');
+            if (!hasAutoLabel) {
+              core.setFailed(`PR #${pr.number} is missing required 'automerge' label`);
+              return;
+            }
+
+            // 3) Ensure BOTH named workflows have completed successfully for this same SHA
+            const requiredWorkflows = ["Python CI Check", "isort check"]; // <-- keep in sync with 'on.workflow_run.workflows'
+            const runs = await github.rest.actions.listWorkflowRunsForRepo({
+              owner, repo, head_sha: sha, status: 'completed', per_page: 100
+            });
+
+            const neededStatus = Object.fromEntries(requiredWorkflows.map(n => [n, false]));
+            for (const run of runs.data.workflow_runs) {
+              if (requiredWorkflows.includes(run.name)) {
+                core.info(`Workflow "${run.name}" → conclusion: ${run.conclusion}`);
+                if (run.conclusion === 'success') neededStatus[run.name] = true;
+              }
+            }
+            const missing = Object.entries(neededStatus).filter(([, ok]) => !ok).map(([n]) => n);
+            if (missing.length) {
+              core.setFailed(`Not all required workflows are green for ${sha}: missing success from [${missing.join(', ')}]`);
+              return;
+            }
+
+            // 4) Double-check *all* required status checks for the head commit are green
+            //    (covers any branch protection required checks too)
+            const q = `
+              query($owner:String!, $repo:String!, $number:Int!) {
+                repository(owner:$owner, name:$repo) {
+                  pullRequest(number:$number) {
+                    commits(last:1) {
+                      nodes {
+                        commit {
+                          statusCheckRollup { state }
+                        }
+                      }
+                    }
+                  }
+                }
+              }`;
+            const res = await github.graphql(q, { owner, repo, number: pr.number });
+            const state = res.repository.pullRequest.commits.nodes[0].commit.statusCheckRollup?.state || "PENDING";
+            core.info(`statusCheckRollup.state = ${state}`);
+            if (state !== "SUCCESS") {
+              core.setFailed(`Some checks are not green yet (state=${state})`);
+              return;
+            }
+
+            // 5) Enable native auto-merge and/or just merge now (since everything is green)
+            // Option A: one-shot merge now
+            try {
+              await github.rest.pulls.merge({
+                owner, repo, pull_number: pr.number,
+                merge_method: "squash" // or "merge" / "rebase"
+              });
+              core.info(`PR #${pr.number} merged successfully 🎉`);
+              return;
+            } catch (e) {
+              core.warning(`Direct merge failed (likely due to branch protections). Falling back to 'gh pr merge --auto'... ${e.message}`);
+            }
+
+      - name:
+        Fallback: enable GitHub auto-merge
+        if: ${{ always() }}
+        run: |
+          PR=${{ github.event.workflow_run.pull_requests[0].number }}
+          if [ -z "$PR" ]; then
+            # Find PR via commit SHA as a fallback
+            SHA=${{ github.event.workflow_run.head_sha }}
+            PR=$(gh pr list --search "$SHA" --state open --json number --jq '.[0].number' || true)
+          fi
+
+          if [ -n "$PR" ]; then
+            gh pr merge "$PR" --auto --squash --delete-branch
+            echo "Enabled auto-merge for PR #$PR"
+          else
+            echo "No PR found to enable auto-merge on."
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
