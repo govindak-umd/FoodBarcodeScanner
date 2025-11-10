@@ -3,6 +3,12 @@
 # FoodBarcodeScanner
 Food Barcode retrieval app that can then produce nutritional information 
 
+        Version: V1
+
+### Running 
+
+    python main.py
+
 ## Features (DONE)
 
 - Retrieve Nutritional Information with a barcode
@@ -35,10 +41,6 @@ Food Barcode retrieval app that can then produce nutritional information
     - Machine learning
     - all food database info
     - rank food based on health
-
-### Running 
-
-    python main.py
 
 ### Generating requirements.txt helper command
 
