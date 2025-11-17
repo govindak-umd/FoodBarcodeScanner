@@ -3,6 +3,26 @@
 # FoodBarcodeScanner
 Food Barcode retrieval app that can then produce nutritional information 
 
+        Version: V1
+
+User is greeted with this screen to enter the barcode:
+
+![Screenshot 2025-11-13 at 8.13.07 PM.png](images/Screenshot%202025-11-13%20at%208.13.07%E2%80%AFPM.png)
+
+Once the barcode is searched and entered, the nutritional values are displayed:
+
+![Screenshot 2025-11-13 at 8.13.42 PM.png](images/Screenshot%202025-11-13%20at%208.13.42%E2%80%AFPM.png)
+
+The UI also presents the user with options to check back previously searched barcodes
+
+The data also changes color based on health value. For example, green indicates healthy
+
+![Screenshot 2025-11-13 at 8.16.31 PM.png](images/Screenshot%202025-11-13%20at%208.16.31%E2%80%AFPM.png)
+
+### Running 
+
+    python main.py
+
 ## Features (DONE)
 
 - Retrieve Nutritional Information with a barcode
@@ -35,10 +55,6 @@ Food Barcode retrieval app that can then produce nutritional information
     - Machine learning
     - all food database info
     - rank food based on health
-
-### Running 
-
-    python main.py
 
 ### Generating requirements.txt helper command
 

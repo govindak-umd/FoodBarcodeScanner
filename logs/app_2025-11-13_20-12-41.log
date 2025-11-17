@@ -1,0 +1,26 @@
+2025-11-13 20:12:41 | INFO     | root | Logs will be saved to logs/app_2025-11-13_20-12-41.log
+2025-11-13 20:12:41 | INFO     | flet | Assets path configured: /Users/govindajithkumar/PycharmProjects/FoodBarcodeScanner/assets
+2025-11-13 20:12:41 | INFO     | flet | Starting up UDS server on /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/b52QOY8yp5
+2025-11-13 20:12:41 | INFO     | flet | Flet app has started...
+2025-11-13 20:12:41 | INFO     | flet | App URL: /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/b52QOY8yp5
+2025-11-13 20:12:41 | INFO     | flet_desktop | Starting Flet View app...
+2025-11-13 20:12:41 | INFO     | flet_desktop | Flet View found in: /Users/govindajithkumar/.flet/bin/flet-0.28.3
+2025-11-13 20:12:43 | INFO     | flet | App session started
+2025-11-13 20:12:43 | INFO     | utils | Top 5 history barcodes : {'3017624010701': 14, '8445290728791': 10, '8445290728792': 9, '111': 9, '113': 8} 
+2025-11-13 20:12:43 | INFO     | utils | History updated successfully.
+2025-11-13 20:13:34 | INFO     | ui | Displaying Nutritional Information for 722252153258
+2025-11-13 20:13:34 | INFO     | ui | Checking Validity and Updating barcode for 722252153258
+2025-11-13 20:13:34 | INFO     | utils | Barcode Updated - 722252153258 is a valid numerical barcode
+2025-11-13 20:13:34 | INFO     | utils | Top 5 history barcodes : {'3017624010701': 14, '8445290728791': 10, '8445290728792': 9, '111': 9, '113': 8} 
+2025-11-13 20:13:34 | INFO     | utils | History updated successfully.
+2025-11-13 20:13:34 | INFO     | utils | JSON file 722252153258 exists in history directory.
+2025-11-13 20:13:34 | INFO     | ui | File found from history - will use that
+2025-11-13 20:13:34 | INFO     | get_food_db | Successfully fetched image from website
+2025-11-13 20:13:34 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-11-13 20:13:34 | INFO     | ui | New Barcode Data processed for 722252153258
+2025-11-13 20:13:34 | INFO     | ui | Successfully showed image for 722252153258
+2025-11-13 20:13:34 | INFO     | utils | Barcode Updated - 722252153258 is a valid numerical barcode
+2025-11-13 20:13:34 | INFO     | ui | Successfully updated nutritional info for 722252153258
+2025-11-13 20:13:34 | INFO     | ui | Buttons presented in the history tab before clearing []
+2025-11-13 20:13:34 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-11-13 20:13:34 | INFO     | ui | Generating new history tab buttons
