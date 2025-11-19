@@ -1,0 +1,26 @@
+2025-11-18 23:50:05 | INFO     | root | Logs will be saved to logs/app_2025-11-18_23-50-05.log
+2025-11-18 23:50:05 | INFO     | flet | Assets path configured: /Users/govindajithkumar/PycharmProjects/FoodBarcodeScanner/assets
+2025-11-18 23:50:05 | INFO     | flet | Starting up UDS server on /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/Nk4udEgYhk
+2025-11-18 23:50:05 | INFO     | flet | Flet app has started...
+2025-11-18 23:50:05 | INFO     | flet | App URL: /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/Nk4udEgYhk
+2025-11-18 23:50:05 | INFO     | flet_desktop | Starting Flet View app...
+2025-11-18 23:50:05 | INFO     | flet_desktop | Flet View found in: /Users/govindajithkumar/.flet/bin/flet-0.28.3
+2025-11-18 23:50:06 | INFO     | flet | App session started
+2025-11-18 23:50:06 | INFO     | utils | Top 5 history barcodes : {'3017624010701': 15, '8445290728791': 13, '8445290728792': 11, '111': 9, '113': 8} 
+2025-11-18 23:50:06 | INFO     | utils | History updated successfully.
+2025-11-18 23:50:07 | INFO     | ui | Displaying Nutritional Information for 0024463061095
+2025-11-18 23:50:07 | INFO     | ui | Checking Validity and Updating barcode for 0024463061095
+2025-11-18 23:50:07 | INFO     | utils | Barcode Updated - 0024463061095 is a valid numerical barcode
+2025-11-18 23:50:07 | INFO     | utils | Top 5 history barcodes : {'3017624010701': 15, '8445290728791': 13, '8445290728792': 11, '111': 9, '113': 8} 
+2025-11-18 23:50:07 | INFO     | utils | History updated successfully.
+2025-11-18 23:50:07 | INFO     | utils | JSON file 0024463061095 exists in history directory.
+2025-11-18 23:50:07 | INFO     | ui | File found from history - will use that
+2025-11-18 23:50:07 | INFO     | get_food_db | Successfully fetched image from website
+2025-11-18 23:50:07 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-11-18 23:50:07 | INFO     | ui | New Barcode Data processed for 0024463061095
+2025-11-18 23:50:07 | INFO     | ui | Successfully showed image for 0024463061095
+2025-11-18 23:50:07 | INFO     | utils | Barcode Updated - 0024463061095 is a valid numerical barcode
+2025-11-18 23:50:07 | ERROR    | ui | Key is not present
+2025-11-18 23:50:07 | INFO     | ui | Buttons presented in the history tab before clearing []
+2025-11-18 23:50:07 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-11-18 23:50:07 | INFO     | ui | Generating new history tab buttons
