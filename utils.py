@@ -4,10 +4,10 @@ Commonly used utilities file
 
 import json
 import logging
-import re
-from pathlib import Path
 import pathlib
+import re
 import shutil
+from pathlib import Path
 
 import yaml
 
