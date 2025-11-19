@@ -22,7 +22,8 @@ text_color:
     c: "yellow"
     d: "yellow"
     e: "red"
-    'not-applicable': "red" # for some food this information is not present
+    'not-applicable': "red" # for some food this information is marked as 'not-applicable'
+    'unknown' : "red" # for some food where nutriscore_grade is marked as 'unknown
 
 # button_colors: specify the color of every button you want in the UI
 button_colors:

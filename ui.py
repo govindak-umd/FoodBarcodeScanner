@@ -299,7 +299,7 @@ class DisplayHMI:
                 color = ui_config["text_color"]["error_text"]
                 spans.append(
                     ft.TextSpan(
-                        "No data available for nutri_score_color_grade ",
+                        "No data available for nutriscore_grade ",
                         style=ft.TextStyle(
                             color=color, size=ui_config["common_text_size"]
                         ),

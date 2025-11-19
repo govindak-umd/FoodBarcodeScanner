@@ -1,0 +1,52 @@
+2025-11-19 08:19:09 | INFO     | root | Logs will be saved to logs/app_2025-11-19_08-19-09.log
+2025-11-19 08:19:09 | INFO     | flet | Assets path configured: /Users/govindajithkumar/PycharmProjects/FoodBarcodeScanner/assets
+2025-11-19 08:19:09 | INFO     | flet | Starting up UDS server on /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/UfAX9rHkJt
+2025-11-19 08:19:09 | INFO     | flet | Flet app has started...
+2025-11-19 08:19:09 | INFO     | flet | App URL: /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/UfAX9rHkJt
+2025-11-19 08:19:09 | INFO     | flet_desktop | Starting Flet View app...
+2025-11-19 08:19:09 | INFO     | flet_desktop | Flet View found in: /Users/govindajithkumar/.flet/bin/flet-0.28.3
+2025-11-19 08:19:09 | INFO     | flet | App session started
+2025-11-19 08:19:09 | INFO     | utils | Top 5 history barcodes : {} 
+2025-11-19 08:19:09 | INFO     | utils | History updated successfully.
+2025-11-19 08:19:12 | INFO     | ui | Displaying Nutritional Information for nutri_score_color_grade
+2025-11-19 08:19:12 | INFO     | ui | Checking Validity and Updating barcode for nutri_score_color_grade
+2025-11-19 08:19:12 | ERROR    | utils | Barcode Update Failed - nutri_score_color_grade is not a number
+2025-11-19 08:19:12 | ERROR    | ui | Barcode Validation Error
+2025-11-19 08:19:12 | INFO     | ui | Successfully showed image for None
+2025-11-19 08:19:12 | ERROR    | utils | Barcode Update Failed - Invalid Barcode - Please enter a numerical barcode is not a number
+2025-11-19 08:19:12 | ERROR    | ui | Cannot display nutritional info for an invalid barcode
+2025-11-19 08:19:12 | INFO     | ui | Buttons presented in the history tab before clearing []
+2025-11-19 08:19:12 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-11-19 08:19:12 | INFO     | ui | Generating new history tab buttons
+2025-11-19 08:19:24 | INFO     | ui | Displaying Nutritional Information for 859213005001
+2025-11-19 08:19:24 | INFO     | ui | Checking Validity and Updating barcode for 859213005001
+2025-11-19 08:19:24 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-11-19 08:19:24 | INFO     | utils | Top 5 history barcodes : {'859213005001': 1} 
+2025-11-19 08:19:24 | INFO     | utils | History updated successfully.
+2025-11-19 08:19:24 | INFO     | utils | JSON file 859213005001 exists in history directory.
+2025-11-19 08:19:24 | INFO     | ui | File found from history - will use that
+2025-11-19 08:19:24 | INFO     | get_food_db | Successfully fetched image from website
+2025-11-19 08:19:24 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-11-19 08:19:24 | INFO     | ui | New Barcode Data processed for 859213005001
+2025-11-19 08:19:24 | INFO     | ui | Successfully showed image for 859213005001
+2025-11-19 08:19:24 | INFO     | utils | Barcode Updated - 859213005001 is a valid numerical barcode
+2025-11-19 08:19:24 | INFO     | ui | Successfully updated nutritional info for 859213005001
+2025-11-19 08:19:24 | INFO     | ui | Buttons presented in the history tab before clearing []
+2025-11-19 08:19:24 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-11-19 08:19:24 | INFO     | ui | Generating new history tab buttons
+2025-11-19 08:21:00 | INFO     | ui | Displaying Nutritional Information for 0024463061095
+2025-11-19 08:21:00 | INFO     | ui | Checking Validity and Updating barcode for 0024463061095
+2025-11-19 08:21:00 | INFO     | utils | Barcode Updated - 0024463061095 is a valid numerical barcode
+2025-11-19 08:21:00 | INFO     | utils | Top 5 history barcodes : {'859213005001': 1, '0024463061095': 1} 
+2025-11-19 08:21:00 | INFO     | utils | History updated successfully.
+2025-11-19 08:21:00 | INFO     | utils | JSON file 0024463061095 exists in history directory.
+2025-11-19 08:21:00 | INFO     | ui | File found from history - will use that
+2025-11-19 08:21:00 | INFO     | get_food_db | Successfully fetched image from website
+2025-11-19 08:21:00 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-11-19 08:21:00 | INFO     | ui | New Barcode Data processed for 0024463061095
+2025-11-19 08:21:00 | INFO     | ui | Successfully showed image for 0024463061095
+2025-11-19 08:21:00 | INFO     | utils | Barcode Updated - 0024463061095 is a valid numerical barcode
+2025-11-19 08:21:00 | ERROR    | ui | Key is not present
+2025-11-19 08:21:00 | INFO     | ui | Buttons presented in the history tab before clearing [ElevatedButton(text='859213005001', style='{"padding":{},"side":{},"shape":{},"text_style":{}}')]
+2025-11-19 08:21:00 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-11-19 08:21:00 | INFO     | ui | Generating new history tab buttons
