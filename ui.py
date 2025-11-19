@@ -154,6 +154,7 @@ class DisplayHMI:
                 # Retrieve food info from nutrition website
                 self.food_database_query.get_website_food_db()
             except Exception as err:
+                print("here")
                 logger.error(err)
         self.processed_nutritional_info = (
             self.food_database_query.retrieve_nutrition_data()
@@ -224,6 +225,8 @@ class DisplayHMI:
                 )
             )
 
+            # try displaying the nutrient levels
+
             try:
                 for nutrient_key, nutrient_val in self.processed_nutritional_info[
                     "nutrient_levels"
@@ -255,12 +258,15 @@ class DisplayHMI:
                 color = ui_config["text_color"]["error_text"]
                 spans.append(
                     ft.TextSpan(
-                        "No data available",
+                        "No data available for nutriments",
                         style=ft.TextStyle(
                             color=color, size=ui_config["common_text_size"]
                         ),
                     )
                 )
+
+            # try displaying the nutri_score_color_grade
+
             try:
 
                 ## add text and set color for the text based on value
@@ -284,17 +290,19 @@ class DisplayHMI:
                 )
 
             except KeyError as err:
+
+                logger.error("Key is not present")
                 color = ui_config["text_color"]["error_text"]
                 spans.append(
                     ft.TextSpan(
-                        "No data available",
+                        "No data available for nutriscore_grade ",
                         style=ft.TextStyle(
                             color=color, size=ui_config["common_text_size"]
                         ),
                     )
                 )
-                logger.error(err)
-
+                self.nutritional_info.spans = spans
+                self.page.update()
         else:
 
             spans.append(

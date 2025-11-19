@@ -1,0 +1,26 @@
+2025-11-19 08:21:08 | INFO     | root | Logs will be saved to logs/app_2025-11-19_08-21-08.log
+2025-11-19 08:21:08 | INFO     | flet | Assets path configured: /Users/govindajithkumar/PycharmProjects/FoodBarcodeScanner/assets
+2025-11-19 08:21:08 | INFO     | flet | Starting up UDS server on /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/Ol1qnSAsWn
+2025-11-19 08:21:08 | INFO     | flet | Flet app has started...
+2025-11-19 08:21:08 | INFO     | flet | App URL: /var/folders/8p/3lycjd2d4yj6r4nzff87ynmr0000gn/T/Ol1qnSAsWn
+2025-11-19 08:21:08 | INFO     | flet_desktop | Starting Flet View app...
+2025-11-19 08:21:08 | INFO     | flet_desktop | Flet View found in: /Users/govindajithkumar/.flet/bin/flet-0.28.3
+2025-11-19 08:21:08 | INFO     | flet | App session started
+2025-11-19 08:21:08 | INFO     | utils | Top 5 history barcodes : {'859213005001': 1, '0024463061095': 1} 
+2025-11-19 08:21:08 | INFO     | utils | History updated successfully.
+2025-11-19 08:21:09 | INFO     | ui | Displaying Nutritional Information for 0024463061095
+2025-11-19 08:21:09 | INFO     | ui | Checking Validity and Updating barcode for 0024463061095
+2025-11-19 08:21:09 | INFO     | utils | Barcode Updated - 0024463061095 is a valid numerical barcode
+2025-11-19 08:21:09 | INFO     | utils | Top 5 history barcodes : {'0024463061095': 2, '859213005001': 1} 
+2025-11-19 08:21:09 | INFO     | utils | History updated successfully.
+2025-11-19 08:21:09 | INFO     | utils | JSON file 0024463061095 exists in history directory.
+2025-11-19 08:21:09 | INFO     | ui | File found from history - will use that
+2025-11-19 08:21:09 | INFO     | get_food_db | Successfully fetched image from website
+2025-11-19 08:21:09 | INFO     | get_food_db | Successfully fetched all available and requested from website
+2025-11-19 08:21:09 | INFO     | ui | New Barcode Data processed for 0024463061095
+2025-11-19 08:21:09 | INFO     | ui | Successfully showed image for 0024463061095
+2025-11-19 08:21:09 | INFO     | utils | Barcode Updated - 0024463061095 is a valid numerical barcode
+2025-11-19 08:21:09 | INFO     | ui | Successfully updated nutritional info for 0024463061095
+2025-11-19 08:21:09 | INFO     | ui | Buttons presented in the history tab before clearing []
+2025-11-19 08:21:09 | INFO     | ui | Buttons presented in the history tab after clearing []
+2025-11-19 08:21:09 | INFO     | ui | Generating new history tab buttons

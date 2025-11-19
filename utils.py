@@ -4,7 +4,9 @@ Commonly used utilities file
 
 import json
 import logging
+import pathlib
 import re
+import shutil
 from pathlib import Path
 
 import yaml
@@ -136,3 +138,15 @@ def clear_history():
 
     logger.error("History cleared successfully.")
     logger.error("No more history barcodes in the database")
+
+    # delete all json files under the json_hist directory
+
+    folder = pathlib.Path("json_hist/")
+    for child in folder.iterdir():
+        if child.is_file() or child.is_symlink():
+            child.unlink()
+        else:
+            shutil.rmtree(child)
+
+    logger.error("All previous JSON files cleared successfully.")
+    logger.error("No more historical json files in the database")
