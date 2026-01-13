@@ -1,7 +1,7 @@
 [![Build Status](https://app.travis-ci.com/govindak-umd/FoodBarcodeScanner.svg?token=RyccV32Ghg6vrVDxC5nU&branch=main)](https://app.travis-ci.com/govindak-umd/FoodBarcodeScanner)
 
 # FoodBarcodeScanner
-Food Barcode retrieval app that can then produce nutritional information 
+A food barcode retrieval app that scans product barcodes and generates nutritional information. The codebase can be deployed on any system-on-chip with a handheld scanner, enabling a portable, personal nutrition checker.
 
         Version: V1
 
